@@ -52,7 +52,7 @@ if(${OS} STREQUAL "Darwin")
 endif()
 
 if(${OS} STREQUAL "Windows")
-	add_definitions(-DWIN32 -D_LIB -D_CRT_SECURE_NO_WARNINGS -D_CRT_RAND_S -DNOMINMAX)
+	add_definitions(-DWIN32 -DUNICODE -D_LIB -D_CRT_SECURE_NO_WARNINGS -D_CRT_RAND_S -DNOMINMAX)
 	set(flags "${flags} -fms-extensions -fmsc-version=1910 -frtti")
 	
 	if(${ARCH} STREQUAL "amd64")
