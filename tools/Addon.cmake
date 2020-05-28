@@ -34,7 +34,7 @@ endif()
 #Generate the shared library from the library sources
 file(GLOB_RECURSE src_list "src/*.c*")
 
-add_library(${PROJECT_NAME} SHARED ${src_list})
+add_library(${PROJECT_NAME} MODULE ${src_list})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${VENDER_DIR})
@@ -55,7 +55,7 @@ set(flags "${flags} -fsigned-char -fmessage-length=0 -fdata-sections -ffunction-
 
 set(flags "${flags} -fvisibility=hidden")
 
-include(${VENDER_DIR}/tools/addons_symbols.cmake)
+include(${VENDER_DIR}/tools/AddonSymbols.cmake)
 
 if(addons_flags)
 set(flags "${flags} -Wl,-U,${addons_flags}")

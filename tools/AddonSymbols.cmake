@@ -5,9 +5,9 @@ if(NOT OS)
 include(./os.cmake)
 endif()
 
-if(${OS} STREQUAL "Darwin")
 # specify symbols dynamic-found instead of global enabling it. 
 # set(flags "${flags} -undefined dynamic_lookup")
+if(${OS} STREQUAL "Windows")
 set(EXPORT_SYMBOLS
 "\
 -U,_fibjs_api,\
@@ -15,5 +15,13 @@ set(EXPORT_SYMBOLS
 -U,_getFibjsApi,\
 "
 )
-set(addons_flags "-Wl,${EXPORT_SYMBOLS}")
+else()
+set(EXPORT_SYMBOLS
+"\
+-U,_fibjs_api,\
+-U,_api_hello,\
+-U,_getFibjsApi,\
+"
+)
 endif()
+set(addons_flags "-Wl,${EXPORT_SYMBOLS}")
