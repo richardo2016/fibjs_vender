@@ -8,9 +8,14 @@
 
 #include "jssdk.h"
 #include <string.h>
+#include <jssdk/include/utils.h>
 
 namespace js {
 
 const int32_t Api::version = 1;
+Api* v8_api;
 
+EXTERN_C_START
+Api* fibjs_api;
+EXTERN_C_END
 };

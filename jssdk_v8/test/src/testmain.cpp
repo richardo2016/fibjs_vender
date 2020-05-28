@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include "exlib/include/service.h"
-#include "jssdk.h"
+#include <jssdk_v8/include/jssdk-v8.h>
 
 void fiber_proc(void* p)
 {
@@ -12,7 +12,6 @@ int main(int argc, char* argv[])
     testing::InitGoogleTest(&argc, argv);
 
     js::setup_v8();
-    // js::setup_spider();
 
     exlib::Service::init(3);
     exlib::Service::CreateFiber(fiber_proc, 0, 128 * 1024);

@@ -1,20 +1,16 @@
-/*
- *  jssdk-v8.cpp
- *  Created on: Mar 31, 2016
- *
- *  Copyright (c) 2016 by Leo Hoo
- *  lion@9465.net
- */
+#ifndef _jssdk_jsruntime_h__
+#define _jssdk_jsruntime_h__
 
-#include "jssdk-v8.h"
-#include "libplatform/libplatform.h"
-#include <stdlib.h>
-#include <string.h>
-#include <vector>
+#include <v8/include/v8.h>
+#include "jssdk.h"
 
 namespace js {
 
-class v8_Runtime : public Runtime {
+/**
+ * JSRuntime provides helpers, utils for interaction between native C++(fiber::*)
+ * and js(js::) Environtment.
+ */
+class JSRuntime : public Runtime {
 private:
     class ShellArrayBufferAllocator : public v8::ArrayBuffer::Allocator {
     public:
@@ -26,29 +22,55 @@ private:
 
         virtual void* AllocateUninitialized(size_t length)
         {
-            return malloc(length);
+            return exlib::string::Buffer::New(length)->data();
         }
 
         virtual void Free(void* data, size_t)
         {
-            free(data);
+            exlib::string::Buffer::fromData((char*)data)->unref();
         }
     };
 
 public:
-    v8_Runtime(class Api* api)
+    JSRuntime(class Api* api)
     {
-        m_api = api;
+        m_api = (Api_fibjs*)api;
+    }
+
+private:
+    Api_fibjs* m_api;
+
+public:
+    Api_fibjs* Api() { return m_api; }
+
+public:
+    // api for fibjs::Isolate
+    v8::Isolate* getV8Isolate() { return m_isolate; }
+    /**
+     * @description Create one v8 isolate, typically it's one standalone 
+     */
+    v8::Isolate* createV8Isolate()
+    {
         create_params.array_buffer_allocator = &array_buffer_allocator;
+        static v8::StartupData blob;
+
+        if (blob.data == NULL) {
+            v8::SnapshotCreator creator;
+            v8::Isolate* isolate = creator.GetIsolate();
+            {
+                v8::HandleScope handle_scope(isolate);
+                v8::Local<v8::Context> context = v8::Context::New(isolate);
+                creator.SetDefaultContext(context);
+            }
+            blob = creator.CreateBlob(v8::SnapshotCreator::FunctionCodeHandling::kClear);
+        }
+
+        create_params.snapshot_blob = &blob;
+        create_params.array_buffer_allocator = &array_buffer_allocator;
+
         m_isolate = v8::Isolate::New(create_params);
 
-        m_isolate->SetData(0, this);
-
-        v8::Locker locker(m_isolate);
-        v8::HandleScope handle_scope(m_isolate);
-        v8::Isolate::Scope isolate_scope(m_isolate);
-
-        m_context.Reset(m_isolate, v8::Context::New(m_isolate));
+        return m_isolate;
     }
 
 public:
@@ -78,10 +100,21 @@ public:
         ((v8::Unlocker*)unlocker.m_unlocker)->~Unlocker();
     }
 
+    void Scope_enter(Scope& scope)
+    {
+        new (scope.m_scope) v8::Isolate::Scope(m_isolate);
+    }
+
+    void Scope_leave(Scope& scope)
+    {
+        ((v8::Isolate::Scope*)scope.m_scope)->~Scope();
+        m_isolate->DiscardThreadSpecificMetadata();
+    }
+
     class _HandleScope : public v8::HandleScope {
     public:
-        _HandleScope(v8::Isolate* rt)
-            : v8::HandleScope(rt)
+        _HandleScope(v8::Isolate* isolate)
+            : v8::HandleScope(isolate)
         {
         }
 
@@ -95,23 +128,6 @@ public:
             return p;
         }
     };
-
-    void Scope_enter(Scope& scope)
-    {
-        new (scope.m_locker) v8::Locker(m_isolate);
-        new (scope.m_handle_scope) _HandleScope(m_isolate);
-        m_isolate->Enter();
-        v8::Local<v8::Context>::New(m_isolate, m_context)->Enter();
-    }
-
-    void Scope_leave(Scope& scope)
-    {
-        v8::Local<v8::Context>::New(m_isolate, m_context)->Exit();
-        m_isolate->Exit();
-        ((_HandleScope*)scope.m_handle_scope)->~_HandleScope();
-        ((v8::Locker*)scope.m_locker)->~Locker();
-        m_isolate->DiscardThreadSpecificMetadata();
-    }
 
     void HandleScope_enter(HandleScope& scope)
     {
@@ -210,6 +226,11 @@ public:
         return Object(this, v8::Object::New(m_isolate));
     }
 
+    Array NewArray()
+    {
+        return Array(this, v8::Array::New(m_isolate));
+    }
+
     Array NewArray(int32_t sz)
     {
         return Array(this, v8::Array::New(m_isolate, sz));
@@ -276,14 +297,7 @@ public:
         return Value(this, v8::Local<v8::Object>::Cast(o.m_v)->Get(v8::String::NewFromUtf8(m_isolate, key.c_str(), v8::String::kNormalString, (int32_t)key.length())));
     }
 
-    void ObjectSet(const Object& o, exlib::string key, const Value& v)
-    {
-        v8::Local<v8::Object>::Cast(o.m_v)->Set(
-            v8::String::NewFromUtf8(m_isolate,
-                key.c_str(), v8::String::kNormalString,
-                (int32_t)key.length()),
-            v.m_v);
-    }
+    void ObjectSet(const Object& o, exlib::string key, const Value& v);
 
     void ObjectRemove(const Object& o, exlib::string key)
     {
@@ -421,41 +435,9 @@ private:
     v8::Isolate::CreateParams create_params;
     ShellArrayBufferAllocator array_buffer_allocator;
 
-    friend class Api_v8;
+    friend class Api_fibjs;
 };
 
-class Api_v8 : public Api {
-public:
-    virtual const char* getEngine()
-    {
-        return "v8";
-    }
-
-    virtual int32_t getVersion()
-    {
-        return version;
-    }
-
-    virtual void init()
-    {
-        static bool s_bInit = false;
-
-        if (!s_bInit) {
-            s_bInit = true;
-
-            v8::Platform* platform = v8::platform::CreateDefaultPlatform();
-            v8::V8::InitializePlatform(platform);
-
-            v8::V8::Initialize();
-        }
-    }
-
-    virtual Runtime* createRuntime()
-    {
-        return new v8_Runtime(this);
-    }
-};
-
-static Api_v8 s_api;
-Api* _v8_api = &s_api;
 }
+
+#endif // _jssdk_jsruntime_h__
