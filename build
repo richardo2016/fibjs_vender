@@ -180,7 +180,8 @@ mbedtls
 v8
 jssdk
 unzip
-uv"
+uv
+jsbase"
 
 if [ $HOST_OS != "Windows" ]; then
 libs="${libs}

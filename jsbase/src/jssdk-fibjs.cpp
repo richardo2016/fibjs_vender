@@ -73,7 +73,7 @@ public:
 
 Isolate::Isolate()
 {
-    m_jsruntime = (js::JSRuntime*)fibjs_api->createRuntime();
+    m_jsruntime = (js::JSRuntime*)js::getFibjsApi()->createRuntime();
     m_isolate = m_jsruntime->createV8Isolate();
 }
 
@@ -109,28 +109,9 @@ FiberRuntime* FiberRuntime::current()
 static Api_fibjs s_fibjs_api;
 Api* _fibjs_api = &s_fibjs_api;
 
-Api* fibjs_api;
-Api* getFibjsApi()
-{
-    return fibjs_api;
-}
-bool isFibjsApiSetup()
-{
-    return !!fibjs_api;
-}
-bool isJSRuntimeSetup()
-{
-    if (!isFibjsApiSetup())
-        return false;
-
-    js::Runtime* js_runtime = fibjs_api->getCurrentJSRuntime();
-
-    return !!js_runtime;
-}
-
 bool jssdk_setup_fibjs()
 {
-    return set_js_api(fibjs_api, _fibjs_api, "fibjs");
+    return set_js_api(jsapi, _fibjs_api, "fibjs");
 }
 
 }

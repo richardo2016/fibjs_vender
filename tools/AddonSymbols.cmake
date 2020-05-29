@@ -19,8 +19,10 @@ else()
 # set(flags "${flags} -undefined dynamic_lookup")
 set(EXPORT_SYMBOLS
 "\
--U,_fibjs_api,\
+-U,_jsapi,\
 -U,_getFibjsApi,\
+-U,_isFibjsApiSetup,\
+-U,_isJSRuntimeSetup,\
 "
 )
 set(addons_flags "-Wl,-U,-Wl,${EXPORT_SYMBOLS}")

@@ -5,6 +5,7 @@ endif()
 
 include(${VENDER_DIR}/tools/arch.cmake)
 include(${VENDER_DIR}/tools/os.cmake)
+include(${VENDER_DIR}/tools/platform.cmake)
 
 find_program(CCACHE_FOUND ccache)
 if(CCACHE_FOUND)
@@ -33,7 +34,6 @@ endif()
 
 #Generate the shared library from the library sources
 file(GLOB_RECURSE src_list "src/*.c*")
-file(GLOB_RECURSE jssdk_src_list "${VENDER_DIR}/jssdk/src/*.c*")
 
 # include(GenerateExportHeader)
 add_library(${PROJECT_NAME} MODULE ${src_list})
@@ -71,6 +71,7 @@ set(flags "${flags} -fvisibility=hidden")
 endif()
 
 include(${VENDER_DIR}/tools/AddonSymbols.cmake)
+add_definitions(-DFIBJS_ADDON_BUILD)
 
 if(addons_flags)
 set(flags "${flags} ${addons_flags}")

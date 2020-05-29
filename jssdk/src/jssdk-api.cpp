@@ -6,11 +6,34 @@
  *  lion@9465.net
  */
 
-#include "jssdk.h"
+#include <jssdk/include/jssdk.h>
 #include <string.h>
 
 namespace js {
 
 const int32_t Api::version = 1;
+
+/**
+ * @description keep jsapi in same bit files
+ */
+Api* jsapi;
+
+Api* getFibjsApi()
+{
+    return jsapi;
+}
+bool isFibjsApiSetup()
+{
+    return !!jsapi;
+}
+bool isJSRuntimeSetup()
+{
+    if (!isFibjsApiSetup())
+        return false;
+
+    js::Runtime* js_runtime = jsapi->getCurrentJSRuntime();
+
+    return !!js_runtime;
+}
 
 };

@@ -7,7 +7,7 @@
 #endif
 
 #include <exlib/include/qstring.h>
-#include <jssdk/jsaddons.h>
+#include <jssdk/include/jsaddons.h>
 
 const char* ERROR_MSG_DLL_NOT_FOUND = "[%s] Unable to load lib: %s\n";
 const char* ERROR_MSG_SYMBOL_NOT_FOUND = "[%s] Unable to get symbol: %s\n";
@@ -53,7 +53,7 @@ bool loadAddon(const char* _dll_fname, jsaddons::t_addon_retValue& addonVal)
     printf("[jssdk-addon.cpp] 2\n");
 #endif
     js::Isolate* isolate = fibjs_api->getCurrentIsolate();
-    v8::Local<v8::Object> init_ctx = v8::Object::New(js::fibjs_api->getCurrentIsolate()->m_isolate);
+    v8::Local<v8::Object> init_ctx = v8::Object::New(fibjs_api->getCurrentIsolate()->m_isolate);
     printf("[jssdk-addon.cpp] 3\n");
 
     addonInitialize(init_ctx, addonVal);

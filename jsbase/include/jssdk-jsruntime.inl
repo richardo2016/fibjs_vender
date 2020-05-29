@@ -2,7 +2,7 @@
 #define _jssdk_jsruntime_h__
 
 #include <v8/include/v8.h>
-#include "jssdk.h"
+#include <jssdk/include/jssdk.h>
 
 namespace js {
 
