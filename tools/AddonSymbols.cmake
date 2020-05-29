@@ -6,16 +6,17 @@ include(./os.cmake)
 endif()
 
 # specify symbols dynamic-found instead of global enabling it. 
-# set(flags "${flags} -undefined dynamic_lookup")
 if(${OS} STREQUAL "Windows")
     set(addons_flags "-Xlinker //dll")
-    set(addons_flags "${addons_flags} -Xlinker //force:unresolved")
-    # set(addons_flags "-Wl,-U,fibjs_api,-U,getFibjsApi")
+    target_link_libraries(${PROJECT_NAME} ${BIN_DIR}/jssdk_test${CMAKE_STATIC_LIBRARY_SUFFIX})
 
-    #s see `lld-link -help | grep "symbol"`
-    # set(addons_flags "${addons_flags} -Xlinker //include:__imp_getFibjsApi")
-    # set(addons_flags "${addons_flags} -Xlinker //include:__imp_fibjs_api")
+    # set(addons_flags "${addons_flags} -Xlinker //EXPORT:_fibjs_api")
+    # set(addons_flags "${addons_flags} -Xlinker //EXPORT:_getFibjsApi")
+    # @warning never allow undefined symbols!
+    # set(addons_flags "${addons_flags} -Xlinker //force:unresolved")
 else()
+# @warning never allow undefined symbols!
+# set(flags "${flags} -undefined dynamic_lookup")
 set(EXPORT_SYMBOLS
 "\
 -U,_fibjs_api,\

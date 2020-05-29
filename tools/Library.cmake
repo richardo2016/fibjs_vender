@@ -45,7 +45,9 @@ if(FIBJS_CMAKE_BUILD_VERBOSE)
 	message("CXX_STD_VER_FLAG is ${CXX_STD_VER_FLAG}")
 endif()
 
-set(link_flags " ")
+if(NOT link_flags)
+	set(link_flags " ")
+endif()
 
 if(${OS} STREQUAL "Darwin")
 	set(flags "${flags} -mmacosx-version-min=10.9")
