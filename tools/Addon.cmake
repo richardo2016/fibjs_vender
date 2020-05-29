@@ -34,7 +34,9 @@ endif()
 #Generate the shared library from the library sources
 file(GLOB_RECURSE src_list "src/*.c*")
 
+# include(GenerateExportHeader)
 add_library(${PROJECT_NAME} MODULE ${src_list})
+# generate_export_header(${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${VENDER_DIR})
@@ -50,18 +52,28 @@ endif()
 if(NOT ccflags)
 	set(ccflags " ")
 endif()
+if(NOT link_flags)
+	set(link_flags " ")
+endif()
+
+set(ccflags "${ccflags} ${CXX_STD_VER_FLAG}")
+if(FIBJS_CMAKE_BUILD_VERBOSE)
+	message("CXX_STD_VER_FLAG is ${CXX_STD_VER_FLAG}")
+endif()
 
 set(flags "${flags} -fsigned-char -fmessage-length=0 -fdata-sections -ffunction-sections -D_FILE_OFFSET_BITS=64")
 
+if(${OS} STREQUAL "Windows")
+set(flags "${flags} -fvisibility=default")
+else()
 set(flags "${flags} -fvisibility=hidden")
+endif()
 
 include(${VENDER_DIR}/tools/AddonSymbols.cmake)
 
 if(addons_flags)
-set(flags "${flags} -Wl,-U,${addons_flags}")
+set(flags "${flags} ${addons_flags}")
 endif()
-
-set(ccflags "${ccflags} -std=c++11")
 
 if(${BUILD_TYPE} STREQUAL "release")
 	set(flags "${flags} -O3 -s ${BUILD_OPTION} -w -fomit-frame-pointer")
@@ -70,6 +82,10 @@ endif()
 
 set(CMAKE_C_FLAGS "${flags}")
 set(CMAKE_CXX_FLAGS "${flags} ${ccflags}")
+
+if(${OS} STREQUAL "Windows")
+	# set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "${link_flags} -Xlinker //dll")
+endif()
 
 if(NOT DEFINED CMAKE_C_COMPILER)
 set(CMAKE_C_COMPILER clang)

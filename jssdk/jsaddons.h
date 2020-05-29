@@ -42,6 +42,7 @@ typedef void (*t_internal_init_callback)(t_init_context_value_ref ctx, t_addon_r
 inline void OnInitialize(t_internal_init_callback init_cb, t_init_context_value_ref init_ctx, t_addon_retValue& retAddonVal)
 {
     printf("[jsaddon.h] 1\n");
+    printf("[jsaddon.h] %s \n", js::isFibjsApiSetup() ? "setup" : "no-init");
     js::Api* fibjs_api = js::getFibjsApi();
     printf("[jsaddon.h] 2\n");
 

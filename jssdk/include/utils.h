@@ -42,10 +42,4 @@
 #define FAPI_EXTERN FAPI_EXPORT
 #endif // FAPI_EXTERN
 
-EXTERN_C_START
-
-FAPI_EXTERN const char* fapi_hello();
-
-EXTERN_C_END
-
 #endif // _jssdk_utils_h__

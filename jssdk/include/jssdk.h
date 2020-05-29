@@ -9,7 +9,6 @@
 #ifndef _jssdk_h__
 #define _jssdk_h__
 
-#include "utils.h"
 #include <stdint.h>
 #include <exlib/include/qstring.h>
 

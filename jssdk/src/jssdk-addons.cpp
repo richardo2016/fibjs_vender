@@ -36,9 +36,9 @@ bool loadAddon(const char* _dll_fname, jsaddons::t_addon_retValue& addonVal)
         return false;
     }
 #else defined(Windows)
-    printf("[jssdk-addon.cpp] 23123123\n");
+    printf("[jssdk-addon.cpp] try to load\n");
     HMODULE handle = LoadLibrary(UTF8_W(dll_fname.c_str()));
-    printf("[jssdk-addon.cpp] 23123123\n");
+    printf("[jssdk-addon.cpp] load success\n");
     if (!handle) {
         printf(ERROR_MSG_DLL_NOT_FOUND, __FILE__);
         return false;
