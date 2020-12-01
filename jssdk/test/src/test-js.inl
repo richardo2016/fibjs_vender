@@ -267,6 +267,13 @@ TEST(ENG(api), json)
     EXPECT_EQ(100, rt->execute("JSON.parse(\'{\"a\":100}\').a", "test.js").toNumber());
 }
 
+TEST(ENG(api), i18n)
+{
+    js::Runtime::Scope scope(rt);
+
+    EXPECT_EQ("10,000", rt->execute("10000..toLocaleString()", "test.js").toString());
+}
+
 TEST(ENG(api), DestroyRuntime)
 {
     rt->destroy();

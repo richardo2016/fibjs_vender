@@ -11,10 +11,13 @@ var readdir2 = require('./update_helpers/readdir');
 var workFolder = process.cwd();
 var profileFolder = process.env.HOME || process.env.USERPROFILE;
 // for debug
-process.env.V8_DIR = path.fullpath(profileFolder + "./projects/v8/v8");
+process.env.V8_DIR = path.resolve(profileFolder, "./projects/v8/v8");
 process.env.DEPT_TOOLS_DIR = path.resolve("C:\\src\\depot_tools");
 
-var v8Folder = process.env.V8_DIR || path.fullpath(profileFolder + "./works/source/js/v8/v8");
+var v8Folder = process.env.V8_DIR || path.resolve(profileFolder, "./works/source/js/v8/v8");
+function resolve_v8(p) {
+    return path.resolve(v8Folder, p)
+}
 var deptToolsFolder = process.env.DEPT_TOOLS_DIR || path.fullpath(profileFolder + "./works/source/js/v8/depot_tools");
 
 console.log(`v8 is located in: ${v8Folder}`);
@@ -112,33 +115,36 @@ var files = {
     'src/base/platform/platform-cygwin.cc': 1,
     'src/base/platform/platform-fuchsia.cc': 1,
     'src/base/debug/stack_trace_fuchsia.cc': 1,
-    'src/builtins/builtins-intl.cc': 1,
-    'src/builtins/builtins-intl-gen.cc': 1,
-    'src/char-predicates.cc': 1,
-    'src/intl.cc': 1,
-    'src/intl.h': 1,
-    'src/objects/intl-objects-inl.h': 1,
-    'src/objects/intl-objects.cc': 1,
-    'src/objects/intl-objects.h': 1,
+    // 'src/builtins/builtins-intl.cc': 1,
+    // 'src/builtins/builtins-intl-gen.cc': 1,
+    // 'src/char-predicates.cc': 1,
+    // 'src/intl.cc': 1,
+    // 'src/intl.h': 1,
+    // 'src/objects/intl-objects-inl.h': 1,
+    // 'src/objects/intl-objects.cc': 1,
+    // 'src/objects/intl-objects.h': 1,
 
-    'src/objects/js-collator-inl.h': 1,
-    'src/objects/js-collator.cc': 1,
-    'src/objects/js-collator.h': 1,
-    'src/objects/js-locale-inl.h': 1,
-    'src/objects/js-locale.cc': 1,
-    'src/objects/js-locale.h': 1,
-    'src/objects/js-relative-time-format-inl.h': 1,
-    'src/objects/js-relative-time-format.cc': 1,
-    'src/objects/js-relative-time-format.h': 1,
+    // 'src/objects/js-collator-inl.h': 1,
+    // 'src/objects/js-collator.cc': 1,
+    // 'src/objects/js-collator.h': 1,
 
-    'src/objects/js-list-format-inl.h': 1,
-    'src/objects/js-list-format.cc': 1,
-    'src/objects/js-list-format.h': 1,
-    'src/objects/js-plural-rules-inl.h': 1,
-    'src/objects/js-plural-rules.cc': 1,
-    'src/objects/js-plural-rules.h': 1,
+    // 'src/objects/js-locale-inl.h': 1,
+    // 'src/objects/js-locale.cc': 1,
+    // 'src/objects/js-locale.h': 1,
 
-    'src/runtime/runtime-intl.cc': 1,
+    // 'src/objects/js-relative-time-format-inl.h': 1,
+    // 'src/objects/js-relative-time-format.cc': 1,
+    // 'src/objects/js-relative-time-format.h': 1,
+
+    // 'src/objects/js-list-format-inl.h': 1,
+    // 'src/objects/js-list-format.cc': 1,
+    // 'src/objects/js-list-format.h': 1,
+
+    // 'src/objects/js-plural-rules-inl.h': 1,
+    // 'src/objects/js-plural-rules.cc': 1,
+    // 'src/objects/js-plural-rules.h': 1,
+
+    // 'src/runtime/runtime-intl.cc': 1,
 };
 
 var re = [
@@ -149,7 +155,11 @@ var re = [
 
 function chk_file(fname) {
     var len = fname.length;
-    if (fname.substr(len - 2, 2) != '.h' && fname.substr(len - 3, 3) != '.cc')
+    if (
+        fname.substr(len - 2, 2) != '.h'
+        && fname.substr(len - 3, 3) != '.cc'
+        && fname.substr(len - 4, 4) != '.cpp'
+    )
         return false;
 
     if (files[fname])
@@ -170,17 +180,23 @@ var reanmes = {
     // 'src/float.h': 'src/float1.h'
 };
 
+/**
+ * @description copy folder in V8_DIR to relative path in vender/v8
+ * @param {*} [path] in V8_DIR/[path]
+ * @param {*} [to] in vender/v8/[to]
+ */
 function cp_folder(path, to) {
-    var dir = fs.readdir(v8Folder + '/' + path);
+    var dir = fs.readdir(resolve_v8(path));
     dir.forEach(function (name) {
         if (name.substr(0, 1) != '.') {
             var fname = path + '/' + name;
             var fnameto = to ? to + '/' + fname : fname;
 
-            var f = fs.stat(v8Folder + '/' + fname);
-            if (f.isDirectory()) {
+            var absfname = resolve_v8(fname);
+            var f = fs.stat(absfname);
+            if (f.isDirectory() && readdir2(absfname).length) {
                 console.log(fnameto);
-                fs.mkdir(fnameto);
+                mkdirp(fnameto);
                 cp_folder(fname, to);
             } else {
                 if (chk_file(fnameto)) {
@@ -221,6 +237,20 @@ function cp_gen() {
         console.log(`cp ${sfile} to ${tfile}`);
         mkdirp(path.dirname(tfile));
         fs.copy(sfile, tfile);
+    });
+}
+
+var third_party_list = [
+    // ['icu/source/common',],
+    // ['icu/source/i18n',]
+    ['icu',]
+]
+function cp_third_party() {
+    // clean_folder('src/third_party')
+    mkdirp('src/third_party');
+    third_party_list.forEach(function ([f, t]) {
+        console.log("[cp_third_party] cp " + f);
+        cp_folder(`third_party/${f}`)
     });
 }
 
@@ -462,12 +492,12 @@ function patch_snapshot() {
 
     try {
         fs.unlink("test/src/mksnapshot.inl")
-        fs.copy(v8Folder + "./src/snapshot/mksnapshot.cc", "test/src/mksnapshot.inl");
+        fs.copy(resolve_v8("./src/snapshot/mksnapshot.cc"), "test/src/mksnapshot.inl");
     } catch (error) {
         console.error(error);
     }
 
-    var txt = fs.readTextFile(v8Folder + "/src/snapshot/snapshot-empty.cc");
+    var txt = fs.readTextFile(resolve_v8("./src/snapshot/snapshot-empty.cc"));
 
     for (var arch in archs) {
         if (arch_x86[arch])
@@ -501,6 +531,8 @@ fs.mkdir('include/base');
 cp_folder('base', 'include');
 
 cp_gen();
+
+cp_third_party();
 
 clean_folder('src/third_party/vtune');
 fs.rmdir('src/third_party/vtune');

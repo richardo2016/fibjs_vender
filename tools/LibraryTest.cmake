@@ -27,7 +27,9 @@ if(NOT ccflags)
 endif()
 set(ccflags "${ccflags} ${CXX_STD_VER_FLAG}")
 
-set(link_flags " ")
+if(NOT link_flags)
+	set(link_flags " ")
+endif()
 
 target_link_libraries(${name}_test "${BIN_DIR}/${CMAKE_STATIC_LIBRARY_PREFIX}gtest${CMAKE_STATIC_LIBRARY_SUFFIX}")
 target_link_libraries(${name}_test "${BIN_DIR}/${CMAKE_STATIC_LIBRARY_PREFIX}${name}${CMAKE_STATIC_LIBRARY_SUFFIX}")

@@ -182,6 +182,10 @@ jssdk
 unzip
 uv"
 
+libs="v8
+jssdk
+"
+
 if [ $HOST_OS != "Windows" ]; then
 libs="${libs}
 jemalloc

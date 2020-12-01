@@ -20,9 +20,33 @@ else()
 	include_directories("/usr/local/include/")
 endif()
 
+# icu about :start
+include_directories("${PROJECT_SOURCE_DIR}/third_party/icu/source/common")
+include_directories("${PROJECT_SOURCE_DIR}/third_party/icu/source/i18n")
+# icu about :end
+
+file(GLOB_RECURSE src_list
+	"src/*.c*"
+	# icu about :start
+	"${PROJECT_SOURCE_DIR}/third_party/icu/source/common/*.c*"
+	"${PROJECT_SOURCE_DIR}/third_party/icu/source/i18n/*.c*"
+	"${PROJECT_SOURCE_DIR}/third_party/icu/source/stubdata/*.c*"
+	# icu about :end
+)
+
 include(../tools/Library.cmake)
 
 add_definitions(
+	# icu about :start
+	-DU_COMMON_IMPLEMENTATION=1
+	-DU_ICUDATAENTRY_IN_COMMON=1
+	-DU_I18N_IMPLEMENTATION=1
+	# -DU_STATIC_IMPLEMENTATION=1
+	-DUNISTR_FROM_CHAR_EXPLICIT=
+	-DUNISTR_FROM_STRING_EXPLICIT=
+	-DICU_UTIL_DATA_IMPL=0 # ICU_UTIL_DATA_FILE
+	# icu about :end
+	-DV8_INTL_SUPPORT=1
 	-DV8_NO_FAST_TLS=1
 	-DV8_DEPRECATION_WARNINGS=1
 	-DV8_CONCURRENT_MARKING=1
