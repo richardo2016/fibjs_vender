@@ -44,6 +44,8 @@ public:
 
         m_isolate->SetData(0, this);
 
+        v8::V8::InitializeICUDefaultLocation("", "");
+
         v8::Locker locker(m_isolate);
         v8::HandleScope handle_scope(m_isolate);
         v8::Isolate::Scope isolate_scope(m_isolate);

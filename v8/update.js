@@ -241,12 +241,9 @@ function cp_gen() {
 }
 
 var third_party_list = [
-    // ['icu/source/common',],
-    // ['icu/source/i18n',]
-    ['icu',]
+    // ['icu',]
 ]
 function cp_third_party() {
-    // clean_folder('src/third_party')
     mkdirp('src/third_party');
     third_party_list.forEach(function ([f, t]) {
         console.log("[cp_third_party] cp " + f);
