@@ -1,0 +1,134 @@
+name: Build/release
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - 'ci/**'
+      - 'releases/**'
+      - 'dev'
+      - 'master'
+    tags:        
+      - v0.*.*
+      - v1.*.*
+  # release:
+  #   # Only use the types keyword to narrow down the activity types that will trigger your workflow.
+  #   types: [published, created, edited]
+
+jobs:
+  build-linux:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-16.04]
+        target_arch: [amd64, i386, arm, arm64, mips, mips64]
+        build_type: [release, debug]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Set Env Variables
+        id: set-env-vars
+        shell: bash
+        run: |
+          . ./scripts/get_env.sh --source-only
+          get_build_env;
+          echo "::set-output name=TARGET_OS::$TARGET_OS"
+
+          export GIT_BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+          echo "::set-output name=GIT_BRANCH::$GIT_BRANCH"
+          export GIT_COMMIT_HEAD_MSG=$(git log --format=%b -1)
+          echo "::set-output name=GIT_COMMIT_HEAD_MSG::$GIT_COMMIT_HEAD_MSG"
+          export GIT_COMMIT_SHORTCUTS=$(git log --format=%h -1)
+          echo "::set-output name=GIT_COMMIT_SHORTCUTS::$GIT_COMMIT_SHORTCUTS"
+          export GIT_COMMIT_TIME=$(git show -s --format="%cd" --date=format:%Y%m%d%H%M%S HEAD)
+          echo "::set-output name=GIT_COMMIT_TIME::$GIT_COMMIT_TIME"
+          export RELEASE_TAG=$(echo "$GIT_COMMIT_TIME-$GIT_COMMIT_SHORTCUTS")
+          echo "::set-output name=RELEASE_TAG::$RELEASE_TAG"
+
+          export RELEASE_TAG="$GIT_COMMIT_TIME-$GIT_COMMIT_SHORTCUTS";
+          git fetch;
+          if [ $(git tag --list | egrep "^$RELEASE_TAG$") ]; then
+            echo "tag $RELEASE_TAG existed";
+            export TAG_EXISTED="YES"
+          else
+            export TAG_EXISTED=""
+          fi
+          echo "::set-output name=TAG_EXISTED::$TAG_EXISTED"
+
+          case "${TARGET_ARCH}" in
+            i386)
+              DIST_ARCH=x86
+                ;;
+            amd64)
+              DIST_ARCH=x64
+                ;;
+            *)
+              DIST_ARCH=$TARGET_ARCH
+              ;;
+          esac
+
+          if [[ "$TARGET_OS" == "Linux" ]]; then
+            export DIST_FILE=vender-linux-${DIST_ARCH}-$BUILD_TYPE.zip
+          else
+            export DIST_FILE=vender-darwin-${DIST_ARCH}-$BUILD_TYPE.zip
+          fi
+          echo "::set-output name=DIST_FILE::$DIST_FILE"
+        env:
+          TARGET_ARCH: ${{ matrix.target_arch }}
+          BUILD_TYPE: ${{ matrix.build_type }}
+
+
+      - name: Build on Docker
+        shell: bash
+        run: |
+          if [[ $TARGET_OS == 'Linux' ]]; then
+            echo "start docker build..."
+            DIR=`pwd`; docker run -t --env GIT_BRANCH=${GIT_BRANCH} -v ${DIR}:/home/ci fibjs/build-env:clang /bin/sh -c "cd /home/ci; sh build -j7 ${TARGET_ARCH} ${BUILD_TYPE} ci"
+          else
+              export GIT_BRANCH=${GIT_BRANCH}
+              sh build -j2 ${TARGET_ARCH} ${BUILD_TYPE} ci
+          fi
+        env:
+          TARGET_ARCH: ${{ matrix.target_arch }}
+          BUILD_TYPE: ${{ matrix.build_type }}
+          GIT_BRANCH: ${{ steps.set-env-vars.outputs.GIT_BRANCH }}
+
+      - name: Package
+        shell: bash
+        run: |
+          bash .github/workflows/pack.sh
+        env:
+          TARGET_ARCH: ${{ matrix.target_arch }}
+          BUILD_TYPE: ${{ matrix.build_type }}
+          RELEASE_TAG: ${{ steps.set-env-vars.outputs.RELEASE_TAG }}
+          TARGET_OS: ${{ steps.set-env-vars.outputs.TARGET_OS }}
+          DIST_FILE: ${{ steps.set-env-vars.outputs.DIST_FILE }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        if: ${{ steps.set-env-vars.outputs.TAG_EXISTED == '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.set-env-vars.outputs.RELEASE_TAG }}
+          release_name: Release ${{ steps.set-env-vars.outputs.RELEASE_TAG }}
+          body: ${{ steps.set-env-vars.outputs.GIT_COMMIT_HEAD_MSG }}
+          draft: false
+          prerelease: true
+          
+      - name: Upload Release Asset
+        if: ${{ always() }}
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          asset_name: ${{ steps.set-env-vars.outputs.DIST_FILE }}
+          asset_path: ${{ github.workspace }}/.dist/bin/${{ steps.set-env-vars.outputs.DIST_FILE }}
+          # upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.set-env-vars.outputs.RELEASE_TAG }}/assets{?name,label}
+          asset_content_type: application/zip
