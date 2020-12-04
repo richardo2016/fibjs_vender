@@ -201,6 +201,8 @@ if [ "$GIT_BRANCH" = "test_ci" ]; then
 	echo "this is ci test branch :)"
 	libs="uuid"
 fi
+# TODO: just for tunning actions
+libs="uuid"
 
 if [ "$HOST_OS" = "Windows" ]; then
 	get_windows_vctool_install_path;
