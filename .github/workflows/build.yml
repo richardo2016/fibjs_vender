@@ -100,28 +100,39 @@ jobs:
           case "${TARGET_ARCH}" in
             i386)
               DIST_ARCH=x86
+              SNAPSHOT_ARCH=i32
                 ;;
             amd64)
               DIST_ARCH=x64
+              SNAPSHOT_ARCH=x64
                 ;;
             *)
               DIST_ARCH=$TARGET_ARCH
+              SNAPSHOT_ARCH=$TARGET_ARCH
               ;;
           esac
 
           if [[ "$RUNNER_OS" == "Linux" ]]; then
             export DIST_FILE="vender-linux-${DIST_ARCH}-$BUILD_TYPE.zip"
+            export DIST_DIR="Linux_${DIST_ARCH}_$BUILD_TYPE"
+            export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Linux.cc"
           fi
 
           if [[ "$RUNNER_OS" == "macOS" ]]; then
             export DIST_FILE="vender-darwin-${DIST_ARCH}-$BUILD_TYPE.zip"
+            export DIST_DIR="Darwin_${DIST_ARCH}_$BUILD_TYPE"
+            export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Darwin.cc"
           fi
 
           if [[ "$RUNNER_OS" == "Windows" ]]; then
             export DIST_FILE="vender-windows-${DIST_ARCH}-$BUILD_TYPE.zip"
+            export DIST_DIR="Windows_${DIST_ARCH}_$BUILD_TYPE"
+            export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Windows.cc"
           fi
 
           echo "::set-output name=DIST_FILE::$DIST_FILE"
+          echo "::set-output name=DIST_DIR::$DIST_DIR"
+          echo "::set-output name=SNAPSHOT_FNAME::$SNAPSHOT_FNAME"
 
           export DIST_FILEPATH=$RELEASE_TAG/$DIST_FILE
           echo "::set-output name=DIST_FILEPATH::$DIST_FILEPATH"
@@ -244,3 +255,34 @@ jobs:
           asset_path: ${{ github.workspace }}/${{ steps.set-env-vars.outputs.DIST_FILEPATH }}
           upload_url: ${{ steps.get-upload-url.outputs.UPLOAD_URL }}
           asset_content_type: application/zip
+          
+      - name: Test
+        id: test-vender
+        if: ${{ matrix.build_type == 'release' }}
+        continue-on-error: true
+        shell: bash
+        run: |
+          ./.dist/bin/$DIST_DIR/jssdk
+        env:
+          DIST_DIR: ${{ steps.set-env-vars.outputs.DIST_DIR }}
+          
+      - name: Generate V8 Snapshot
+        id: generate-v8-snapshot
+        if: ${{ matrix.build_type == 'release' }}
+        continue-on-error: true
+        shell: bash
+        run: |
+          ./.dist/bin/$DIST_DIR/v8_test
+        env:
+          DIST_DIR: ${{ steps.set-env-vars.outputs.DIST_DIR }}
+
+      - name: Upload Snapshot
+        id: upload-v8-snapshot
+        uses: actions/upload-release-asset@v1
+        if: ${{ matrix.build_type == 'release' && steps.set-env-vars.outputs.IS_UPLOAD_ASSETS != '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          asset_name: ${{ steps.set-env-vars.outputs.SNAPSHOT_FNAME }}
+          asset_path: ${{ github.workspace }}/${{ steps.set-env-vars.outputs.SNAPSHOT_FNAME }}
+          upload_url: ${{ steps.get-upload-url.outputs.UPLOAD_URL }}
