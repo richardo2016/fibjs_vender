@@ -23,21 +23,38 @@ class HandleScope;
 class EscapableHandleScope;
 class Runtime;
 
-/** core definition about Runtime, provide basic members/interface for:
+/** core definition about Runtime with js thread, provide members/interfaces to:
+ * - enter/leave js engine's thread locker
+ * - enter/leave js engine's thread unlocker
  * - enter js scope/handlescope after app switch to js thread
  * - leave js scope/handlescope before app switch away from js thread
+ * 
+ * for js engine working alone as/in one thread but could be called on multiple-threads environtment, there are `Locker/Unlocker` in general to
+ * help program determine which thread COULD get ownership of js engine.
+ * 
+ * - Locker: declare current thread want to use js engine, if js engine owned by another thread, current thread would wait.
+ * - Unlocker: declare current thread would release ownership of js engine.
+ * 
+ * for Locker/Unlocer, two types operations are used to help program assign js engine to specific thread safely
+ * - Locker::enter(): try to hold js engine from current thread
+ * - Locker::leave(): do sth when current thread has get ownership of js engine
+ * - Unlocker::enter(): try to release js engine from current thread
+ * - Unlocker::leave(): do sth when current thread has given back ownership of js engine
+ * 
  */
-class Runtime_core {
+class JSThreadCore {
 public:
-    /* in  */
     class Locker;
     class Unlocker;
     class Scope;
 
 public:
-    virtual ~Runtime_core() { }
+    virtual ~JSThreadCore() { }
 
 public:
+    /**
+     * destroy runtime instance, do some clean up for js engine if necessary
+     */
     virtual void destroy() = 0;
 
     virtual void Locker_enter(Locker& locker) = 0;

@@ -13,7 +13,7 @@
 
 namespace js {
 
-class Runtime : public Runtime_core {
+class Runtime : public JSThreadCore {
 public:
     /** check if js value is undefined 
 	 * 
@@ -465,35 +465,35 @@ inline Array Object::keys()
     return m_rt->ObjectKeys(*this);
 }
 
-inline Runtime_core::Locker::Locker(Runtime* rt)
+inline JSThreadCore::Locker::Locker(Runtime* rt)
     : m_rt(rt)
 {
     rt->Locker_enter(*this);
 }
 
-inline Runtime_core::Locker::~Locker()
+inline JSThreadCore::Locker::~Locker()
 {
     m_rt->Locker_leave(*this);
 }
 
-inline Runtime_core::Unlocker::Unlocker(Runtime* rt)
+inline JSThreadCore::Unlocker::Unlocker(Runtime* rt)
     : m_rt(rt)
 {
     rt->Unlocker_enter(*this);
 }
 
-inline Runtime_core::Unlocker::~Unlocker()
+inline JSThreadCore::Unlocker::~Unlocker()
 {
     m_rt->Unlocker_leave(*this);
 }
 
-inline Runtime_core::Scope::Scope(Runtime* rt)
+inline JSThreadCore::Scope::Scope(Runtime* rt)
     : m_rt(rt)
 {
     rt->Scope_enter(*this);
 }
 
-inline Runtime_core::Scope::~Scope()
+inline JSThreadCore::Scope::~Scope()
 {
     m_rt->Scope_leave(*this);
 }
