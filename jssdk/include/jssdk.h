@@ -48,6 +48,8 @@ public:
     class Unlocker;
     class Scope;
 
+    class Isolate;
+
 public:
     virtual ~JSThreadCore() { }
 
@@ -72,6 +74,8 @@ public:
     virtual void EscapableHandleScope_enter(EscapableHandleScope& scope) = 0;
     virtual void EscapableHandleScope_leave(EscapableHandleScope& scope) = 0;
     virtual Value EscapableHandleScope_escape(EscapableHandleScope& scope, Value v) = 0;
+
+    virtual bool isCurrentIsolate(Isolate& isolate) = 0;
 
 public:
     class Api* m_api;
