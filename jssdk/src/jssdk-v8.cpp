@@ -156,6 +156,11 @@ public:
         return Value(scope.m_rt, ((v8::EscapableHandleScope*)scope.m_handle_scope)->Escape(v.m_v));
     }
 
+    bool isCurrentIsolate(Isolate& isolate)
+    {
+        return false;
+    }
+
     void gc()
     {
         m_isolate->LowMemoryNotification();

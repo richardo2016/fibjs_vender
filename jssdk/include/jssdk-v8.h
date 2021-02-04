@@ -56,6 +56,16 @@ private:
     friend class v8_Runtime;
 };
 
+class JSThreadCore::Isolate {
+public:
+    Isolate(exlib::string* soname);
+    ~Isolate();
+
+private:
+    exlib::string m_fname;
+    v8::Isolate* m_isolate;
+};
+
 class HandleScope {
 public:
     HandleScope(Runtime* rt);
