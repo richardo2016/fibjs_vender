@@ -98,38 +98,81 @@ function(gethostarch RETVAL)
     endif()
 endfunction()
 
-function(build src out)
+function(build projname src out venderRoot)
     file(MAKE_DIRECTORY "${out}")
 
     if(NOT DEFINED BUILD_TYPE)
-        message( FATAL_ERROR "[get_env::build] BUILD_TYPE haven't been set, check your input.")
+        message(FATAL_ERROR "[get_env::build] BUILD_TYPE haven't been set, check your input.")
+    endif()
+    
+    if(NOT EXISTS "${venderRoot}")
+        message(FATAL_ERROR "[get_env::build] path venderRoot '${venderRoot}' invalid, check your input.")
     endif()
 
-    execute_process(WORKING_DIRECTORY "${out}"
-        OUTPUT_FILE CMake.log 
-        COMMAND ${CMAKE_COMMAND}
-            -Wno-dev
-            -DCMAKE_MAKE_PROGRAM=make
-            -G "Unix Makefiles"
-            -DCMAKE_C_COMPILER=clang
-            -DCMAKE_CXX_COMPILER=clang++
-            -DARCH=${BUILD_ARCH}
-            -DBUILD_TYPE=${BUILD_TYPE}
-            "${src}"
-        RESULT_VARIABLE STATUS
-        ERROR_VARIABLE BUILD_ERROR
-    )
+    if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
+        execute_process(WORKING_DIRECTORY "${out}"
+            OUTPUT_FILE CMake.log 
+            COMMAND ${CMAKE_COMMAND}
+                -Wno-dev
+                -G "Visual Studio 15 2017"
+                -T "v141"
+                -DVENDER_ROOT=${venderRoot}
+                -DARCH=${BUILD_ARCH}
+                -DBUILD_TYPE=${BUILD_TYPE}
+                "${src}"
+            RESULT_VARIABLE STATUS
+            ERROR_VARIABLE BUILD_ERROR
+        )
 
-    if(STATUS AND NOT STATUS EQUAL 0)
-        message("[get_env::build::error::cmake] for '${out}'")
-        message(FATAL_ERROR "${BUILD_ERROR}")
+        if(STATUS AND NOT STATUS EQUAL 0)
+            message("[get_env::build::error::cmake] for '${out}'")
+            message(FATAL_ERROR "${BUILD_ERROR}")
+        endif()
+        
+        if(${BUILD_ARCH} STREQUAL "amd64")
+            set(TargetPlatform "x64")
+        else()
+            set(TargetPlatform "Win32")
+        endif()
+
+        execute_process(WORKING_DIRECTORY "${out}"
+            # OUTPUT_FILE MSBuildLog.log 
+            COMMAND msbuild ${projname}.sln
+            /t:Build
+            /p:Configuration="${CMAKE_BUILD_TYPE}";Platform="${TargetPlatform}" /m
+            /p:PlatformToolset="LLVM_FIBJS v141"
+            /p:OutDir="./"
+            RESULT_VARIABLE STATUS
+            ERROR_VARIABLE BUILD_ERROR
+        )
+    else()
+        execute_process(WORKING_DIRECTORY "${out}"
+            OUTPUT_FILE CMake.log 
+            COMMAND ${CMAKE_COMMAND}
+                -Wno-dev
+                -DCMAKE_MAKE_PROGRAM=make
+                -G "Unix Makefiles"
+                -DCMAKE_C_COMPILER=clang
+                -DCMAKE_CXX_COMPILER=clang++
+                -DVENDER_ROOT=${venderRoot}
+                -DARCH=${BUILD_ARCH}
+                -DBUILD_TYPE=${BUILD_TYPE}
+                "${src}"
+            RESULT_VARIABLE STATUS
+            ERROR_VARIABLE BUILD_ERROR
+        )
+
+        if(STATUS AND NOT STATUS EQUAL 0)
+            message("[get_env::build::error::cmake] for '${out}'")
+            message(FATAL_ERROR "${BUILD_ERROR}")
+        endif()
+        
+        execute_process(WORKING_DIRECTORY "${out}"
+            COMMAND make -j${BUILD_JOBS}
+            RESULT_VARIABLE STATUS
+            ERROR_VARIABLE BUILD_ERROR
+        )
     endif()
-
-    execute_process(WORKING_DIRECTORY "${out}"
-        COMMAND make -j${BUILD_JOBS}
-        RESULT_VARIABLE STATUS
-        ERROR_VARIABLE BUILD_ERROR
-    )
 
     if(STATUS AND NOT STATUS EQUAL 0)
         message("[get_env::build::error::make] for '${out}'")

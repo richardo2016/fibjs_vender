@@ -70,6 +70,14 @@ if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Linux")
         message("[Linux] BUILD_OPTION is ${BUILD_OPTION}")
     endif()
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
+    if(${ARCH} STREQUAL "amd64")
+        set(BUILD_OPTION "${BUILD_OPTION} --target=x86_64-pc-windows-msvc")
+        # set(BUILD_OPTION "${BUILD_OPTION} --target=x86_64-pc-windows-gnu")
+    else()
+        set(BUILD_OPTION "${BUILD_OPTION} --target=i686-pc-windows-msvc")
+        # set(BUILD_OPTION "${BUILD_OPTION} --target=i686-pc-windows-gnu")
+    endif()
+
     # keep same name format with Unix
     set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
     set(CMAKE_STATIC_LIBRARY_PREFIX_C "lib")
@@ -79,7 +87,7 @@ elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
 
 	add_definitions(-DWIN32 -D_LIB -D_CRT_SECURE_NO_WARNINGS -D_CRT_RAND_S -DNOMINMAX)
 	set(flags "${flags} -fms-extensions -fmsc-version=1910 -frtti")
-
+    
     # @warning: for cmake/clang on windows, you should always make CMAKE_BUILD_TYPE available, never leave it.
 	if(${BUILD_TYPE} STREQUAL "debug")
         set(CMAKE_BUILD_TYPE Debug)
@@ -88,6 +96,15 @@ elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
         set(CMAKE_BUILD_TYPE Release)
 		set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
 	endif()
+
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+    set_target_properties(${name}
+        PROPERTIES
+        VS_USER_PROPS "${VENDER_ROOT}/${name}/clang.props"
+        # ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/"
+        # LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/"
+        # RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/"
+    )
 
 	set(link_flags "${link_flags} -Xlinker //OPT:ICF -Xlinker //ERRORREPORT:PROMPT -Xlinker //NOLOGO -Xlinker //TLBID:1")
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
@@ -136,3 +153,8 @@ endif()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flags} ${cflags}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flags} ${ccflags}")
+
+# message(FATAL_ERROR "CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
+# message(FATAL_ERROR "CMAKE_CXX_FLAGS is ${CMAKE_CXX_FLAGS}")
+
+# message(FATAL_ERROR "CMAKE_MSVC_RUNTIME_LIBRARY_DEFAULT is ${CMAKE_MSVC_RUNTIME_LIBRARY_DEFAULT}")

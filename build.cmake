@@ -40,6 +40,8 @@ else()
     )
 endif()
 
+set(libs gtest)
+
 set(WORK_ROOT $ENV{WORK_ROOT})
 if(NOT WORK_ROOT)
     if(EXISTS "../build")
@@ -48,6 +50,8 @@ if(NOT WORK_ROOT)
         set(WORK_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.dist")
     endif()
 endif()
+
+set(VENDER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(BIN_ROOT "${WORK_ROOT}/bin")
 set(OUT_ROOT "${WORK_ROOT}/out")
@@ -60,12 +64,12 @@ else()
     set(OUT_PATH "${OUT_ROOT}/${DIST_DIRNAME}")
 
     foreach(lib ${libs})
-        build("${CMAKE_CURRENT_SOURCE_DIR}/${lib}" "${OUT_PATH}/${lib}")
+        build("${lib}" "${CMAKE_CURRENT_SOURCE_DIR}/${lib}" "${OUT_PATH}/${lib}" "${VENDER_ROOT}")
     endforeach()
 
     foreach(lib ${libs})
         if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${lib}/test")
-            build("${CMAKE_CURRENT_SOURCE_DIR}/${lib}/test" "${OUT_PATH}/${lib}_test")
+            build("${lib}_test" "${CMAKE_CURRENT_SOURCE_DIR}/${lib}/test" "${OUT_PATH}/${lib}_test" "${VENDER_ROOT}")
         endif()
     endforeach()
 endif()
