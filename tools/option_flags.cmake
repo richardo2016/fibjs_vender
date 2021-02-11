@@ -1,3 +1,18 @@
+# dirty code for replace compilation options of MSVC
+macro(configure_msvc_runtime)
+    set(variables
+        CMAKE_C_FLAGS
+        CMAKE_C_FLAGS_RELEASE
+        CMAKE_CXX_FLAGS
+        CMAKE_CXX_FLAGS_RELEASE)
+
+    foreach(variable ${variables})
+        if(${variable} MATCHES "/MD")
+            string(REGEX REPLACE "/MD" "/MT" ${variable} "${${variable}}")
+            set(${variable} "${${variable}}" CACHE STRING "MSVC_${variable}" FORCE)
+        endif()
+    endforeach()
+endmacro()
 
 # get host's architecture in cmake script mode
 function(gethostarch RETVAL)
@@ -72,10 +87,8 @@ if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Linux")
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
     if(${ARCH} STREQUAL "amd64")
         set(BUILD_OPTION "${BUILD_OPTION} --target=x86_64-pc-windows-msvc")
-        # set(BUILD_OPTION "${BUILD_OPTION} --target=x86_64-pc-windows-gnu")
     else()
         set(BUILD_OPTION "${BUILD_OPTION} --target=i686-pc-windows-msvc")
-        # set(BUILD_OPTION "${BUILD_OPTION} --target=i686-pc-windows-gnu")
     endif()
 
     # keep same name format with Unix
@@ -89,22 +102,23 @@ elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
 	set(flags "${flags} -fms-extensions -fmsc-version=1910 -frtti")
     
     # @warning: for cmake/clang on windows, you should always make CMAKE_BUILD_TYPE available, never leave it.
-	if(${BUILD_TYPE} STREQUAL "debug")
-        set(CMAKE_BUILD_TYPE Debug)
-		set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDebug")
-	elseif(${BUILD_TYPE} STREQUAL "release")
-        set(CMAKE_BUILD_TYPE Release)
-		set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
-	endif()
+	# if(${BUILD_TYPE} STREQUAL "debug")
+    #     set(CMAKE_BUILD_TYPE Debug)
+	# 	set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDebug")
+	# elseif(${BUILD_TYPE} STREQUAL "release")
+    #     set(CMAKE_BUILD_TYPE Release)
+	# 	set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
+	# endif()
 
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-    set_target_properties(${name}
-        PROPERTIES
-        VS_USER_PROPS "${VENDER_ROOT}/${name}/clang.props"
-        # ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/"
-        # LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/"
-        # RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/"
-    )
+    # set_target_properties(${name}
+    #     PROPERTIES
+    #     VS_USER_PROPS "${VENDER_ROOT}/${name}/clang.props"
+    # )
+
+    if(MSVC)
+        add_compile_options(/MP)
+    endif()
 
 	set(link_flags "${link_flags} -Xlinker //OPT:ICF -Xlinker //ERRORREPORT:PROMPT -Xlinker //NOLOGO -Xlinker //TLBID:1")
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
@@ -153,6 +167,10 @@ endif()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flags} ${cflags}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flags} ${ccflags}")
+
+if(MSVC)
+    configure_msvc_runtime()
+endif()
 
 # message(FATAL_ERROR "CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
 # message(FATAL_ERROR "CMAKE_CXX_FLAGS is ${CMAKE_CXX_FLAGS}")

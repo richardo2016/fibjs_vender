@@ -110,6 +110,12 @@ function(build projname src out venderRoot)
     endif()
 
     if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
+        if(${BUILD_ARCH} STREQUAL "amd64")
+            set(TargetArch "x64")
+        else()
+            set(TargetArch "Win32")
+        endif()
+        
         execute_process(WORKING_DIRECTORY "${out}"
             OUTPUT_FILE CMake.log 
             COMMAND ${CMAKE_COMMAND}
@@ -119,6 +125,7 @@ function(build projname src out venderRoot)
                 -DVENDER_ROOT=${venderRoot}
                 -DARCH=${BUILD_ARCH}
                 -DBUILD_TYPE=${BUILD_TYPE}
+                -A ${TargetArch}
                 "${src}"
             RESULT_VARIABLE STATUS
             ERROR_VARIABLE BUILD_ERROR
@@ -128,20 +135,12 @@ function(build projname src out venderRoot)
             message("[get_env::build::error::cmake] for '${out}'")
             message(FATAL_ERROR "${BUILD_ERROR}")
         endif()
-        
-        if(${BUILD_ARCH} STREQUAL "amd64")
-            set(TargetPlatform "x64")
-        else()
-            set(TargetPlatform "Win32")
-        endif()
 
         execute_process(WORKING_DIRECTORY "${out}"
-            # OUTPUT_FILE MSBuildLog.log 
-            COMMAND msbuild ${projname}.sln
-            /t:Build
-            /p:Configuration="${CMAKE_BUILD_TYPE}";Platform="${TargetPlatform}" /m
-            /p:PlatformToolset="LLVM_FIBJS v141"
-            /p:OutDir="./"
+            COMMAND ${CMAKE_COMMAND} 
+            --build ./
+            --parallel ${BUILD_JOBS}
+            --config ${BUILD_TYPE} -- /nologo /verbosity:minimal
             RESULT_VARIABLE STATUS
             ERROR_VARIABLE BUILD_ERROR
         )

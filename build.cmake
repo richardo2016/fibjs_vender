@@ -40,7 +40,7 @@ else()
     )
 endif()
 
-set(libs gtest)
+# set(libs gtest)
 
 set(WORK_ROOT $ENV{WORK_ROOT})
 if(NOT WORK_ROOT)
