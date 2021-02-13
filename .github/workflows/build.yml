@@ -10,6 +10,7 @@ on:
       - 'dev'
       - 'master'
       - 'test_ci'
+      - 'feat/**'
     tags:
       - v0.*.*
       - v1.*.*
