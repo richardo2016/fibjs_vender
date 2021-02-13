@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 2.6)
 
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
-	set(CXX_STD_VER_FLAG "-std=c++14")
-	add_definitions(-fno-strict-aliasing -fno-short-enums)
+	if(NOT MSVC)
+		set(CXX_STD_VER_FLAG "-std=c++14")
+		add_definitions(-fno-strict-aliasing -fno-short-enums)
+	endif()
 	add_definitions(-D_UNICODE -DUNICODE)
 	# @warning on Windows, v8 at this version could emit a big deal of DBG about symbols
 	# so we enable at lease -O2 level optimization
