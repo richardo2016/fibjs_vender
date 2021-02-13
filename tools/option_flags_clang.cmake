@@ -1,4 +1,3 @@
-
 # get host's architecture in cmake script mode
 function(gethostarch RETVAL)
     if("${${RETVAL}}" STREQUAL "")
@@ -70,6 +69,12 @@ if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Linux")
         message("[Linux] BUILD_OPTION is ${BUILD_OPTION}")
     endif()
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
+    if(${ARCH} STREQUAL "amd64")
+        set(BUILD_OPTION "${BUILD_OPTION} --target=x86_64-pc-windows-msvc")
+    else()
+        set(BUILD_OPTION "${BUILD_OPTION} --target=i686-pc-windows-msvc")
+    endif()
+
     # keep same name format with Unix
     set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
     set(CMAKE_STATIC_LIBRARY_PREFIX_C "lib")
@@ -79,15 +84,21 @@ elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
 
 	add_definitions(-DWIN32 -D_LIB -D_CRT_SECURE_NO_WARNINGS -D_CRT_RAND_S -DNOMINMAX)
 	set(flags "${flags} -fms-extensions -fmsc-version=1910 -frtti")
-
+    
     # @warning: for cmake/clang on windows, you should always make CMAKE_BUILD_TYPE available, never leave it.
-	if(${BUILD_TYPE} STREQUAL "debug")
-        set(CMAKE_BUILD_TYPE Debug)
-		set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDebug")
-	elseif(${BUILD_TYPE} STREQUAL "release")
-        set(CMAKE_BUILD_TYPE Release)
-		set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
-	endif()
+	# if(${BUILD_TYPE} STREQUAL "debug")
+    #     set(CMAKE_BUILD_TYPE Debug)
+	# 	set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDebug")
+	# elseif(${BUILD_TYPE} STREQUAL "release")
+    #     set(CMAKE_BUILD_TYPE Release)
+	# 	set_property(TARGET ${name} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded")
+	# endif()
+
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+    if(MSVC)
+        add_compile_options(/MP)
+    endif()
 
 	set(link_flags "${link_flags} -Xlinker //OPT:ICF -Xlinker //ERRORREPORT:PROMPT -Xlinker //NOLOGO -Xlinker //TLBID:1")
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
