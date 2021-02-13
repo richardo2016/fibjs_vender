@@ -85,7 +85,7 @@ jobs:
           
           export RELEASE_TAG="$GIT_COMMIT_TIME-$GIT_COMMIT_SHORTCUTS";
           if [ -z "$IS_MAIN_REPO" ]; then
-            SUFFIX=${GIT_BRANCH//'/'/'-'}
+            SUFFIX=${GIT_BRANCH//\//'-'}
             RELEASE_TAG="$RELEASE_TAG-$SUFFIX"
           fi
           echo "::set-output name=RELEASE_TAG::$RELEASE_TAG"
