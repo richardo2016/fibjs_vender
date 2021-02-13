@@ -1,19 +1,3 @@
-# dirty code for replace compilation options of MSVC
-macro(configure_msvc_runtime)
-    set(variables
-        CMAKE_C_FLAGS
-        CMAKE_C_FLAGS_RELEASE
-        CMAKE_CXX_FLAGS
-        CMAKE_CXX_FLAGS_RELEASE)
-
-    foreach(variable ${variables})
-        if(${variable} MATCHES "/MD")
-            string(REGEX REPLACE "/MD" "/MT" ${variable} "${${variable}}")
-            set(${variable} "${${variable}}" CACHE STRING "MSVC_${variable}" FORCE)
-        endif()
-    endforeach()
-endmacro()
-
 # get host's architecture in cmake script mode
 function(gethostarch RETVAL)
     if("${${RETVAL}}" STREQUAL "")
@@ -167,12 +151,3 @@ endif()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flags} ${cflags}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flags} ${ccflags}")
-
-if(MSVC)
-    configure_msvc_runtime()
-endif()
-
-# message(FATAL_ERROR "CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
-# message(FATAL_ERROR "CMAKE_CXX_FLAGS is ${CMAKE_CXX_FLAGS}")
-
-# message(FATAL_ERROR "CMAKE_MSVC_RUNTIME_LIBRARY_DEFAULT is ${CMAKE_MSVC_RUNTIME_LIBRARY_DEFAULT}")

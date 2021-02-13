@@ -109,13 +109,13 @@ function(build projname src out venderRoot)
         message(FATAL_ERROR "[get_env::build] path venderRoot '${venderRoot}' invalid, check your input.")
     endif()
 
-    if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
+    if((${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows") AND (NOT "${BUILD_USE_CLANG}" STREQUAL "true"))
         if(${BUILD_ARCH} STREQUAL "amd64")
             set(TargetArch "x64")
         else()
             set(TargetArch "Win32")
         endif()
-        
+
         execute_process(WORKING_DIRECTORY "${out}"
             OUTPUT_FILE CMake.log 
             COMMAND ${CMAKE_COMMAND}
