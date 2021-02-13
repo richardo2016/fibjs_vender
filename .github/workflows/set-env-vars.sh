@@ -12,62 +12,62 @@ export GIT_COMMIT_TIME=$(git show -s --format="%cd" --date=format:%Y%m%d%H%M%S H
 echo "::set-output name=GIT_COMMIT_TIME::$GIT_COMMIT_TIME"
 
 if [ "$GITHUB_REPOSITORY" == "fibjs/fibjs_vender" ]; then
-export IS_MAIN_REPO=1
+    export IS_MAIN_REPO=1
 fi
 if [[ -z "$IS_MAIN_REPO" || "$GIT_BRANCH" == "dev" ]]; then
-echo "::set-output name=IS_UPLOAD_ASSETS::1"
+    echo "::set-output name=IS_UPLOAD_ASSETS::1"
 fi
 
 export RELEASE_TAG="$GIT_COMMIT_TIME-$GIT_COMMIT_SHORTCUTS";
 if [ -z "$IS_MAIN_REPO" ]; then
-SUFFIX=${GIT_BRANCH//\//'-'}
-RELEASE_TAG="$RELEASE_TAG-$SUFFIX"
+    SUFFIX=${GIT_BRANCH//\//'-'}
+    RELEASE_TAG="$RELEASE_TAG-$SUFFIX"
 fi
 echo "::set-output name=RELEASE_TAG::$RELEASE_TAG"
 
 git fetch;
 if [ $(git tag --list | egrep "^$RELEASE_TAG$") ]; then
-echo "tag $RELEASE_TAG existed";
-export TAG_EXISTED="YES"
+    echo "tag $RELEASE_TAG existed";
+    export TAG_EXISTED="YES"
 else
-export TAG_EXISTED=""
+    export TAG_EXISTED=""
 fi
 echo "::set-output name=TAG_EXISTED::$TAG_EXISTED"
 
 case "${TARGET_ARCH}" in
-i386)
-    DIST_ARCH=x86
-    SNAPSHOT_ARCH=ia32
-    ;;
-amd64)
-    DIST_ARCH=x64
-    SNAPSHOT_ARCH=x64
-    ;;
-*)
-    DIST_ARCH=$TARGET_ARCH
-    SNAPSHOT_ARCH=$TARGET_ARCH
-    ;;
+    i386)
+        DIST_ARCH=x86
+        SNAPSHOT_ARCH=ia32
+        ;;
+    amd64)
+        DIST_ARCH=x64
+        SNAPSHOT_ARCH=x64
+        ;;
+    *)
+        DIST_ARCH=$TARGET_ARCH
+        SNAPSHOT_ARCH=$TARGET_ARCH
+        ;;
 esac
 
 if [[ "$RUNNER_OS" == "Linux" ]]; then
-export TARGET_OS_NAME="Linux";
-export DIST_FILE="vender-linux-${DIST_ARCH}-$BUILD_TYPE.zip"
-export DIST_DIR="${TARGET_OS_NAME}_${TARGET_ARCH}_$BUILD_TYPE"
-export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Linux.cc"
+    export TARGET_OS_NAME="Linux";
+    export DIST_FILE="vender-linux-${DIST_ARCH}-$BUILD_TYPE.zip"
+    export DIST_DIR="${TARGET_OS_NAME}_${TARGET_ARCH}_$BUILD_TYPE"
+    export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Linux.cc"
 fi
 
 if [[ "$RUNNER_OS" == "macOS" ]]; then
-export TARGET_OS_NAME="Darwin";
-export DIST_FILE="vender-darwin-${DIST_ARCH}-$BUILD_TYPE.zip"
-export DIST_DIR="${TARGET_OS_NAME}_${TARGET_ARCH}_$BUILD_TYPE"
-export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Darwin.cc"
+    export TARGET_OS_NAME="Darwin";
+    export DIST_FILE="vender-darwin-${DIST_ARCH}-$BUILD_TYPE.zip"
+    export DIST_DIR="${TARGET_OS_NAME}_${TARGET_ARCH}_$BUILD_TYPE"
+    export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Darwin.cc"
 fi
 
 if [[ "$RUNNER_OS" == "Windows" ]]; then
-export TARGET_OS_NAME="Windows";
-export DIST_FILE="vender-windows-${DIST_ARCH}-$BUILD_TYPE.zip"
-export DIST_DIR="${TARGET_OS_NAME}_${TARGET_ARCH}_$BUILD_TYPE"
-export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Windows.cc"
+    export TARGET_OS_NAME="Windows";
+    export DIST_FILE="vender-windows-${DIST_ARCH}-$BUILD_TYPE.zip"
+    export DIST_DIR="${TARGET_OS_NAME}_${TARGET_ARCH}_$BUILD_TYPE"
+    export SNAPSHOT_FNAME="snapshot-$SNAPSHOT_ARCH-Windows.cc"
 fi
 
 echo "::set-output name=TARGET_OS_NAME::$TARGET_OS_NAME"
