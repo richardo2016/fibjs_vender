@@ -44,8 +44,6 @@ if(${BUILD_TYPE} STREQUAL "release")
     configure_msvc_runtime()
 	add_definitions(-DNDEBUG=1)
 elseif(${BUILD_TYPE} STREQUAL "debug")
-	set(flags "${flags} -g -O0 -Wall -Wno-overloaded-virtual")
-	set(link_flags "${link_flags}")
 	add_definitions(-DDEBUG=1 -D_DEBUG)
 endif()
 
