@@ -29,11 +29,11 @@ set(libs
 )
 
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
-    list(APPEND libs
+    set(libs ${libs}
         winiconv
     )
 else()
-    list(APPEND libs
+    set(libs ${libs}
         jemalloc
         editline
         ev
