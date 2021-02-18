@@ -11,339 +11,519 @@
 #ifndef _jssdk_pub_h__
 #define _jssdk_pub_h__
 
-namespace js
-{
+namespace js {
 
-class Runtime: public Runtime_core
-{
+class Runtime : public JSThreadCore {
 public:
-	virtual bool ValueIsUndefined(const Value& v) = 0;
+    /** check if js value is undefined 
+	 * 
+	 */
+    virtual bool ValueIsUndefined(const Value& v) = 0;
 
-	virtual bool ValueToBoolean(const Value& v) = 0;
-	virtual bool ValueIsBoolean(const Value& v) = 0;
+    /** try to convert one js value to boolean type 
+	 * 
+	 */
+    virtual bool ValueToBoolean(const Value& v) = 0;
 
-	virtual double ValueToNumber(const Value& v) = 0;
-	virtual bool ValueIsNumber(const Value& v) = 0;
+    /** check if js value is boolean-type value or its wrapper-object 
+	 * 
+	 */
+    virtual bool ValueIsBoolean(const Value& v) = 0;
 
-	virtual exlib::string ValueToString(const Value& v) = 0;
-	virtual bool ValueIsString(const Value& v) = 0;
+    /** check if js value is boolean-type value
+	 * 
+	 */
+    virtual bool ValueIsBooleanPrimitive(const Value& v) = 0;
 
-	virtual bool ObjectHas(const Object& o, exlib::string key) = 0;
-	virtual Value ObjectGet(const Object& o, exlib::string key) = 0;
-	virtual void ObjectSet(const Object& o, exlib::string key, const Value& v) = 0;
-	virtual void ObjectRemove(const Object& o, exlib::string key) = 0;
-	virtual Array ObjectKeys(const Object& o) = 0;
-	virtual bool ObjectHasPrivate(const Object& o, exlib::string key) = 0;
-	virtual Value ObjectGetPrivate(const Object& o, exlib::string key) = 0;
-	virtual void ObjectSetPrivate(const Object& o, exlib::string key, const Value& v) = 0;
-	virtual void ObjectRemovePrivate(const Object& o, exlib::string key) = 0;
-	virtual bool ValueIsObject(const Value& v) = 0;
+    /** check if js value is boolean value's wrapper-object
+	 * 
+	 */
+    virtual bool ValueIsBooleanWrapperObject(const Value& v) = 0;
 
-	virtual int32_t ArrayGetLength(const Array& a) = 0;
-	virtual Value ArrayGet(const Array& a, int32_t idx) = 0;
-	virtual void ArraySet(const Array& a, int32_t idx, const Value& v) = 0;
-	virtual void ArrayRemove(const Array& a, int32_t idx) = 0;
-	virtual bool ValueIsArray(const Value& v) = 0;
+    /** try to convert one js value to number type 
+	 * 
+	 */
+    virtual double ValueToNumber(const Value& v) = 0;
 
-	virtual Value FunctionCall(const Function& f, Object obj, Value* args, int32_t argn) = 0;
-	virtual bool ValueIsFunction(const Value& v) = 0;
+    /** check if js value is number-type value or its wrapper-object 
+	 * 
+	 */
+    virtual bool ValueIsNumber(const Value& v) = 0;
+
+    /** check if js value is number-type value
+	 * 
+	 */
+    virtual bool ValueIsNumberPrimitive(const Value& v) = 0;
+
+    /** check if js value is number value's wrapper-object
+	 * 
+	 */
+    virtual bool ValueIsNumberWrapperObject(const Value& v) = 0;
+
+    /** try to convert one js value to bigint type 
+	 * 
+	 */
+    virtual int64_t ValueToBigInt(const Value& v) = 0;
+
+    /** check if js value is bigint-type value or its wrapper-object 
+	 * 
+	 */
+    virtual bool ValueIsBigInt(const Value& v) = 0;
+
+    /** try to convert one js value to string type 
+	 * 
+	 */
+    virtual exlib::string ValueToString(const Value& v) = 0;
+
+    /** check if js value is string-type value or its wrapper-object 
+	 * 
+	 */
+    virtual bool ValueIsString(const Value& v) = 0;
+
+    /** check if js value is string-type value
+	 * 
+	 */
+    virtual bool ValueIsStringPrimitive(const Value& v) = 0;
+
+    /** check if js value is string value's wrapper-object
+	 * 
+	 */
+    virtual bool ValueIsStringWrapperObject(const Value& v) = 0;
+
+    /** check if object has own property <key>
+	 * 
+	 */
+    virtual bool ObjectHas(const Object& o, exlib::string key) = 0;
+
+    /** get field <key>'s value from object
+	 * 
+	 */
+    virtual Value ObjectGet(const Object& o, exlib::string key) = 0;
+
+    /** set field <key>'s value to object
+	 * 
+	 */
+    virtual void ObjectSet(const Object& o, exlib::string key, const Value& v) = 0;
+
+    /** remove field <key> from object
+	 * 
+	 */
+    virtual void ObjectRemove(const Object& o, exlib::string key) = 0;
+
+    /** get all keys from object
+	 * 
+	 */
+    virtual Array ObjectKeys(const Object& o) = 0;
+
+    /** check if object has own private property <key>
+	 * 
+	 */
+    virtual bool ObjectHasPrivate(const Object& o, exlib::string key) = 0;
+
+    /** get private field <key>'s value from object
+	 * 
+	 */
+    virtual Value ObjectGetPrivate(const Object& o, exlib::string key) = 0;
+
+    /** set private field <key>'s value to object
+	 * 
+	 */
+    virtual void ObjectSetPrivate(const Object& o, exlib::string key, const Value& v) = 0;
+
+    /** remove private field <key> from object
+	 * 
+	 */
+    virtual void ObjectRemovePrivate(const Object& o, exlib::string key) = 0;
+
+    /** check if js value is object-type 
+	 * 
+	 */
+    virtual bool ValueIsObject(const Value& v) = 0;
+
+    /** get js array's length
+	 * 
+	 */
+    virtual int32_t ArrayGetLength(const Array& a) = 0;
+
+    /** get element[<idx>] from js array
+	 * 
+	 */
+    virtual Value ArrayGet(const Array& a, int32_t idx) = 0;
+
+    /** set value into element[<idx>] for  js array
+	 * 
+	 */
+    virtual void ArraySet(const Array& a, int32_t idx, const Value& v) = 0;
+
+    /** remove element[<idx>] from js array
+	 * 
+	 */
+    virtual void ArrayRemove(const Array& a, int32_t idx) = 0;
+
+    /** check if js value is array-type 
+	 * 
+	 */
+    virtual bool ValueIsArray(const Value& v) = 0;
+
+    /** call js function <f> with <thisObj> as 'this', and passed paramter <args>, which has <argn> arguments in it.
+	 * 
+	 */
+    virtual Value FunctionCall(const Function& f, Object thisObj, Value* args, int32_t argn) = 0;
+
+    /** check if js value is function-type 
+	 * 
+	 */
+    virtual bool ValueIsFunction(const Value& v) = 0;
 
 public:
-	virtual void gc() = 0;
+    /* trigger garbage collection for engine */
+    virtual void gc() = 0;
 
-	virtual Object GetGlobal() = 0;
+    /**
+	 * 
+	 * [ECMA] get global context object of JS runtime
+	 * 
+	 * @see https://tc39.es/ecma262/#sec-globalthis
+	 * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis
+	 */
+    virtual Object GetContextGlobal() = 0;
 
-	virtual Value execute(exlib::string code, exlib::string soname) = 0;
+    /* execute one javascript script code, with script origin name */
+    virtual Value execute(exlib::string code, exlib::string soname) = 0;
 
-	virtual Value NewUndefined() = 0;
-	virtual Value NewBoolean(bool b) = 0;
-	virtual Value NewNumber(double d) = 0;
-	virtual Value NewString(exlib::string s) = 0;
-	virtual Object NewObject() = 0;
-	virtual Array NewArray(int32_t sz) = 0;
-	virtual Function NewFunction(FunctionCallback callback) = 0;
+    /* create javascript primitive undefined value */
+    virtual Value NewUndefined() = 0;
+    /* create javascript primitive boolean type value */
+    virtual Value NewBoolean(bool b) = 0;
+    /* create javascript primitive number type value */
+    virtual Value NewNumber(double d) = 0;
+    /* create javascript primitive bigint type value */
+    virtual Value NewBigInt(int64_t d) = 0;
+    /* create javascript primitive string type value */
+    virtual Value NewString(exlib::string s) = 0;
+
+    /* create javascript Number Object */
+    // virtual Value NewNumberObject(double d) = 0;
+
+    /* create javascript String Object */
+    // virtual Value NewStringObject(exlib::string s) = 0;
+
+    /* initialize one plain object, without special configuration */
+    virtual Object NewObject() = 0;
+    /* initialize one Array object */
+    virtual Array NewArray(int32_t sz) = 0;
+    /* initialize one Function object */
+    virtual Function NewFunction(FunctionCallback callback) = 0;
 };
 
-class Value
-{
+/** general value definition for javascript's variable, there are primitives in js:
+ * - number
+ * - bigint
+ * - string
+ * - boolean
+ * - undefined
+ * - symbol
+ * - null
+ * 
+ * and primitive wrapper objects:
+ * - Number
+ * - BigInt
+ * - String
+ * - Boolean
+ * - Symbol
+ * 
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Primitive
+ * 
+ */
+
+#define VALUE_METHODS_FOR_CONVERTION(pt, covertiont) \
+    covertiont to##pt() const                        \
+    {                                                \
+        return m_rt->ValueTo##pt(*this);             \
+    }
+
+#define VALUE_METHODS_FOR_CHECK_P(pt)    \
+    bool is##pt() const                  \
+    {                                    \
+        return m_rt->ValueIs##pt(*this); \
+    }
+
+#define VALUE_METHODS_FOR_CHECK_PO(pt)                  \
+    bool is##pt() const                                 \
+    {                                                   \
+        return m_rt->ValueIs##pt(*this);                \
+    }                                                   \
+    bool is##pt##Primitive() const                      \
+    {                                                   \
+        return m_rt->ValueIs##pt##Primitive(*this);     \
+    }                                                   \
+    bool is##pt##WrapperObject() const                  \
+    {                                                   \
+        return m_rt->ValueIs##pt##WrapperObject(*this); \
+    }
+
+class Value {
 public:
-	Value() : m_rt(NULL)
-	{}
+    Value()
+        : m_rt(NULL)
+    {
+    }
 
-	Value(Runtime *rt, js_value v) : m_rt(rt), m_v(v)
-	{
-	}
+    Value(Runtime* rt, js_value v)
+        : m_rt(rt)
+        , m_v(v)
+    {
+    }
 
-	Value(const Value& v) : m_rt(v.m_rt), m_v(v.m_v)
-	{
-	}
+    Value(const Value& v)
+        : m_rt(v.m_rt)
+        , m_v(v.m_v)
+    {
+    }
 
-	Value& operator=(const Value &v)
-	{
-		m_rt = v.m_rt;
-		m_v = v.m_v;
-		return *this;
-	}
-
-public:
-	bool isEmpty() const
-	{
-		return m_rt == NULL || m_v.IsEmpty();
-	}
-
-public:
-	bool isUndefined() const
-	{
-		return m_rt->ValueIsUndefined(*this);
-	}
-
-	bool toBoolean() const
-	{
-		return m_rt->ValueToBoolean(*this);
-	}
-
-	bool isBoolean() const
-	{
-		return m_rt->ValueIsBoolean(*this);
-	}
-
-	double toNumber() const
-	{
-		return m_rt->ValueToNumber(*this);
-	}
-
-	bool isNumber() const
-	{
-		return m_rt->ValueIsNumber(*this);
-	}
-
-	exlib::string toString() const
-	{
-		return m_rt->ValueToString(*this);
-	}
-
-	bool isString() const
-	{
-		return m_rt->ValueIsString(*this);
-	}
-
-	bool isArray() const
-	{
-		return m_rt->ValueIsArray(*this);
-	}
-
-	bool isObject() const
-	{
-		return m_rt->ValueIsObject(*this);
-	}
-
-	bool isFunction() const
-	{
-		return m_rt->ValueIsFunction(*this);
-	}
+    Value& operator=(const Value& v)
+    {
+        m_rt = v.m_rt;
+        m_v = v.m_v;
+        return *this;
+    }
 
 public:
-	Runtime *m_rt;
-	js_value m_v;
+    bool isEmpty() const
+    {
+        return m_rt == NULL || m_v.IsEmpty();
+    }
+
+public:
+    VALUE_METHODS_FOR_CHECK_P(Undefined)
+
+    VALUE_METHODS_FOR_CONVERTION(Boolean, bool)
+    VALUE_METHODS_FOR_CHECK_PO(Boolean)
+
+    VALUE_METHODS_FOR_CONVERTION(Number, double)
+    VALUE_METHODS_FOR_CHECK_PO(Number)
+
+    VALUE_METHODS_FOR_CONVERTION(BigInt, int64_t)
+    VALUE_METHODS_FOR_CHECK_P(BigInt)
+
+    VALUE_METHODS_FOR_CONVERTION(String, exlib::string)
+    VALUE_METHODS_FOR_CHECK_PO(String)
+
+    VALUE_METHODS_FOR_CHECK_P(Array)
+    VALUE_METHODS_FOR_CHECK_P(Object)
+    VALUE_METHODS_FOR_CHECK_P(Function)
+
+public:
+    Runtime* m_rt;
+    js_value m_v;
 };
 
-class Object: public Value
-{
+class Object : public Value {
 public:
-	Object()
-	{}
+    Object()
+    {
+    }
 
-	Object(Runtime *rt, js_value v) : Value(rt, v)
-	{
-		assert(isObject());
-	}
+    Object(Runtime* rt, js_value v)
+        : Value(rt, v)
+    {
+        assert(isObject());
+    }
 
-	Object(const Value& v) : Value(v)
-	{
-		assert(isObject());
-	}
+    Object(const Value& v)
+        : Value(v)
+    {
+        assert(isObject());
+    }
 
 public:
-	bool has(exlib::string key)
-	{
-		return m_rt->ObjectHas(*this, key);
-	}
+    bool has(exlib::string key)
+    {
+        return m_rt->ObjectHas(*this, key);
+    }
 
-	Value get(exlib::string key)
-	{
-		return m_rt->ObjectGet(*this, key);
-	}
+    Value get(exlib::string key)
+    {
+        return m_rt->ObjectGet(*this, key);
+    }
 
-	void set(exlib::string key, const Value& v)
-	{
-		m_rt->ObjectSet(*this, key, v);
-	}
+    void set(exlib::string key, const Value& v)
+    {
+        m_rt->ObjectSet(*this, key, v);
+    }
 
-	void remove(exlib::string key)
-	{
-		m_rt->ObjectRemove(*this, key);
-	}
+    void remove(exlib::string key)
+    {
+        m_rt->ObjectRemove(*this, key);
+    }
 
-	Array keys();
+    Array keys();
 
-	bool hasPrivate(exlib::string key)
-	{
-		return m_rt->ObjectHasPrivate(*this, key);
-	}
+    bool hasPrivate(exlib::string key)
+    {
+        return m_rt->ObjectHasPrivate(*this, key);
+    }
 
-	Value getPrivate(exlib::string key)
-	{
-		return m_rt->ObjectGetPrivate(*this, key);
-	}
+    Value getPrivate(exlib::string key)
+    {
+        return m_rt->ObjectGetPrivate(*this, key);
+    }
 
-	void setPrivate(exlib::string key, const Value& v)
-	{
-		m_rt->ObjectSetPrivate(*this, key, v);
-	}
+    void setPrivate(exlib::string key, const Value& v)
+    {
+        m_rt->ObjectSetPrivate(*this, key, v);
+    }
 
-	void removePrivate(exlib::string key)
-	{
-		m_rt->ObjectRemovePrivate(*this, key);
-	}
+    void removePrivate(exlib::string key)
+    {
+        m_rt->ObjectRemovePrivate(*this, key);
+    }
 };
 
-class Array: public Object
-{
+class Array : public Object {
 public:
-	Array()
-	{}
+    Array()
+    {
+    }
 
-	Array(Runtime *rt, js_value v) : Object(rt, v)
-	{
-		assert(isArray());
-	}
+    Array(Runtime* rt, js_value v)
+        : Object(rt, v)
+    {
+        assert(isArray());
+    }
 
-	Array(const Value& v) : Object(v)
-	{
-		assert(isArray());
-	}
+    Array(const Value& v)
+        : Object(v)
+    {
+        assert(isArray());
+    }
 
 public:
-	int32_t length()
-	{
-		return m_rt->ArrayGetLength(*this);
-	}
+    int32_t length()
+    {
+        return m_rt->ArrayGetLength(*this);
+    }
 
-	Value get(int32_t idx)
-	{
-		return m_rt->ArrayGet(*this, idx);
-	}
+    Value get(int32_t idx)
+    {
+        return m_rt->ArrayGet(*this, idx);
+    }
 
-	void set(int32_t idx, const Value& v)
-	{
-		m_rt->ArraySet(*this, idx, v);
-	}
+    void set(int32_t idx, const Value& v)
+    {
+        m_rt->ArraySet(*this, idx, v);
+    }
 
-	void remove(int32_t idx)
-	{
-		m_rt->ArrayRemove(*this, idx);
-	}
+    void remove(int32_t idx)
+    {
+        m_rt->ArrayRemove(*this, idx);
+    }
 };
 
-class Function: public Object
-{
+class Function : public Object {
 public:
-	Function()
-	{}
+    Function()
+    {
+    }
 
-	Function(Runtime *rt, js_value v) : Object(rt, v)
-	{
-		assert(isFunction());
-	}
+    Function(Runtime* rt, js_value v)
+        : Object(rt, v)
+    {
+        assert(isFunction());
+    }
 
-	Function(const Value& v) : Object(v)
-	{
-		assert(isFunction());
-	}
+    Function(const Value& v)
+        : Object(v)
+    {
+        assert(isFunction());
+    }
 
 public:
-	Value call(Value* args, int32_t argn)
-	{
-		return m_rt->FunctionCall(*this, Object(), args, argn);
-	}
+    Value call(Value* args, int32_t argn)
+    {
+        return m_rt->FunctionCall(*this, Object(), args, argn);
+    }
 
-	Value call()
-	{
-		return m_rt->FunctionCall(*this, Object(), NULL, 0);
-	}
+    Value call()
+    {
+        return m_rt->FunctionCall(*this, Object(), NULL, 0);
+    }
 
-	Value call(Object obj, Value* args, int32_t argn)
-	{
-		return m_rt->FunctionCall(*this, obj, args, argn);
-	}
+    Value call(Object obj, Value* args, int32_t argn)
+    {
+        return m_rt->FunctionCall(*this, obj, args, argn);
+    }
 
-	Value call(Object obj)
-	{
-		return m_rt->FunctionCall(*this, obj, NULL, 0);
-	}
+    Value call(Object obj)
+    {
+        return m_rt->FunctionCall(*this, obj, NULL, 0);
+    }
 };
 
 inline Array Object::keys()
 {
-	return m_rt->ObjectKeys(*this);
+    return m_rt->ObjectKeys(*this);
 }
 
-inline Runtime_core::Locker::Locker(Runtime* rt) : m_rt(rt)
+inline JSThreadCore::Locker::Locker(Runtime* rt)
+    : m_rt(rt)
 {
-	rt->Locker_enter(*this);
+    rt->Locker_enter(*this);
 }
 
-inline Runtime_core::Locker::~Locker()
+inline JSThreadCore::Locker::~Locker()
 {
-	m_rt->Locker_leave(*this);
+    m_rt->Locker_leave(*this);
 }
 
-inline Runtime_core::Unlocker::Unlocker(Runtime* rt) : m_rt(rt)
+inline JSThreadCore::Unlocker::Unlocker(Runtime* rt)
+    : m_rt(rt)
 {
-	rt->Unlocker_enter(*this);
+    rt->Unlocker_enter(*this);
 }
 
-inline Runtime_core::Unlocker::~Unlocker()
+inline JSThreadCore::Unlocker::~Unlocker()
 {
-	m_rt->Unlocker_leave(*this);
+    m_rt->Unlocker_leave(*this);
 }
 
-inline Runtime_core::Scope::Scope(Runtime* rt) : m_rt(rt)
+inline JSThreadCore::Scope::Scope(Runtime* rt)
+    : m_rt(rt)
 {
-	rt->Scope_enter(*this);
+    rt->Scope_enter(*this);
 }
 
-inline Runtime_core::Scope::~Scope()
+inline JSThreadCore::Scope::~Scope()
 {
-	m_rt->Scope_leave(*this);
+    m_rt->Scope_leave(*this);
 }
 
-inline HandleScope::HandleScope(Runtime* rt) : m_rt(rt)
+inline HandleScope::HandleScope(Runtime* rt)
+    : m_rt(rt)
 {
-	rt->HandleScope_enter(*this);
+    rt->HandleScope_enter(*this);
 }
 
 inline HandleScope::~HandleScope()
 {
-	m_rt->HandleScope_leave(*this);
+    m_rt->HandleScope_leave(*this);
 }
 
-inline EscapableHandleScope::EscapableHandleScope(Runtime* rt) : m_rt(rt)
+inline EscapableHandleScope::EscapableHandleScope(Runtime* rt)
+    : m_rt(rt)
 {
-	rt->EscapableHandleScope_enter(*this);
+    rt->EscapableHandleScope_enter(*this);
 }
 
 inline EscapableHandleScope::~EscapableHandleScope()
 {
-	m_rt->EscapableHandleScope_leave(*this);
+    m_rt->EscapableHandleScope_leave(*this);
 }
 
 inline Value EscapableHandleScope::escape(Value v)
 {
-	return m_rt->EscapableHandleScope_escape(*this, v);
+    return m_rt->EscapableHandleScope_escape(*this, v);
 }
-
-
 }
 
 #endif // _jssdk_pub_h__

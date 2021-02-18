@@ -161,7 +161,7 @@ public:
         m_isolate->LowMemoryNotification();
     }
 
-    Object GetGlobal()
+    Object GetContextGlobal()
     {
         return Object(this, v8::Local<v8::Context>::New(m_isolate, m_context)->Global());
     }
@@ -201,6 +201,12 @@ public:
         return Value(this, v8::Number::New(m_isolate, d));
     }
 
+    Value NewBigInt(int64_t d)
+    {
+
+        return Value(this, v8::BigInt::New(m_isolate, d));
+    }
+
     Value NewString(exlib::string s)
     {
         return Value(this, v8::String::NewFromUtf8(m_isolate, s.c_str(), v8::String::kNormalString, (int32_t)s.length()));
@@ -238,6 +244,16 @@ public:
         return !v.m_v.IsEmpty() && (v.m_v->IsBoolean() || v.m_v->IsBooleanObject());
     }
 
+    bool ValueIsBooleanPrimitive(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && v.m_v->IsBoolean();
+    }
+
+    bool ValueIsBooleanWrapperObject(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && v.m_v->IsBooleanObject();
+    }
+
 public:
     double ValueToNumber(const Value& v)
     {
@@ -247,6 +263,30 @@ public:
     bool ValueIsNumber(const Value& v)
     {
         return !v.m_v.IsEmpty() && (v.m_v->IsNumber() || v.m_v->IsNumberObject());
+    }
+
+    bool ValueIsNumberPrimitive(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && v.m_v->IsNumber();
+    }
+
+    bool ValueIsNumberWrapperObject(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && v.m_v->IsNumberObject();
+    }
+
+public:
+    int64_t ValueToBigInt(const Value& v)
+    {
+        if (v.isBigInt())
+            return v8::Local<v8::BigInt>::Cast(v.m_v)->Int64Value();
+        else
+            return v.m_v->IntegerValue();
+    }
+
+    bool ValueIsBigInt(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && (v.m_v->IsBigInt() || v.m_v->IsBigIntObject());
     }
 
 public:
@@ -261,6 +301,16 @@ public:
     bool ValueIsString(const Value& v)
     {
         return !v.m_v.IsEmpty() && (v.m_v->IsString() || v.m_v->IsStringObject());
+    }
+
+    bool ValueIsStringPrimitive(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && v.m_v->IsString();
+    }
+
+    bool ValueIsStringWrapperObject(const Value& v)
+    {
+        return !v.m_v.IsEmpty() && v.m_v->IsStringObject();
     }
 
 public:
@@ -427,7 +477,7 @@ private:
 
 class Api_v8 : public Api {
 public:
-    virtual const char* getEngine()
+    virtual const char* getEngineName()
     {
         return "v8";
     }
