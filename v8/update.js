@@ -137,6 +137,19 @@ var files = {
     'src/objects/js-plural-rules.h': 1,
 
     'src/runtime/runtime-intl.cc': 1,
+
+    'src/objects/js-break-iterator-inl.h': 1,
+    'src/objects/js-break-iterator.cc': 1,
+    'src/objects/js-break-iterator.h': 1,
+    'src/objects/js-number-format-inl.h': 1,
+    'src/objects/js-number-format.cc': 1,
+    'src/objects/js-number-format.h': 1,
+    'src/objects/js-date-time-format-inl.h': 1,
+    'src/objects/js-date-time-format.cc': 1,
+    'src/objects/js-date-time-format.h': 1,
+    'src/objects/js-segmenter-inl.h': 1,
+    'src/objects/js-segmenter.cc': 1,
+    'src/objects/js-segmenter.h': 1,
 };
 
 var re = [
@@ -204,21 +217,27 @@ var gens = [
 ];
 
 function cp_gen() {
-    fs.mkdir('src/gen');
+    fs.mkdir('gen');
     gens.forEach(function (f) {
         console.log("cp " + f);
-        fs.writeFile('src/gen/' + path.basename(f), fs.readTextFile(v8Folder + f));
+        fs.writeFile('gen/' + path.basename(f), fs.readTextFile(v8Folder + f));
     });
 
-    mkdirp('src/builtins/torque-generated');
-    var bFolder = path.resolve(v8Folder, './out.gn/x64.release/gen/torque-generated');
-    var fnames = readdir2(bFolder);
-    fnames.forEach(function (name) {
-        var sfile = path.resolve(bFolder, name);
-        var tfile = path.resolve('src/builtins/torque-generated/' + name)
-        console.log(`cp ${sfile} to ${tfile}`);
-        mkdirp(path.dirname(tfile));
-        fs.copy(sfile, tfile);
+    // sub dirs in /gen
+    ;[
+        'torque-generated',
+        'builtins-generated',
+        // 'include/inspector',
+    ].forEach(subdir =>{
+        var bFolder = path.resolve(v8Folder, `./out.gn/x64.release/gen/${subdir}`);
+        var fnames = readdir2(bFolder);
+        fnames.forEach(function (name) {
+            var sfile = path.resolve(bFolder, name);
+            var tfile = path.resolve(`gen/${subdir}/` + name)
+            console.log(`cp ${sfile} to ${tfile}`);
+            mkdirp(path.dirname(tfile));
+            fs.copy(sfile, tfile);
+        });
     });
 }
 
