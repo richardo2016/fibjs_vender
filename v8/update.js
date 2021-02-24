@@ -224,9 +224,11 @@ function cp_folder(path, to) {
 }
 
 var gens = [
-    '/out.gn/x64.release/gen/libraries.cc',
     '/out.gn/x64.release/gen/extras-libraries.cc',
-    '/out.gn/x64.release/gen/experimental-extras-libraries.cc'
+    /* deprecated in v8 7.3 :start */
+    // '/out.gn/x64.release/gen/libraries.cc',
+    // '/out.gn/x64.release/gen/experimental-extras-libraries.cc'
+    /* deprecated in v8 7.3 :end */
 ];
 
 function cp_gen() {
@@ -522,6 +524,7 @@ function toLF(str) {
 
 save_plat();
 
+clean_folder('gen');
 clean_folder('include');
 clean_folder('src');
 

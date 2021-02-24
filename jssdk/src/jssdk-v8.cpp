@@ -267,9 +267,10 @@ public:
     bool ObjectHas(const Object& o, exlib::string key)
     {
         return v8::Local<v8::Object>::Cast(o.m_v)->Has(
+            v8::Local<v8::Context>::New(m_isolate, m_context),
             v8::String::NewFromUtf8(m_isolate,
                 key.c_str(), v8::String::kNormalString,
-                (int32_t)key.length()));
+                (int32_t)key.length())).ToChecked();
     }
 
     Value ObjectGet(const Object& o, exlib::string key)
@@ -289,6 +290,7 @@ public:
     void ObjectRemove(const Object& o, exlib::string key)
     {
         v8::Local<v8::Object>::Cast(o.m_v)->Delete(
+            v8::Local<v8::Context>::New(m_isolate, m_context),
             v8::String::NewFromUtf8(m_isolate,
                 key.c_str(), v8::String::kNormalString,
                 (int32_t)key.length()));

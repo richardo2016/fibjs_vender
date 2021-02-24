@@ -1,26 +1,26 @@
-#include "src/objects/arguments.h"
 #include "src/builtins/builtins-utils-gen.h"
 #include "src/builtins/builtins.h"
 #include "src/code-factory.h"
 #include "src/elements-kind.h"
 #include "src/heap/factory-inl.h"
 #include "src/objects.h"
+#include "src/objects/arguments.h"
 #include "src/objects/bigint.h"
-#include "torque-generated/builtins-base-from-dsl-gen.h"
-#include "torque-generated/builtins-array-from-dsl-gen.h"
 #include "src/builtins/builtins-array-gen.h"
-#include "torque-generated/builtins-collections-from-dsl-gen.h"
 #include "src/builtins/builtins-collections-gen.h"
-#include "torque-generated/builtins-data-view-from-dsl-gen.h"
 #include "src/builtins/builtins-data-view-gen.h"
-#include "torque-generated/builtins-object-from-dsl-gen.h"
-#include "src/builtins/builtins-object-gen.h"
-#include "torque-generated/builtins-iterator-from-dsl-gen.h"
 #include "src/builtins/builtins-iterator-gen.h"
-#include "torque-generated/builtins-typed-array-from-dsl-gen.h"
 #include "src/builtins/builtins-typed-array-gen.h"
+#include "torque-generated/builtins-base-from-dsl-gen.h"
+#include "torque-generated/builtins-arguments-from-dsl-gen.h"
+#include "torque-generated/builtins-array-from-dsl-gen.h"
+#include "torque-generated/builtins-collections-from-dsl-gen.h"
+#include "torque-generated/builtins-data-view-from-dsl-gen.h"
+#include "torque-generated/builtins-extras-utils-from-dsl-gen.h"
+#include "torque-generated/builtins-object-from-dsl-gen.h"
+#include "torque-generated/builtins-iterator-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-from-dsl-gen.h"
 #include "torque-generated/builtins-test-from-dsl-gen.h"
-#include "src/builtins/builtins-test-gen.h"
 
 namespace v8 {
 namespace internal {
@@ -48,6 +48,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
   compiler::CodeAssemblerParameterizedLabel<> block29(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<> block30(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<String> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<String> block32(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0);
 
   if (block0.is_used()) {
@@ -63,7 +64,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block2);
     compiler::TNode<String> tmp0;
     USE(tmp0);
-    tmp0 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getUint8"));
+    tmp0 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getUint8"));
     ca_.Goto(&block1, tmp0);
   }
 
@@ -80,7 +81,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block5);
     compiler::TNode<String> tmp1;
     USE(tmp1);
-    tmp1 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getInt8"));
+    tmp1 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getInt8"));
     ca_.Goto(&block1, tmp1);
   }
 
@@ -97,7 +98,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block8);
     compiler::TNode<String> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getUint16"));
+    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getUint16"));
     ca_.Goto(&block1, tmp2);
   }
 
@@ -114,7 +115,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block11);
     compiler::TNode<String> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getInt16"));
+    tmp3 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getInt16"));
     ca_.Goto(&block1, tmp3);
   }
 
@@ -131,7 +132,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block14);
     compiler::TNode<String> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getUint32"));
+    tmp4 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getUint32"));
     ca_.Goto(&block1, tmp4);
   }
 
@@ -148,7 +149,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block17);
     compiler::TNode<String> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getInt32"));
+    tmp5 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getInt32"));
     ca_.Goto(&block1, tmp5);
   }
 
@@ -165,7 +166,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block20);
     compiler::TNode<String> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getFloat32"));
+    tmp6 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getFloat32"));
     ca_.Goto(&block1, tmp6);
   }
 
@@ -182,7 +183,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block23);
     compiler::TNode<String> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getFloat64"));
+    tmp7 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getFloat64"));
     ca_.Goto(&block1, tmp7);
   }
 
@@ -199,7 +200,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block26);
     compiler::TNode<String> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getBigInt64"));
+    tmp8 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getBigInt64"));
     ca_.Goto(&block1, tmp8);
   }
 
@@ -216,19 +217,25 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewGetterName
     ca_.Bind(&block29);
     compiler::TNode<String> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.getBigUint64"));
+    tmp9 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.getBigUint64"));
     ca_.Goto(&block1, tmp9);
   }
 
   if (block30.is_used()) {
     ca_.Bind(&block30);
-    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:37:7");
+    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:39:7");
     CodeStubAssembler(state_).Unreachable();
   }
 
+  if (block1.is_used()) {
     compiler::TNode<String> tmp10;
     ca_.Bind(&block1, &tmp10);
-  return TNode<String>{tmp10};
+    ca_.Goto(&block32, tmp10);
+  }
+
+    compiler::TNode<String> tmp11;
+    ca_.Bind(&block32, &tmp11);
+  return compiler::TNode<String>{tmp11};
 }
 
 compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterNameString(ElementsKind p_kind) {
@@ -254,6 +261,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
   compiler::CodeAssemblerParameterizedLabel<> block29(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<> block30(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<String> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<String> block32(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0);
 
   if (block0.is_used()) {
@@ -269,7 +277,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block2);
     compiler::TNode<String> tmp0;
     USE(tmp0);
-    tmp0 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setUint8"));
+    tmp0 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setUint8"));
     ca_.Goto(&block1, tmp0);
   }
 
@@ -286,7 +294,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block5);
     compiler::TNode<String> tmp1;
     USE(tmp1);
-    tmp1 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setInt8"));
+    tmp1 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setInt8"));
     ca_.Goto(&block1, tmp1);
   }
 
@@ -303,7 +311,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block8);
     compiler::TNode<String> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setUint16"));
+    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setUint16"));
     ca_.Goto(&block1, tmp2);
   }
 
@@ -320,7 +328,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block11);
     compiler::TNode<String> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setInt16"));
+    tmp3 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setInt16"));
     ca_.Goto(&block1, tmp3);
   }
 
@@ -337,7 +345,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block14);
     compiler::TNode<String> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setUint32"));
+    tmp4 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setUint32"));
     ca_.Goto(&block1, tmp4);
   }
 
@@ -354,7 +362,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block17);
     compiler::TNode<String> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setInt32"));
+    tmp5 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setInt32"));
     ca_.Goto(&block1, tmp5);
   }
 
@@ -371,7 +379,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block20);
     compiler::TNode<String> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setFloat32"));
+    tmp6 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setFloat32"));
     ca_.Goto(&block1, tmp6);
   }
 
@@ -388,7 +396,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block23);
     compiler::TNode<String> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setFloat64"));
+    tmp7 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setFloat64"));
     ca_.Goto(&block1, tmp7);
   }
 
@@ -405,7 +413,7 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block26);
     compiler::TNode<String> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setBigInt64"));
+    tmp8 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setBigInt64"));
     ca_.Goto(&block1, tmp8);
   }
 
@@ -422,24 +430,31 @@ compiler::TNode<String> DataViewBuiltinsFromDSLAssembler::MakeDataViewSetterName
     ca_.Bind(&block29);
     compiler::TNode<String> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("DataView.prototype.setBigUint64"));
+    tmp9 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("DataView.prototype.setBigUint64"));
     ca_.Goto(&block1, tmp9);
   }
 
   if (block30.is_used()) {
     ca_.Bind(&block30);
-    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:63:7");
+    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:65:7");
     CodeStubAssembler(state_).Unreachable();
   }
 
+  if (block1.is_used()) {
     compiler::TNode<String> tmp10;
     ca_.Bind(&block1, &tmp10);
-  return TNode<String>{tmp10};
+    ca_.Goto(&block32, tmp10);
+  }
+
+    compiler::TNode<String> tmp11;
+    ca_.Bind(&block32, &tmp11);
+  return compiler::TNode<String>{tmp11};
 }
 
 compiler::TNode<BoolT> DataViewBuiltinsFromDSLAssembler::WasNeutered(compiler::TNode<JSArrayBufferView> p_view) {
   compiler::CodeAssemblerParameterizedLabel<JSArrayBufferView> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<BoolT> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBufferView, BoolT> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBufferView, BoolT> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_view);
 
   if (block0.is_used()) {
@@ -447,16 +462,24 @@ compiler::TNode<BoolT> DataViewBuiltinsFromDSLAssembler::WasNeutered(compiler::T
     ca_.Bind(&block0, &tmp0);
     compiler::TNode<JSArrayBuffer> tmp1;
     USE(tmp1);
-    tmp1 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(TNode<JSArrayBufferView>{tmp0}));
+    tmp1 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(compiler::TNode<JSArrayBufferView>{tmp0}));
     compiler::TNode<BoolT> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(TNode<JSArrayBuffer>{tmp1}));
-    ca_.Goto(&block1, tmp2);
+    tmp2 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(compiler::TNode<JSArrayBuffer>{tmp1}));
+    ca_.Goto(&block1, tmp0, tmp2);
   }
 
-    compiler::TNode<BoolT> tmp3;
-    ca_.Bind(&block1, &tmp3);
-  return TNode<BoolT>{tmp3};
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBufferView> tmp3;
+    compiler::TNode<BoolT> tmp4;
+    ca_.Bind(&block1, &tmp3, &tmp4);
+    ca_.Goto(&block2, tmp3, tmp4);
+  }
+
+    compiler::TNode<JSArrayBufferView> tmp5;
+    compiler::TNode<BoolT> tmp6;
+    ca_.Bind(&block2, &tmp5, &tmp6);
+  return compiler::TNode<BoolT>{tmp6};
 }
 
 compiler::TNode<JSDataView> DataViewBuiltinsFromDSLAssembler::ValidateDataView(compiler::TNode<Context> p_context, compiler::TNode<Object> p_o, compiler::TNode<String> p_method) {
@@ -464,7 +487,8 @@ compiler::TNode<JSDataView> DataViewBuiltinsFromDSLAssembler::ValidateDataView(c
   compiler::CodeAssemblerParameterizedLabel<Context, Object, String, Object> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Context, Object, String, Object, JSDataView> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Context, Object, String> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSDataView> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Context, Object, String, JSDataView> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Context, Object, String, JSDataView> block6(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_context, p_o, p_method);
 
   if (block0.is_used()) {
@@ -475,7 +499,7 @@ compiler::TNode<JSDataView> DataViewBuiltinsFromDSLAssembler::ValidateDataView(c
     compiler::TNode<JSDataView> tmp3;
     USE(tmp3);
     compiler::CodeAssemblerLabel label0(&ca_);
-    tmp3 = BaseBuiltinsFromDSLAssembler(state_).Cast12ATJSDataView(TNode<Context>{tmp0}, TNode<Object>{tmp1}, &label0);
+    tmp3 = BaseBuiltinsFromDSLAssembler(state_).Cast12ATJSDataView(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}, &label0);
     ca_.Goto(&block4, tmp0, tmp1, tmp2, tmp1, tmp3);
     if (label0.is_used()) {
       ca_.Bind(&label0);
@@ -499,7 +523,7 @@ compiler::TNode<JSDataView> DataViewBuiltinsFromDSLAssembler::ValidateDataView(c
     compiler::TNode<Object> tmp11;
     compiler::TNode<JSDataView> tmp12;
     ca_.Bind(&block4, &tmp8, &tmp9, &tmp10, &tmp11, &tmp12);
-    ca_.Goto(&block1, tmp12);
+    ca_.Goto(&block1, tmp8, tmp9, tmp10, tmp12);
   }
 
   if (block3.is_used()) {
@@ -507,12 +531,24 @@ compiler::TNode<JSDataView> DataViewBuiltinsFromDSLAssembler::ValidateDataView(c
     compiler::TNode<Object> tmp14;
     compiler::TNode<String> tmp15;
     ca_.Bind(&block3, &tmp13, &tmp14, &tmp15);
-    CodeStubAssembler(state_).ThrowTypeError(TNode<Context>{tmp13}, MessageTemplate::kIncompatibleMethodReceiver, TNode<Object>{tmp15});
+    CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp13}, MessageTemplate::kIncompatibleMethodReceiver, compiler::TNode<Object>{tmp15});
   }
 
-    compiler::TNode<JSDataView> tmp16;
-    ca_.Bind(&block1, &tmp16);
-  return TNode<JSDataView>{tmp16};
+  if (block1.is_used()) {
+    compiler::TNode<Context> tmp16;
+    compiler::TNode<Object> tmp17;
+    compiler::TNode<String> tmp18;
+    compiler::TNode<JSDataView> tmp19;
+    ca_.Bind(&block1, &tmp16, &tmp17, &tmp18, &tmp19);
+    ca_.Goto(&block6, tmp16, tmp17, tmp18, tmp19);
+  }
+
+    compiler::TNode<Context> tmp20;
+    compiler::TNode<Object> tmp21;
+    compiler::TNode<String> tmp22;
+    compiler::TNode<JSDataView> tmp23;
+    ca_.Bind(&block6, &tmp20, &tmp21, &tmp22, &tmp23);
+  return compiler::TNode<JSDataView>{tmp23};
 }
 
 TF_BUILTIN(DataViewPrototypeGetBuffer, CodeStubAssembler) {
@@ -534,13 +570,13 @@ USE(parameter1);
     ca_.Bind(&block0, &tmp0, &tmp1);
     compiler::TNode<String> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("get DataView.prototype.buffer"));
+    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("get DataView.prototype.buffer"));
     compiler::TNode<JSDataView> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(TNode<Context>{tmp0}, TNode<Object>{tmp1}, TNode<String>{tmp2}));
+    tmp3 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}, compiler::TNode<String>{tmp2}));
     compiler::TNode<JSArrayBuffer> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(TNode<JSArrayBufferView>{tmp3}));
+    tmp4 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(compiler::TNode<JSArrayBufferView>{tmp3}));
     arguments->PopAndReturn(tmp4);
   }
 }
@@ -566,13 +602,13 @@ USE(parameter1);
     ca_.Bind(&block0, &tmp0, &tmp1);
     compiler::TNode<String> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("get DataView.prototype.byte_length"));
+    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("get DataView.prototype.byte_length"));
     compiler::TNode<JSDataView> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(TNode<Context>{tmp0}, TNode<Object>{tmp1}, TNode<String>{tmp2}));
+    tmp3 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}, compiler::TNode<String>{tmp2}));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(DataViewBuiltinsFromDSLAssembler(state_).WasNeutered(TNode<JSArrayBufferView>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(DataViewBuiltinsFromDSLAssembler(state_).WasNeutered(compiler::TNode<JSArrayBufferView>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1, tmp3);
   }
 
@@ -583,7 +619,7 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6, &tmp7);
     compiler::TNode<Number> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi(0));
+    tmp8 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
     arguments->PopAndReturn(tmp8);
   }
 
@@ -594,10 +630,10 @@ USE(parameter1);
     ca_.Bind(&block2, &tmp9, &tmp10, &tmp11);
     compiler::TNode<UintPtrT> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(TNode<JSArrayBufferView>{tmp11}));
+    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(compiler::TNode<JSArrayBufferView>{tmp11}));
     compiler::TNode<Number> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi(TNode<UintPtrT>{tmp12}));
+    tmp13 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi9ATuintptr(compiler::TNode<UintPtrT>{tmp12}));
     arguments->PopAndReturn(tmp13);
   }
 }
@@ -623,13 +659,13 @@ USE(parameter1);
     ca_.Bind(&block0, &tmp0, &tmp1);
     compiler::TNode<String> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString("get DataView.prototype.byte_offset"));
+    tmp2 = ca_.UncheckedCast<String>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATString18ATconstexpr_string("get DataView.prototype.byte_offset"));
     compiler::TNode<JSDataView> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(TNode<Context>{tmp0}, TNode<Object>{tmp1}, TNode<String>{tmp2}));
+    tmp3 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}, compiler::TNode<String>{tmp2}));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(DataViewBuiltinsFromDSLAssembler(state_).WasNeutered(TNode<JSArrayBufferView>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(DataViewBuiltinsFromDSLAssembler(state_).WasNeutered(compiler::TNode<JSArrayBufferView>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1, tmp3);
   }
 
@@ -640,7 +676,7 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6, &tmp7);
     compiler::TNode<Number> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi(0));
+    tmp8 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
     arguments->PopAndReturn(tmp8);
   }
 
@@ -651,10 +687,10 @@ USE(parameter1);
     ca_.Bind(&block2, &tmp9, &tmp10, &tmp11);
     compiler::TNode<UintPtrT> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(TNode<JSArrayBufferView>{tmp11}));
+    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(compiler::TNode<JSArrayBufferView>{tmp11}));
     compiler::TNode<Number> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi(TNode<UintPtrT>{tmp12}));
+    tmp13 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi9ATuintptr(compiler::TNode<UintPtrT>{tmp12}));
     arguments->PopAndReturn(tmp13);
   }
 }
@@ -663,7 +699,8 @@ compiler::TNode<Smi> DataViewBuiltinsFromDSLAssembler::LoadDataView8(compiler::T
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Smi> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Smi> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Smi> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset);
 
   if (block0.is_used()) {
@@ -683,14 +720,14 @@ compiler::TNode<Smi> DataViewBuiltinsFromDSLAssembler::LoadDataView8(compiler::T
     ca_.Bind(&block2, &tmp2, &tmp3);
     compiler::TNode<RawPtrT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp2}));
+    tmp4 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp2}));
     compiler::TNode<Int32T> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<Int32T>(DataViewBuiltinsAssembler(state_).LoadInt8(TNode<RawPtrT>{tmp4}, TNode<UintPtrT>{tmp3}));
+    tmp5 = ca_.UncheckedCast<Int32T>(DataViewBuiltinsAssembler(state_).LoadInt8(compiler::TNode<RawPtrT>{tmp4}, compiler::TNode<UintPtrT>{tmp3}));
     compiler::TNode<Smi> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi(TNode<Int32T>{tmp5}));
-    ca_.Goto(&block1, tmp6);
+    tmp6 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi7ATint32(compiler::TNode<Int32T>{tmp5}));
+    ca_.Goto(&block1, tmp2, tmp3, tmp6);
   }
 
   if (block3.is_used()) {
@@ -699,19 +736,29 @@ compiler::TNode<Smi> DataViewBuiltinsFromDSLAssembler::LoadDataView8(compiler::T
     ca_.Bind(&block3, &tmp7, &tmp8);
     compiler::TNode<RawPtrT> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp7}));
+    tmp9 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp7}));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp9}, TNode<UintPtrT>{tmp8}));
+    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp9}, compiler::TNode<UintPtrT>{tmp8}));
     compiler::TNode<Smi> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi(TNode<Uint32T>{tmp10}));
-    ca_.Goto(&block1, tmp11);
+    tmp11 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi8ATuint32(compiler::TNode<Uint32T>{tmp10}));
+    ca_.Goto(&block1, tmp7, tmp8, tmp11);
   }
 
-    compiler::TNode<Smi> tmp12;
-    ca_.Bind(&block1, &tmp12);
-  return TNode<Smi>{tmp12};
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp12;
+    compiler::TNode<UintPtrT> tmp13;
+    compiler::TNode<Smi> tmp14;
+    ca_.Bind(&block1, &tmp12, &tmp13, &tmp14);
+    ca_.Goto(&block5, tmp12, tmp13, tmp14);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp15;
+    compiler::TNode<UintPtrT> tmp16;
+    compiler::TNode<Smi> tmp17;
+    ca_.Bind(&block5, &tmp15, &tmp16, &tmp17);
+  return compiler::TNode<Smi>{tmp17};
 }
 
 compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<BoolT> p_requestedLittleEndian, bool p_signed) {
@@ -721,7 +768,8 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compile
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Int32T, Int32T, Int32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Int32T, Int32T, Int32T> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Int32T, Int32T, Int32T> block6(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Number> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, Number> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, Number> block8(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -731,7 +779,7 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compile
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
     compiler::TNode<RawPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     ca_.Branch(tmp2, &block2, &block3, tmp0, tmp1, tmp2, tmp3, ca_.Uninitialized<Int32T>(), ca_.Uninitialized<Int32T>(), ca_.Uninitialized<Int32T>());
   }
 
@@ -746,28 +794,28 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compile
     ca_.Bind(&block2, &tmp4, &tmp5, &tmp6, &tmp7, &tmp8, &tmp9, &tmp10);
     compiler::TNode<Uint32T> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp7}, TNode<UintPtrT>{tmp5}));
+    tmp11 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp7}, compiler::TNode<UintPtrT>{tmp5}));
     compiler::TNode<Int32T> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp11}));
+    tmp12 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp11}));
     compiler::TNode<UintPtrT> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp13 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp5}, TNode<UintPtrT>{tmp13}));
+    tmp14 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp5}, compiler::TNode<UintPtrT>{tmp13}));
     compiler::TNode<Int32T> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<Int32T>(DataViewBuiltinsAssembler(state_).LoadInt8(TNode<RawPtrT>{tmp7}, TNode<UintPtrT>{tmp14}));
+    tmp15 = ca_.UncheckedCast<Int32T>(DataViewBuiltinsAssembler(state_).LoadInt8(compiler::TNode<RawPtrT>{tmp7}, compiler::TNode<UintPtrT>{tmp14}));
     compiler::TNode<Int32T> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(8));
+    tmp16 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(8));
     compiler::TNode<Int32T> tmp17;
     USE(tmp17);
-    tmp17 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Word32Shl(TNode<Int32T>{tmp15}, TNode<Int32T>{tmp16}));
+    tmp17 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Int32T>{tmp15}, compiler::TNode<Int32T>{tmp16}));
     compiler::TNode<Int32T> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Add(TNode<Int32T>{tmp17}, TNode<Int32T>{tmp12}));
+    tmp18 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Add(compiler::TNode<Int32T>{tmp17}, compiler::TNode<Int32T>{tmp12}));
     ca_.Goto(&block4, tmp4, tmp5, tmp6, tmp7, tmp12, tmp15, tmp18);
   }
 
@@ -782,28 +830,28 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compile
     ca_.Bind(&block3, &tmp19, &tmp20, &tmp21, &tmp22, &tmp23, &tmp24, &tmp25);
     compiler::TNode<Int32T> tmp26;
     USE(tmp26);
-    tmp26 = ca_.UncheckedCast<Int32T>(DataViewBuiltinsAssembler(state_).LoadInt8(TNode<RawPtrT>{tmp22}, TNode<UintPtrT>{tmp20}));
+    tmp26 = ca_.UncheckedCast<Int32T>(DataViewBuiltinsAssembler(state_).LoadInt8(compiler::TNode<RawPtrT>{tmp22}, compiler::TNode<UintPtrT>{tmp20}));
     compiler::TNode<UintPtrT> tmp27;
     USE(tmp27);
-    tmp27 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp27 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp20}, TNode<UintPtrT>{tmp27}));
+    tmp28 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp20}, compiler::TNode<UintPtrT>{tmp27}));
     compiler::TNode<Uint32T> tmp29;
     USE(tmp29);
-    tmp29 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp22}, TNode<UintPtrT>{tmp28}));
+    tmp29 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp22}, compiler::TNode<UintPtrT>{tmp28}));
     compiler::TNode<Int32T> tmp30;
     USE(tmp30);
-    tmp30 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp29}));
+    tmp30 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp29}));
     compiler::TNode<Int32T> tmp31;
     USE(tmp31);
-    tmp31 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(8));
+    tmp31 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(8));
     compiler::TNode<Int32T> tmp32;
     USE(tmp32);
-    tmp32 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Word32Shl(TNode<Int32T>{tmp26}, TNode<Int32T>{tmp31}));
+    tmp32 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Int32T>{tmp26}, compiler::TNode<Int32T>{tmp31}));
     compiler::TNode<Int32T> tmp33;
     USE(tmp33);
-    tmp33 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Add(TNode<Int32T>{tmp32}, TNode<Int32T>{tmp30}));
+    tmp33 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Add(compiler::TNode<Int32T>{tmp32}, compiler::TNode<Int32T>{tmp30}));
     ca_.Goto(&block4, tmp19, tmp20, tmp21, tmp22, tmp26, tmp30, tmp33);
   }
 
@@ -834,8 +882,8 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compile
     ca_.Bind(&block5, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47);
     compiler::TNode<Smi> tmp48;
     USE(tmp48);
-    tmp48 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi(TNode<Int32T>{tmp47}));
-    ca_.Goto(&block1, tmp48);
+    tmp48 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi7ATint32(compiler::TNode<Int32T>{tmp47}));
+    ca_.Goto(&block1, tmp41, tmp42, tmp43, tmp48);
   }
 
   if (block6.is_used()) {
@@ -849,19 +897,31 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView16(compile
     ca_.Bind(&block6, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55);
     compiler::TNode<Int32T> tmp56;
     USE(tmp56);
-    tmp56 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0xFFFF));
+    tmp56 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0xFFFF));
     compiler::TNode<Int32T> tmp57;
     USE(tmp57);
-    tmp57 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Word32And(TNode<Int32T>{tmp55}, TNode<Int32T>{tmp56}));
+    tmp57 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Int32T>{tmp55}, compiler::TNode<Int32T>{tmp56}));
     compiler::TNode<Smi> tmp58;
     USE(tmp58);
-    tmp58 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi(TNode<Int32T>{tmp57}));
-    ca_.Goto(&block1, tmp58);
+    tmp58 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).Convert5ATSmi7ATint32(compiler::TNode<Int32T>{tmp57}));
+    ca_.Goto(&block1, tmp49, tmp50, tmp51, tmp58);
   }
 
-    compiler::TNode<Number> tmp59;
-    ca_.Bind(&block1, &tmp59);
-  return TNode<Number>{tmp59};
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp59;
+    compiler::TNode<UintPtrT> tmp60;
+    compiler::TNode<BoolT> tmp61;
+    compiler::TNode<Number> tmp62;
+    ca_.Bind(&block1, &tmp59, &tmp60, &tmp61, &tmp62);
+    ca_.Goto(&block8, tmp59, tmp60, tmp61, tmp62);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp63;
+    compiler::TNode<UintPtrT> tmp64;
+    compiler::TNode<BoolT> tmp65;
+    compiler::TNode<Number> tmp66;
+    ca_.Bind(&block8, &tmp63, &tmp64, &tmp65, &tmp66);
+  return compiler::TNode<Number>{tmp66};
 }
 
 compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<BoolT> p_requestedLittleEndian, ElementsKind p_kind) {
@@ -875,7 +935,8 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block9(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block11(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block12(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Number> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, Number> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, Number> block14(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -885,37 +946,37 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
     compiler::TNode<RawPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp1}));
+    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp1}));
     compiler::TNode<UintPtrT> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp5 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp5}));
+    tmp6 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp5}));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp6}));
+    tmp7 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp6}));
     compiler::TNode<UintPtrT> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp8}));
+    tmp9 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp8}));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp9}));
+    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp9}));
     compiler::TNode<UintPtrT> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp11 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp11}));
+    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp11}));
     compiler::TNode<Uint32T> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp12}));
+    tmp13 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp12}));
     ca_.Branch(tmp2, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp7, tmp10, tmp13, ca_.Uninitialized<Uint32T>());
   }
 
@@ -932,31 +993,31 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     ca_.Bind(&block2, &tmp14, &tmp15, &tmp16, &tmp17, &tmp18, &tmp19, &tmp20, &tmp21, &tmp22);
     compiler::TNode<Uint32T> tmp23;
     USE(tmp23);
-    tmp23 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp23 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp21}, TNode<Uint32T>{tmp23}));
+    tmp24 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp21}, compiler::TNode<Uint32T>{tmp23}));
     compiler::TNode<Uint32T> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp25 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp26;
     USE(tmp26);
-    tmp26 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp20}, TNode<Uint32T>{tmp25}));
+    tmp26 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp20}, compiler::TNode<Uint32T>{tmp25}));
     compiler::TNode<Uint32T> tmp27;
     USE(tmp27);
-    tmp27 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp24}, TNode<Uint32T>{tmp26}));
+    tmp27 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp24}, compiler::TNode<Uint32T>{tmp26}));
     compiler::TNode<Uint32T> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp28 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp29;
     USE(tmp29);
-    tmp29 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp19}, TNode<Uint32T>{tmp28}));
+    tmp29 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp19}, compiler::TNode<Uint32T>{tmp28}));
     compiler::TNode<Uint32T> tmp30;
     USE(tmp30);
-    tmp30 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp27}, TNode<Uint32T>{tmp29}));
+    tmp30 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp27}, compiler::TNode<Uint32T>{tmp29}));
     compiler::TNode<Uint32T> tmp31;
     USE(tmp31);
-    tmp31 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp30}, TNode<Uint32T>{tmp18}));
+    tmp31 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp30}, compiler::TNode<Uint32T>{tmp18}));
     ca_.Goto(&block4, tmp14, tmp15, tmp16, tmp17, tmp18, tmp19, tmp20, tmp21, tmp31);
   }
 
@@ -973,31 +1034,31 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     ca_.Bind(&block3, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40);
     compiler::TNode<Uint32T> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp41 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp36}, TNode<Uint32T>{tmp41}));
+    tmp42 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp36}, compiler::TNode<Uint32T>{tmp41}));
     compiler::TNode<Uint32T> tmp43;
     USE(tmp43);
-    tmp43 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp43 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp44;
     USE(tmp44);
-    tmp44 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp37}, TNode<Uint32T>{tmp43}));
+    tmp44 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp37}, compiler::TNode<Uint32T>{tmp43}));
     compiler::TNode<Uint32T> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp42}, TNode<Uint32T>{tmp44}));
+    tmp45 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp42}, compiler::TNode<Uint32T>{tmp44}));
     compiler::TNode<Uint32T> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp46 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp47;
     USE(tmp47);
-    tmp47 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp38}, TNode<Uint32T>{tmp46}));
+    tmp47 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp38}, compiler::TNode<Uint32T>{tmp46}));
     compiler::TNode<Uint32T> tmp48;
     USE(tmp48);
-    tmp48 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp45}, TNode<Uint32T>{tmp47}));
+    tmp48 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp45}, compiler::TNode<Uint32T>{tmp47}));
     compiler::TNode<Uint32T> tmp49;
     USE(tmp49);
-    tmp49 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp48}, TNode<Uint32T>{tmp39}));
+    tmp49 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp48}, compiler::TNode<Uint32T>{tmp39}));
     ca_.Goto(&block4, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37, tmp38, tmp39, tmp49);
   }
 
@@ -1032,11 +1093,11 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     ca_.Bind(&block5, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67);
     compiler::TNode<Int32T> tmp68;
     USE(tmp68);
-    tmp68 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp67}));
+    tmp68 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp67}));
     compiler::TNode<Number> tmp69;
     USE(tmp69);
-    tmp69 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi(TNode<Int32T>{tmp68}));
-    ca_.Goto(&block1, tmp69);
+    tmp69 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi7ATint32(compiler::TNode<Int32T>{tmp68}));
+    ca_.Goto(&block1, tmp59, tmp60, tmp61, tmp69);
   }
 
   if (block6.is_used()) {
@@ -1070,8 +1131,8 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     ca_.Bind(&block8, &tmp79, &tmp80, &tmp81, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86, &tmp87);
     compiler::TNode<Number> tmp88;
     USE(tmp88);
-    tmp88 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi(TNode<Uint32T>{tmp87}));
-    ca_.Goto(&block1, tmp88);
+    tmp88 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi8ATuint32(compiler::TNode<Uint32T>{tmp87}));
+    ca_.Goto(&block1, tmp79, tmp80, tmp81, tmp88);
   }
 
   if (block9.is_used()) {
@@ -1105,14 +1166,14 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     ca_.Bind(&block11, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104, &tmp105, &tmp106);
     compiler::TNode<Float32T> tmp107;
     USE(tmp107);
-    tmp107 = ca_.UncheckedCast<Float32T>(CodeStubAssembler(state_).BitcastInt32ToFloat32(TNode<Uint32T>{tmp106}));
+    tmp107 = ca_.UncheckedCast<Float32T>(CodeStubAssembler(state_).BitcastInt32ToFloat32(compiler::TNode<Uint32T>{tmp106}));
     compiler::TNode<Float64T> tmp108;
     USE(tmp108);
-    tmp108 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<Float32T>{tmp107}));
+    tmp108 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat649ATfloat32(compiler::TNode<Float32T>{tmp107}));
     compiler::TNode<Number> tmp109;
     USE(tmp109);
-    tmp109 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi(TNode<Float64T>{tmp108}));
-    ca_.Goto(&block1, tmp109);
+    tmp109 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi9ATfloat64(compiler::TNode<Float64T>{tmp108}));
+    ca_.Goto(&block1, tmp98, tmp99, tmp100, tmp109);
   }
 
   if (block12.is_used()) {
@@ -1126,13 +1187,25 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataView32(compile
     compiler::TNode<Uint32T> tmp117;
     compiler::TNode<Uint32T> tmp118;
     ca_.Bind(&block12, &tmp110, &tmp111, &tmp112, &tmp113, &tmp114, &tmp115, &tmp116, &tmp117, &tmp118);
-    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:186:7");
+    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:188:7");
     CodeStubAssembler(state_).Unreachable();
   }
 
-    compiler::TNode<Number> tmp119;
-    ca_.Bind(&block1, &tmp119);
-  return TNode<Number>{tmp119};
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp119;
+    compiler::TNode<UintPtrT> tmp120;
+    compiler::TNode<BoolT> tmp121;
+    compiler::TNode<Number> tmp122;
+    ca_.Bind(&block1, &tmp119, &tmp120, &tmp121, &tmp122);
+    ca_.Goto(&block14, tmp119, tmp120, tmp121, tmp122);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp123;
+    compiler::TNode<UintPtrT> tmp124;
+    compiler::TNode<BoolT> tmp125;
+    compiler::TNode<Number> tmp126;
+    ca_.Bind(&block14, &tmp123, &tmp124, &tmp125, &tmp126);
+  return compiler::TNode<Number>{tmp126};
 }
 
 compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataViewFloat64(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<BoolT> p_requestedLittleEndian) {
@@ -1140,7 +1213,8 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataViewFloat64(co
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Number> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, Number> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, Number> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -1150,73 +1224,73 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataViewFloat64(co
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
     compiler::TNode<RawPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp1}));
+    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp1}));
     compiler::TNode<UintPtrT> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp5 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp5}));
+    tmp6 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp5}));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp6}));
+    tmp7 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp6}));
     compiler::TNode<UintPtrT> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp8}));
+    tmp9 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp8}));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp9}));
+    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp9}));
     compiler::TNode<UintPtrT> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp11 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp11}));
+    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp11}));
     compiler::TNode<Uint32T> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp12}));
+    tmp13 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp12}));
     compiler::TNode<UintPtrT> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(4));
+    tmp14 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(4));
     compiler::TNode<UintPtrT> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp14}));
+    tmp15 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp14}));
     compiler::TNode<Uint32T> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp15}));
+    tmp16 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp15}));
     compiler::TNode<UintPtrT> tmp17;
     USE(tmp17);
-    tmp17 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(5));
+    tmp17 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(5));
     compiler::TNode<UintPtrT> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp17}));
+    tmp18 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp17}));
     compiler::TNode<Uint32T> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp18}));
+    tmp19 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp18}));
     compiler::TNode<UintPtrT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(6));
+    tmp20 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(6));
     compiler::TNode<UintPtrT> tmp21;
     USE(tmp21);
-    tmp21 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp20}));
+    tmp21 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp20}));
     compiler::TNode<Uint32T> tmp22;
     USE(tmp22);
-    tmp22 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp21}));
+    tmp22 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp21}));
     compiler::TNode<UintPtrT> tmp23;
     USE(tmp23);
-    tmp23 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(7));
+    tmp23 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(7));
     compiler::TNode<UintPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp23}));
+    tmp24 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp23}));
     compiler::TNode<Uint32T> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp24}));
     ca_.Branch(tmp2, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp7, tmp10, tmp13, tmp16, tmp19, tmp22, tmp25, ca_.Uninitialized<Uint32T>(), ca_.Uninitialized<Uint32T>());
   }
 
@@ -1238,58 +1312,58 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataViewFloat64(co
     ca_.Bind(&block2, &tmp26, &tmp27, &tmp28, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39);
     compiler::TNode<Uint32T> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp40 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp33}, TNode<Uint32T>{tmp40}));
+    tmp41 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp33}, compiler::TNode<Uint32T>{tmp40}));
     compiler::TNode<Uint32T> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp42 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp43;
     USE(tmp43);
-    tmp43 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp32}, TNode<Uint32T>{tmp42}));
+    tmp43 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp32}, compiler::TNode<Uint32T>{tmp42}));
     compiler::TNode<Uint32T> tmp44;
     USE(tmp44);
-    tmp44 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp41}, TNode<Uint32T>{tmp43}));
+    tmp44 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp41}, compiler::TNode<Uint32T>{tmp43}));
     compiler::TNode<Uint32T> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp45 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp31}, TNode<Uint32T>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp31}, compiler::TNode<Uint32T>{tmp45}));
     compiler::TNode<Uint32T> tmp47;
     USE(tmp47);
-    tmp47 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp44}, TNode<Uint32T>{tmp46}));
+    tmp47 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp44}, compiler::TNode<Uint32T>{tmp46}));
     compiler::TNode<Uint32T> tmp48;
     USE(tmp48);
-    tmp48 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp47}, TNode<Uint32T>{tmp30}));
+    tmp48 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp47}, compiler::TNode<Uint32T>{tmp30}));
     compiler::TNode<Uint32T> tmp49;
     USE(tmp49);
-    tmp49 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp49 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp50;
     USE(tmp50);
-    tmp50 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp37}, TNode<Uint32T>{tmp49}));
+    tmp50 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp37}, compiler::TNode<Uint32T>{tmp49}));
     compiler::TNode<Uint32T> tmp51;
     USE(tmp51);
-    tmp51 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp51 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp52;
     USE(tmp52);
-    tmp52 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp36}, TNode<Uint32T>{tmp51}));
+    tmp52 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp36}, compiler::TNode<Uint32T>{tmp51}));
     compiler::TNode<Uint32T> tmp53;
     USE(tmp53);
-    tmp53 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp50}, TNode<Uint32T>{tmp52}));
+    tmp53 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp50}, compiler::TNode<Uint32T>{tmp52}));
     compiler::TNode<Uint32T> tmp54;
     USE(tmp54);
-    tmp54 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp54 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp55;
     USE(tmp55);
-    tmp55 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp35}, TNode<Uint32T>{tmp54}));
+    tmp55 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp35}, compiler::TNode<Uint32T>{tmp54}));
     compiler::TNode<Uint32T> tmp56;
     USE(tmp56);
-    tmp56 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp53}, TNode<Uint32T>{tmp55}));
+    tmp56 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp53}, compiler::TNode<Uint32T>{tmp55}));
     compiler::TNode<Uint32T> tmp57;
     USE(tmp57);
-    tmp57 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp56}, TNode<Uint32T>{tmp34}));
+    tmp57 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp56}, compiler::TNode<Uint32T>{tmp34}));
     ca_.Goto(&block4, tmp26, tmp27, tmp28, tmp29, tmp30, tmp31, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37, tmp48, tmp57);
   }
 
@@ -1311,58 +1385,58 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataViewFloat64(co
     ca_.Bind(&block3, &tmp58, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71);
     compiler::TNode<Uint32T> tmp72;
     USE(tmp72);
-    tmp72 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp72 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp73;
     USE(tmp73);
-    tmp73 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp62}, TNode<Uint32T>{tmp72}));
+    tmp73 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp62}, compiler::TNode<Uint32T>{tmp72}));
     compiler::TNode<Uint32T> tmp74;
     USE(tmp74);
-    tmp74 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp74 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp75;
     USE(tmp75);
-    tmp75 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp63}, TNode<Uint32T>{tmp74}));
+    tmp75 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp63}, compiler::TNode<Uint32T>{tmp74}));
     compiler::TNode<Uint32T> tmp76;
     USE(tmp76);
-    tmp76 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp73}, TNode<Uint32T>{tmp75}));
+    tmp76 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp73}, compiler::TNode<Uint32T>{tmp75}));
     compiler::TNode<Uint32T> tmp77;
     USE(tmp77);
-    tmp77 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp77 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp78;
     USE(tmp78);
-    tmp78 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp64}, TNode<Uint32T>{tmp77}));
+    tmp78 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp64}, compiler::TNode<Uint32T>{tmp77}));
     compiler::TNode<Uint32T> tmp79;
     USE(tmp79);
-    tmp79 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp76}, TNode<Uint32T>{tmp78}));
+    tmp79 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp76}, compiler::TNode<Uint32T>{tmp78}));
     compiler::TNode<Uint32T> tmp80;
     USE(tmp80);
-    tmp80 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp79}, TNode<Uint32T>{tmp65}));
+    tmp80 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp79}, compiler::TNode<Uint32T>{tmp65}));
     compiler::TNode<Uint32T> tmp81;
     USE(tmp81);
-    tmp81 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp81 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp82;
     USE(tmp82);
-    tmp82 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp66}, TNode<Uint32T>{tmp81}));
+    tmp82 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp66}, compiler::TNode<Uint32T>{tmp81}));
     compiler::TNode<Uint32T> tmp83;
     USE(tmp83);
-    tmp83 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp83 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp84;
     USE(tmp84);
-    tmp84 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp67}, TNode<Uint32T>{tmp83}));
+    tmp84 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp67}, compiler::TNode<Uint32T>{tmp83}));
     compiler::TNode<Uint32T> tmp85;
     USE(tmp85);
-    tmp85 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp82}, TNode<Uint32T>{tmp84}));
+    tmp85 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp82}, compiler::TNode<Uint32T>{tmp84}));
     compiler::TNode<Uint32T> tmp86;
     USE(tmp86);
-    tmp86 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp86 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp87;
     USE(tmp87);
-    tmp87 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp68}, TNode<Uint32T>{tmp86}));
+    tmp87 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp68}, compiler::TNode<Uint32T>{tmp86}));
     compiler::TNode<Uint32T> tmp88;
     USE(tmp88);
-    tmp88 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp85}, TNode<Uint32T>{tmp87}));
+    tmp88 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp85}, compiler::TNode<Uint32T>{tmp87}));
     compiler::TNode<Uint32T> tmp89;
     USE(tmp89);
-    tmp89 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp88}, TNode<Uint32T>{tmp69}));
+    tmp89 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp88}, compiler::TNode<Uint32T>{tmp69}));
     ca_.Goto(&block4, tmp58, tmp59, tmp60, tmp61, tmp62, tmp63, tmp64, tmp65, tmp66, tmp67, tmp68, tmp69, tmp89, tmp80);
   }
 
@@ -1384,22 +1458,34 @@ compiler::TNode<Number> DataViewBuiltinsFromDSLAssembler::LoadDataViewFloat64(co
     ca_.Bind(&block4, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103);
     compiler::TNode<Float64T> tmp104;
     USE(tmp104);
-    tmp104 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATfloat64(0));
+    tmp104 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATfloat6417ATconstexpr_int31(0));
     compiler::TNode<Float64T> tmp105;
     USE(tmp105);
-    tmp105 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64InsertLowWord32(TNode<Float64T>{tmp104}, TNode<Uint32T>{tmp102}));
+    tmp105 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64InsertLowWord32(compiler::TNode<Float64T>{tmp104}, compiler::TNode<Uint32T>{tmp102}));
     compiler::TNode<Float64T> tmp106;
     USE(tmp106);
-    tmp106 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64InsertHighWord32(TNode<Float64T>{tmp105}, TNode<Uint32T>{tmp103}));
+    tmp106 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64InsertHighWord32(compiler::TNode<Float64T>{tmp105}, compiler::TNode<Uint32T>{tmp103}));
     compiler::TNode<Number> tmp107;
     USE(tmp107);
-    tmp107 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi(TNode<Float64T>{tmp106}));
-    ca_.Goto(&block1, tmp107);
+    tmp107 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).Convert22UT12ATHeapNumber5ATSmi9ATfloat64(compiler::TNode<Float64T>{tmp106}));
+    ca_.Goto(&block1, tmp90, tmp91, tmp92, tmp107);
   }
 
-    compiler::TNode<Number> tmp108;
-    ca_.Bind(&block1, &tmp108);
-  return TNode<Number>{tmp108};
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp108;
+    compiler::TNode<UintPtrT> tmp109;
+    compiler::TNode<BoolT> tmp110;
+    compiler::TNode<Number> tmp111;
+    ca_.Bind(&block1, &tmp108, &tmp109, &tmp110, &tmp111);
+    ca_.Goto(&block5, tmp108, tmp109, tmp110, tmp111);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp112;
+    compiler::TNode<UintPtrT> tmp113;
+    compiler::TNode<BoolT> tmp114;
+    compiler::TNode<Number> tmp115;
+    ca_.Bind(&block5, &tmp112, &tmp113, &tmp114, &tmp115);
+  return compiler::TNode<Number>{tmp115};
 }
 
 bool DataViewBuiltinsFromDSLAssembler::kPositiveBigInt() {
@@ -1447,7 +1533,8 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::CreateEmptyBigInt(comp
   compiler::CodeAssemblerParameterizedLabel<BoolT, BigInt> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<BoolT, BigInt> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<BoolT, BigInt> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<BoolT, BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<BoolT, BigInt> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_isPositive);
 
   if (block0.is_used()) {
@@ -1455,10 +1542,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::CreateEmptyBigInt(comp
     ca_.Bind(&block0, &tmp0);
     compiler::TNode<IntPtrT> tmp1;
     USE(tmp1);
-    tmp1 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(p_length));
+    tmp1 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(p_length));
     compiler::TNode<BigInt> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).AllocateBigInt(TNode<IntPtrT>{tmp1}));
+    tmp2 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).AllocateBigInt(compiler::TNode<IntPtrT>{tmp1}));
     ca_.Branch(tmp0, &block2, &block3, tmp0, tmp2);
   }
 
@@ -1466,10 +1553,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::CreateEmptyBigInt(comp
     compiler::TNode<BoolT> tmp3;
     compiler::TNode<BigInt> tmp4;
     ca_.Bind(&block2, &tmp3, &tmp4);
-    compiler::TNode<IntPtrT> tmp5;
+    compiler::TNode<Uint32T> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<IntPtrT>(DataViewBuiltinsAssembler(state_).DataViewEncodeBigIntBits(DataViewBuiltinsFromDSLAssembler(state_).kPositiveBigInt(), p_length));
-    CodeStubAssembler(state_).StoreBigIntBitfield(TNode<BigInt>{tmp4}, TNode<IntPtrT>{tmp5});
+    tmp5 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).DataViewEncodeBigIntBits(DataViewBuiltinsFromDSLAssembler(state_).kPositiveBigInt(), p_length));
+    CodeStubAssembler(state_).StoreBigIntBitfield(compiler::TNode<BigInt>{tmp4}, compiler::TNode<Uint32T>{tmp5});
     ca_.Goto(&block4, tmp3, tmp4);
   }
 
@@ -1477,10 +1564,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::CreateEmptyBigInt(comp
     compiler::TNode<BoolT> tmp6;
     compiler::TNode<BigInt> tmp7;
     ca_.Bind(&block3, &tmp6, &tmp7);
-    compiler::TNode<IntPtrT> tmp8;
+    compiler::TNode<Uint32T> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<IntPtrT>(DataViewBuiltinsAssembler(state_).DataViewEncodeBigIntBits(DataViewBuiltinsFromDSLAssembler(state_).kNegativeBigInt(), p_length));
-    CodeStubAssembler(state_).StoreBigIntBitfield(TNode<BigInt>{tmp7}, TNode<IntPtrT>{tmp8});
+    tmp8 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).DataViewEncodeBigIntBits(DataViewBuiltinsFromDSLAssembler(state_).kNegativeBigInt(), p_length));
+    CodeStubAssembler(state_).StoreBigIntBitfield(compiler::TNode<BigInt>{tmp7}, compiler::TNode<Uint32T>{tmp8});
     ca_.Goto(&block4, tmp6, tmp7);
   }
 
@@ -1488,12 +1575,20 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::CreateEmptyBigInt(comp
     compiler::TNode<BoolT> tmp9;
     compiler::TNode<BigInt> tmp10;
     ca_.Bind(&block4, &tmp9, &tmp10);
-    ca_.Goto(&block1, tmp10);
+    ca_.Goto(&block1, tmp9, tmp10);
   }
 
-    compiler::TNode<BigInt> tmp11;
-    ca_.Bind(&block1, &tmp11);
-  return TNode<BigInt>{tmp11};
+  if (block1.is_used()) {
+    compiler::TNode<BoolT> tmp11;
+    compiler::TNode<BigInt> tmp12;
+    ca_.Bind(&block1, &tmp11, &tmp12);
+    ca_.Goto(&block5, tmp11, tmp12);
+  }
+
+    compiler::TNode<BoolT> tmp13;
+    compiler::TNode<BigInt> tmp14;
+    ca_.Bind(&block5, &tmp13, &tmp14);
+  return compiler::TNode<BigInt>{tmp14};
 }
 
 compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(compiler::TNode<Uint32T> p_lowWord, compiler::TNode<Uint32T> p_highWord, bool p_signed) {
@@ -1506,7 +1601,8 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BoolT, IntPtrT, IntPtrT, IntPtrT> block9(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BoolT, IntPtrT, IntPtrT, IntPtrT> block6(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BoolT, IntPtrT, IntPtrT, IntPtrT> block7(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BigInt> block10(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_lowWord, p_highWord);
 
   if (block0.is_used()) {
@@ -1515,10 +1611,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block0, &tmp0, &tmp1);
     compiler::TNode<Uint32T> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp2 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(TNode<Uint32T>{tmp0}, TNode<Uint32T>{tmp2}));
+    tmp3 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(compiler::TNode<Uint32T>{tmp0}, compiler::TNode<Uint32T>{tmp2}));
     ca_.Branch(tmp3, &block4, &block3, tmp0, tmp1);
   }
 
@@ -1528,10 +1624,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block4, &tmp4, &tmp5);
     compiler::TNode<Uint32T> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(TNode<Uint32T>{tmp5}, TNode<Uint32T>{tmp6}));
+    tmp7 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(compiler::TNode<Uint32T>{tmp5}, compiler::TNode<Uint32T>{tmp6}));
     ca_.Branch(tmp7, &block2, &block3, tmp4, tmp5);
   }
 
@@ -1541,11 +1637,11 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block2, &tmp8, &tmp9);
     compiler::TNode<IntPtrT> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(DataViewBuiltinsFromDSLAssembler(state_).kZeroDigitBigInt()));
+    tmp10 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(DataViewBuiltinsFromDSLAssembler(state_).kZeroDigitBigInt()));
     compiler::TNode<BigInt> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).AllocateBigInt(TNode<IntPtrT>{tmp10}));
-    ca_.Goto(&block1, tmp11);
+    tmp11 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).AllocateBigInt(compiler::TNode<IntPtrT>{tmp10}));
+    ca_.Goto(&block1, tmp8, tmp9, tmp11);
   }
 
   if (block3.is_used()) {
@@ -1554,28 +1650,28 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block3, &tmp12, &tmp13);
     compiler::TNode<BoolT> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(true));
+    tmp14 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
     compiler::TNode<UintPtrT> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr(TNode<Uint32T>{tmp13}));
+    tmp15 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr8ATuint32(compiler::TNode<Uint32T>{tmp13}));
     compiler::TNode<IntPtrT> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).Signed(TNode<UintPtrT>{tmp15}));
+    tmp16 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).Signed(compiler::TNode<UintPtrT>{tmp15}));
     compiler::TNode<UintPtrT> tmp17;
     USE(tmp17);
-    tmp17 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr(TNode<Uint32T>{tmp12}));
+    tmp17 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr8ATuint32(compiler::TNode<Uint32T>{tmp12}));
     compiler::TNode<IntPtrT> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).Signed(TNode<UintPtrT>{tmp17}));
+    tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).Signed(compiler::TNode<UintPtrT>{tmp17}));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(32));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(32));
     compiler::TNode<IntPtrT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).WordShl(TNode<IntPtrT>{tmp16}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).WordShl(compiler::TNode<IntPtrT>{tmp16}, compiler::TNode<IntPtrT>{tmp19}));
     compiler::TNode<IntPtrT> tmp21;
     USE(tmp21);
-    tmp21 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).IntPtrAdd(TNode<IntPtrT>{tmp20}, TNode<IntPtrT>{tmp18}));
+    tmp21 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).IntPtrAdd(compiler::TNode<IntPtrT>{tmp20}, compiler::TNode<IntPtrT>{tmp18}));
     if (p_signed) {
       ca_.Goto(&block5, tmp12, tmp13, tmp14, tmp16, tmp18, tmp21);
     } else {
@@ -1593,10 +1689,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block5, &tmp22, &tmp23, &tmp24, &tmp25, &tmp26, &tmp27);
     compiler::TNode<IntPtrT> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp28 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp29;
     USE(tmp29);
-    tmp29 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrLessThan(TNode<IntPtrT>{tmp27}, TNode<IntPtrT>{tmp28}));
+    tmp29 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrLessThan(compiler::TNode<IntPtrT>{tmp27}, compiler::TNode<IntPtrT>{tmp28}));
     ca_.Branch(tmp29, &block8, &block9, tmp22, tmp23, tmp24, tmp25, tmp26, tmp27);
   }
 
@@ -1610,13 +1706,13 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block8, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35);
     compiler::TNode<BoolT> tmp36;
     USE(tmp36);
-    tmp36 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(false));
+    tmp36 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(false));
     compiler::TNode<IntPtrT> tmp37;
     USE(tmp37);
-    tmp37 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp37 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<IntPtrT> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).IntPtrSub(TNode<IntPtrT>{tmp37}, TNode<IntPtrT>{tmp35}));
+    tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).IntPtrSub(compiler::TNode<IntPtrT>{tmp37}, compiler::TNode<IntPtrT>{tmp35}));
     ca_.Goto(&block9, tmp30, tmp31, tmp36, tmp33, tmp34, tmp38);
   }
 
@@ -1652,17 +1748,27 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn64Bit(comp
     ca_.Bind(&block7, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55, &tmp56);
     compiler::TNode<BigInt> tmp57;
     USE(tmp57);
-    tmp57 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).CreateEmptyBigInt(TNode<BoolT>{tmp53}, DataViewBuiltinsFromDSLAssembler(state_).kOneDigitBigInt()));
+    tmp57 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).CreateEmptyBigInt(compiler::TNode<BoolT>{tmp53}, DataViewBuiltinsFromDSLAssembler(state_).kOneDigitBigInt()));
     compiler::TNode<UintPtrT> tmp58;
     USE(tmp58);
-    tmp58 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).Unsigned(TNode<IntPtrT>{tmp56}));
-    CodeStubAssembler(state_).StoreBigIntDigit(TNode<BigInt>{tmp57}, 0, TNode<UintPtrT>{tmp58});
-    ca_.Goto(&block1, tmp57);
+    tmp58 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).Unsigned(compiler::TNode<IntPtrT>{tmp56}));
+    CodeStubAssembler(state_).StoreBigIntDigit(compiler::TNode<BigInt>{tmp57}, 0, compiler::TNode<UintPtrT>{tmp58});
+    ca_.Goto(&block1, tmp51, tmp52, tmp57);
   }
 
-    compiler::TNode<BigInt> tmp59;
-    ca_.Bind(&block1, &tmp59);
-  return TNode<BigInt>{tmp59};
+  if (block1.is_used()) {
+    compiler::TNode<Uint32T> tmp59;
+    compiler::TNode<Uint32T> tmp60;
+    compiler::TNode<BigInt> tmp61;
+    ca_.Bind(&block1, &tmp59, &tmp60, &tmp61);
+    ca_.Goto(&block10, tmp59, tmp60, tmp61);
+  }
+
+    compiler::TNode<Uint32T> tmp62;
+    compiler::TNode<Uint32T> tmp63;
+    compiler::TNode<BigInt> tmp64;
+    ca_.Bind(&block10, &tmp62, &tmp63, &tmp64);
+  return compiler::TNode<BigInt>{tmp64};
 }
 
 compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(compiler::TNode<Uint32T> p_lowWord, compiler::TNode<Uint32T> p_highWord, bool p_signed) {
@@ -1687,7 +1793,8 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BoolT, BoolT, Int32T, Int32T, BigInt> block19(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BoolT, BoolT, Int32T, Int32T, BigInt> block20(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BoolT, BoolT, Int32T, Int32T, BigInt> block21(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BigInt> block22(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_lowWord, p_highWord);
 
   if (block0.is_used()) {
@@ -1696,10 +1803,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block0, &tmp0, &tmp1);
     compiler::TNode<Uint32T> tmp2;
     USE(tmp2);
-    tmp2 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp2 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(TNode<Uint32T>{tmp0}, TNode<Uint32T>{tmp2}));
+    tmp3 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(compiler::TNode<Uint32T>{tmp0}, compiler::TNode<Uint32T>{tmp2}));
     ca_.Branch(tmp3, &block4, &block3, tmp0, tmp1);
   }
 
@@ -1709,10 +1816,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block4, &tmp4, &tmp5);
     compiler::TNode<Uint32T> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(TNode<Uint32T>{tmp5}, TNode<Uint32T>{tmp6}));
+    tmp7 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32Equal(compiler::TNode<Uint32T>{tmp5}, compiler::TNode<Uint32T>{tmp6}));
     ca_.Branch(tmp7, &block2, &block3, tmp4, tmp5);
   }
 
@@ -1722,11 +1829,11 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block2, &tmp8, &tmp9);
     compiler::TNode<IntPtrT> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(DataViewBuiltinsFromDSLAssembler(state_).kZeroDigitBigInt()));
+    tmp10 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(DataViewBuiltinsFromDSLAssembler(state_).kZeroDigitBigInt()));
     compiler::TNode<BigInt> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).AllocateBigInt(TNode<IntPtrT>{tmp10}));
-    ca_.Goto(&block1, tmp11);
+    tmp11 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).AllocateBigInt(compiler::TNode<IntPtrT>{tmp10}));
+    ca_.Goto(&block1, tmp8, tmp9, tmp11);
   }
 
   if (block3.is_used()) {
@@ -1735,22 +1842,22 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block3, &tmp12, &tmp13);
     compiler::TNode<BoolT> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(false));
+    tmp14 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(false));
     compiler::TNode<BoolT> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(true));
+    tmp15 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
     compiler::TNode<Int32T> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp12}));
+    tmp16 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp12}));
     compiler::TNode<Int32T> tmp17;
     USE(tmp17);
-    tmp17 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp13}));
+    tmp17 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp13}));
     compiler::TNode<Uint32T> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp18 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(TNode<Uint32T>{tmp13}, TNode<Uint32T>{tmp18}));
+    tmp19 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(compiler::TNode<Uint32T>{tmp13}, compiler::TNode<Uint32T>{tmp18}));
     ca_.Branch(tmp19, &block5, &block6, tmp12, tmp13, tmp14, tmp15, tmp16, tmp17);
   }
 
@@ -1779,10 +1886,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block7, &tmp26, &tmp27, &tmp28, &tmp29, &tmp30, &tmp31);
     compiler::TNode<Int32T> tmp32;
     USE(tmp32);
-    tmp32 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp32 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp33;
     USE(tmp33);
-    tmp33 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Int32LessThan(TNode<Int32T>{tmp31}, TNode<Int32T>{tmp32}));
+    tmp33 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Int32LessThan(compiler::TNode<Int32T>{tmp31}, compiler::TNode<Int32T>{tmp32}));
     ca_.Branch(tmp33, &block10, &block11, tmp26, tmp27, tmp28, tmp29, tmp30, tmp31);
   }
 
@@ -1796,19 +1903,19 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block10, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39);
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(false));
+    tmp40 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(false));
     compiler::TNode<Int32T> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp41 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<Int32T> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(TNode<Int32T>{tmp41}, TNode<Int32T>{tmp39}));
+    tmp42 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(compiler::TNode<Int32T>{tmp41}, compiler::TNode<Int32T>{tmp39}));
     compiler::TNode<Int32T> tmp43;
     USE(tmp43);
-    tmp43 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp43 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp44;
     USE(tmp44);
-    tmp44 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(TNode<Int32T>{tmp38}, TNode<Int32T>{tmp43}));
+    tmp44 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(compiler::TNode<Int32T>{tmp38}, compiler::TNode<Int32T>{tmp43}));
     ca_.Branch(tmp44, &block13, &block14, tmp34, tmp35, tmp36, tmp40, tmp38, tmp42);
   }
 
@@ -1822,10 +1929,10 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block13, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49, &tmp50);
     compiler::TNode<Int32T> tmp51;
     USE(tmp51);
-    tmp51 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(1));
+    tmp51 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(1));
     compiler::TNode<Int32T> tmp52;
     USE(tmp52);
-    tmp52 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(TNode<Int32T>{tmp50}, TNode<Int32T>{tmp51}));
+    tmp52 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(compiler::TNode<Int32T>{tmp50}, compiler::TNode<Int32T>{tmp51}));
     ca_.Goto(&block14, tmp45, tmp46, tmp47, tmp48, tmp49, tmp52);
   }
 
@@ -1839,16 +1946,16 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block14, &tmp53, &tmp54, &tmp55, &tmp56, &tmp57, &tmp58);
     compiler::TNode<Int32T> tmp59;
     USE(tmp59);
-    tmp59 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp59 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<Int32T> tmp60;
     USE(tmp60);
-    tmp60 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(TNode<Int32T>{tmp59}, TNode<Int32T>{tmp57}));
+    tmp60 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(compiler::TNode<Int32T>{tmp59}, compiler::TNode<Int32T>{tmp57}));
     compiler::TNode<Int32T> tmp61;
     USE(tmp61);
-    tmp61 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp61 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(TNode<Int32T>{tmp58}, TNode<Int32T>{tmp61}));
+    tmp62 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(compiler::TNode<Int32T>{tmp58}, compiler::TNode<Int32T>{tmp61}));
     ca_.Branch(tmp62, &block15, &block16, tmp53, tmp54, tmp55, tmp56, tmp60, tmp58);
   }
 
@@ -1862,7 +1969,7 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block15, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68);
     compiler::TNode<BoolT> tmp69;
     USE(tmp69);
-    tmp69 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(true));
+    tmp69 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
     ca_.Goto(&block16, tmp63, tmp64, tmp69, tmp66, tmp67, tmp68);
   }
 
@@ -1887,7 +1994,7 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block11, &tmp76, &tmp77, &tmp78, &tmp79, &tmp80, &tmp81);
     compiler::TNode<BoolT> tmp82;
     USE(tmp82);
-    tmp82 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(true));
+    tmp82 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
     ca_.Goto(&block12, tmp76, tmp77, tmp82, tmp79, tmp80, tmp81);
   }
 
@@ -1912,7 +2019,7 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block8, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94);
     compiler::TNode<BoolT> tmp95;
     USE(tmp95);
-    tmp95 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool(true));
+    tmp95 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
     ca_.Goto(&block9, tmp89, tmp90, tmp95, tmp92, tmp93, tmp94);
   }
 
@@ -1949,7 +2056,7 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block17, &tmp108, &tmp109, &tmp110, &tmp111, &tmp112, &tmp113, &tmp114);
     compiler::TNode<BigInt> tmp115;
     USE(tmp115);
-    tmp115 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).CreateEmptyBigInt(TNode<BoolT>{tmp111}, DataViewBuiltinsFromDSLAssembler(state_).kTwoDigitBigInt()));
+    tmp115 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).CreateEmptyBigInt(compiler::TNode<BoolT>{tmp111}, DataViewBuiltinsFromDSLAssembler(state_).kTwoDigitBigInt()));
     ca_.Goto(&block19, tmp108, tmp109, tmp110, tmp111, tmp112, tmp113, tmp115);
   }
 
@@ -1964,7 +2071,7 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block18, &tmp116, &tmp117, &tmp118, &tmp119, &tmp120, &tmp121, &tmp122);
     compiler::TNode<BigInt> tmp123;
     USE(tmp123);
-    tmp123 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).CreateEmptyBigInt(TNode<BoolT>{tmp119}, DataViewBuiltinsFromDSLAssembler(state_).kOneDigitBigInt()));
+    tmp123 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).CreateEmptyBigInt(compiler::TNode<BoolT>{tmp119}, DataViewBuiltinsFromDSLAssembler(state_).kOneDigitBigInt()));
     ca_.Goto(&block19, tmp116, tmp117, tmp118, tmp119, tmp120, tmp121, tmp123);
   }
 
@@ -1979,11 +2086,11 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block19, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130);
     compiler::TNode<IntPtrT> tmp131;
     USE(tmp131);
-    tmp131 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATintptr(TNode<Int32T>{tmp128}));
+    tmp131 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATintptr7ATint32(compiler::TNode<Int32T>{tmp128}));
     compiler::TNode<UintPtrT> tmp132;
     USE(tmp132);
-    tmp132 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).Unsigned(TNode<IntPtrT>{tmp131}));
-    CodeStubAssembler(state_).StoreBigIntDigit(TNode<BigInt>{tmp130}, 0, TNode<UintPtrT>{tmp132});
+    tmp132 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).Unsigned(compiler::TNode<IntPtrT>{tmp131}));
+    CodeStubAssembler(state_).StoreBigIntDigit(compiler::TNode<BigInt>{tmp130}, 0, compiler::TNode<UintPtrT>{tmp132});
     ca_.Branch(tmp126, &block20, &block21, tmp124, tmp125, tmp126, tmp127, tmp128, tmp129, tmp130);
   }
 
@@ -1998,11 +2105,11 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     ca_.Bind(&block20, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137, &tmp138, &tmp139);
     compiler::TNode<IntPtrT> tmp140;
     USE(tmp140);
-    tmp140 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATintptr(TNode<Int32T>{tmp138}));
+    tmp140 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATintptr7ATint32(compiler::TNode<Int32T>{tmp138}));
     compiler::TNode<UintPtrT> tmp141;
     USE(tmp141);
-    tmp141 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).Unsigned(TNode<IntPtrT>{tmp140}));
-    CodeStubAssembler(state_).StoreBigIntDigit(TNode<BigInt>{tmp139}, 1, TNode<UintPtrT>{tmp141});
+    tmp141 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).Unsigned(compiler::TNode<IntPtrT>{tmp140}));
+    CodeStubAssembler(state_).StoreBigIntDigit(compiler::TNode<BigInt>{tmp139}, 1, compiler::TNode<UintPtrT>{tmp141});
     ca_.Goto(&block21, tmp133, tmp134, tmp135, tmp136, tmp137, tmp138, tmp139);
   }
 
@@ -2015,19 +2122,30 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigIntOn32Bit(comp
     compiler::TNode<Int32T> tmp147;
     compiler::TNode<BigInt> tmp148;
     ca_.Bind(&block21, &tmp142, &tmp143, &tmp144, &tmp145, &tmp146, &tmp147, &tmp148);
-    ca_.Goto(&block1, tmp148);
+    ca_.Goto(&block1, tmp142, tmp143, tmp148);
   }
 
-    compiler::TNode<BigInt> tmp149;
-    ca_.Bind(&block1, &tmp149);
-  return TNode<BigInt>{tmp149};
+  if (block1.is_used()) {
+    compiler::TNode<Uint32T> tmp149;
+    compiler::TNode<Uint32T> tmp150;
+    compiler::TNode<BigInt> tmp151;
+    ca_.Bind(&block1, &tmp149, &tmp150, &tmp151);
+    ca_.Goto(&block22, tmp149, tmp150, tmp151);
+  }
+
+    compiler::TNode<Uint32T> tmp152;
+    compiler::TNode<Uint32T> tmp153;
+    compiler::TNode<BigInt> tmp154;
+    ca_.Bind(&block22, &tmp152, &tmp153, &tmp154);
+  return compiler::TNode<BigInt>{tmp154};
 }
 
 compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigInt(compiler::TNode<Uint32T> p_lowWord, compiler::TNode<Uint32T> p_highWord, bool p_signed) {
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Uint32T, Uint32T, BigInt> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_lowWord, p_highWord);
 
   if (block0.is_used()) {
@@ -2047,8 +2165,8 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigInt(compiler::T
     ca_.Bind(&block2, &tmp2, &tmp3);
     compiler::TNode<BigInt> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).MakeBigIntOn64Bit(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp3}, p_signed));
-    ca_.Goto(&block1, tmp4);
+    tmp4 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).MakeBigIntOn64Bit(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp3}, p_signed));
+    ca_.Goto(&block1, tmp2, tmp3, tmp4);
   }
 
   if (block3.is_used()) {
@@ -2057,13 +2175,23 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::MakeBigInt(compiler::T
     ca_.Bind(&block3, &tmp5, &tmp6);
     compiler::TNode<BigInt> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).MakeBigIntOn32Bit(TNode<Uint32T>{tmp5}, TNode<Uint32T>{tmp6}, p_signed));
-    ca_.Goto(&block1, tmp7);
+    tmp7 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).MakeBigIntOn32Bit(compiler::TNode<Uint32T>{tmp5}, compiler::TNode<Uint32T>{tmp6}, p_signed));
+    ca_.Goto(&block1, tmp5, tmp6, tmp7);
   }
 
-    compiler::TNode<BigInt> tmp8;
-    ca_.Bind(&block1, &tmp8);
-  return TNode<BigInt>{tmp8};
+  if (block1.is_used()) {
+    compiler::TNode<Uint32T> tmp8;
+    compiler::TNode<Uint32T> tmp9;
+    compiler::TNode<BigInt> tmp10;
+    ca_.Bind(&block1, &tmp8, &tmp9, &tmp10);
+    ca_.Goto(&block5, tmp8, tmp9, tmp10);
+  }
+
+    compiler::TNode<Uint32T> tmp11;
+    compiler::TNode<Uint32T> tmp12;
+    compiler::TNode<BigInt> tmp13;
+    ca_.Bind(&block5, &tmp11, &tmp12, &tmp13);
+  return compiler::TNode<BigInt>{tmp13};
 }
 
 compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::LoadDataViewBigInt(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<BoolT> p_requestedLittleEndian, bool p_signed) {
@@ -2071,7 +2199,8 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::LoadDataViewBigInt(com
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, BigInt> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BoolT, BigInt> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -2081,73 +2210,73 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::LoadDataViewBigInt(com
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
     compiler::TNode<RawPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp1}));
+    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp1}));
     compiler::TNode<UintPtrT> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp5 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp5}));
+    tmp6 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp5}));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp6}));
+    tmp7 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp6}));
     compiler::TNode<UintPtrT> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp8}));
+    tmp9 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp8}));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp9}));
+    tmp10 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp9}));
     compiler::TNode<UintPtrT> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp11 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp11}));
+    tmp12 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp11}));
     compiler::TNode<Uint32T> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp12}));
+    tmp13 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp12}));
     compiler::TNode<UintPtrT> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(4));
+    tmp14 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(4));
     compiler::TNode<UintPtrT> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp14}));
+    tmp15 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp14}));
     compiler::TNode<Uint32T> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp15}));
+    tmp16 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp15}));
     compiler::TNode<UintPtrT> tmp17;
     USE(tmp17);
-    tmp17 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(5));
+    tmp17 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(5));
     compiler::TNode<UintPtrT> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp17}));
+    tmp18 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp17}));
     compiler::TNode<Uint32T> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp18}));
+    tmp19 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp18}));
     compiler::TNode<UintPtrT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(6));
+    tmp20 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(6));
     compiler::TNode<UintPtrT> tmp21;
     USE(tmp21);
-    tmp21 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp20}));
+    tmp21 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp20}));
     compiler::TNode<Uint32T> tmp22;
     USE(tmp22);
-    tmp22 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp21}));
+    tmp22 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp21}));
     compiler::TNode<UintPtrT> tmp23;
     USE(tmp23);
-    tmp23 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(7));
+    tmp23 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(7));
     compiler::TNode<UintPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp1}, TNode<UintPtrT>{tmp23}));
+    tmp24 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<UintPtrT>{tmp23}));
     compiler::TNode<Uint32T> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).LoadUint8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp24}));
     ca_.Branch(tmp2, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp7, tmp10, tmp13, tmp16, tmp19, tmp22, tmp25, ca_.Uninitialized<Uint32T>(), ca_.Uninitialized<Uint32T>());
   }
 
@@ -2169,58 +2298,58 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::LoadDataViewBigInt(com
     ca_.Bind(&block2, &tmp26, &tmp27, &tmp28, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39);
     compiler::TNode<Uint32T> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp40 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp33}, TNode<Uint32T>{tmp40}));
+    tmp41 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp33}, compiler::TNode<Uint32T>{tmp40}));
     compiler::TNode<Uint32T> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp42 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp43;
     USE(tmp43);
-    tmp43 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp32}, TNode<Uint32T>{tmp42}));
+    tmp43 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp32}, compiler::TNode<Uint32T>{tmp42}));
     compiler::TNode<Uint32T> tmp44;
     USE(tmp44);
-    tmp44 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp41}, TNode<Uint32T>{tmp43}));
+    tmp44 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp41}, compiler::TNode<Uint32T>{tmp43}));
     compiler::TNode<Uint32T> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp45 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp31}, TNode<Uint32T>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp31}, compiler::TNode<Uint32T>{tmp45}));
     compiler::TNode<Uint32T> tmp47;
     USE(tmp47);
-    tmp47 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp44}, TNode<Uint32T>{tmp46}));
+    tmp47 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp44}, compiler::TNode<Uint32T>{tmp46}));
     compiler::TNode<Uint32T> tmp48;
     USE(tmp48);
-    tmp48 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp47}, TNode<Uint32T>{tmp30}));
+    tmp48 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp47}, compiler::TNode<Uint32T>{tmp30}));
     compiler::TNode<Uint32T> tmp49;
     USE(tmp49);
-    tmp49 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp49 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp50;
     USE(tmp50);
-    tmp50 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp37}, TNode<Uint32T>{tmp49}));
+    tmp50 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp37}, compiler::TNode<Uint32T>{tmp49}));
     compiler::TNode<Uint32T> tmp51;
     USE(tmp51);
-    tmp51 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp51 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp52;
     USE(tmp52);
-    tmp52 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp36}, TNode<Uint32T>{tmp51}));
+    tmp52 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp36}, compiler::TNode<Uint32T>{tmp51}));
     compiler::TNode<Uint32T> tmp53;
     USE(tmp53);
-    tmp53 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp50}, TNode<Uint32T>{tmp52}));
+    tmp53 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp50}, compiler::TNode<Uint32T>{tmp52}));
     compiler::TNode<Uint32T> tmp54;
     USE(tmp54);
-    tmp54 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp54 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp55;
     USE(tmp55);
-    tmp55 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp35}, TNode<Uint32T>{tmp54}));
+    tmp55 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp35}, compiler::TNode<Uint32T>{tmp54}));
     compiler::TNode<Uint32T> tmp56;
     USE(tmp56);
-    tmp56 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp53}, TNode<Uint32T>{tmp55}));
+    tmp56 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp53}, compiler::TNode<Uint32T>{tmp55}));
     compiler::TNode<Uint32T> tmp57;
     USE(tmp57);
-    tmp57 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp56}, TNode<Uint32T>{tmp34}));
+    tmp57 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp56}, compiler::TNode<Uint32T>{tmp34}));
     ca_.Goto(&block4, tmp26, tmp27, tmp28, tmp29, tmp30, tmp31, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37, tmp48, tmp57);
   }
 
@@ -2242,58 +2371,58 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::LoadDataViewBigInt(com
     ca_.Bind(&block3, &tmp58, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71);
     compiler::TNode<Uint32T> tmp72;
     USE(tmp72);
-    tmp72 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp72 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp73;
     USE(tmp73);
-    tmp73 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp62}, TNode<Uint32T>{tmp72}));
+    tmp73 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp62}, compiler::TNode<Uint32T>{tmp72}));
     compiler::TNode<Uint32T> tmp74;
     USE(tmp74);
-    tmp74 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp74 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp75;
     USE(tmp75);
-    tmp75 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp63}, TNode<Uint32T>{tmp74}));
+    tmp75 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp63}, compiler::TNode<Uint32T>{tmp74}));
     compiler::TNode<Uint32T> tmp76;
     USE(tmp76);
-    tmp76 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp73}, TNode<Uint32T>{tmp75}));
+    tmp76 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp73}, compiler::TNode<Uint32T>{tmp75}));
     compiler::TNode<Uint32T> tmp77;
     USE(tmp77);
-    tmp77 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp77 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp78;
     USE(tmp78);
-    tmp78 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp64}, TNode<Uint32T>{tmp77}));
+    tmp78 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp64}, compiler::TNode<Uint32T>{tmp77}));
     compiler::TNode<Uint32T> tmp79;
     USE(tmp79);
-    tmp79 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp76}, TNode<Uint32T>{tmp78}));
+    tmp79 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp76}, compiler::TNode<Uint32T>{tmp78}));
     compiler::TNode<Uint32T> tmp80;
     USE(tmp80);
-    tmp80 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp79}, TNode<Uint32T>{tmp65}));
+    tmp80 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp79}, compiler::TNode<Uint32T>{tmp65}));
     compiler::TNode<Uint32T> tmp81;
     USE(tmp81);
-    tmp81 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp81 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp82;
     USE(tmp82);
-    tmp82 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp66}, TNode<Uint32T>{tmp81}));
+    tmp82 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp66}, compiler::TNode<Uint32T>{tmp81}));
     compiler::TNode<Uint32T> tmp83;
     USE(tmp83);
-    tmp83 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp83 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp84;
     USE(tmp84);
-    tmp84 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp67}, TNode<Uint32T>{tmp83}));
+    tmp84 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp67}, compiler::TNode<Uint32T>{tmp83}));
     compiler::TNode<Uint32T> tmp85;
     USE(tmp85);
-    tmp85 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp82}, TNode<Uint32T>{tmp84}));
+    tmp85 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp82}, compiler::TNode<Uint32T>{tmp84}));
     compiler::TNode<Uint32T> tmp86;
     USE(tmp86);
-    tmp86 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp86 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp87;
     USE(tmp87);
-    tmp87 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(TNode<Uint32T>{tmp68}, TNode<Uint32T>{tmp86}));
+    tmp87 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shl(compiler::TNode<Uint32T>{tmp68}, compiler::TNode<Uint32T>{tmp86}));
     compiler::TNode<Uint32T> tmp88;
     USE(tmp88);
-    tmp88 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp85}, TNode<Uint32T>{tmp87}));
+    tmp88 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp85}, compiler::TNode<Uint32T>{tmp87}));
     compiler::TNode<Uint32T> tmp89;
     USE(tmp89);
-    tmp89 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(TNode<Uint32T>{tmp88}, TNode<Uint32T>{tmp69}));
+    tmp89 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Or(compiler::TNode<Uint32T>{tmp88}, compiler::TNode<Uint32T>{tmp69}));
     ca_.Goto(&block4, tmp58, tmp59, tmp60, tmp61, tmp62, tmp63, tmp64, tmp65, tmp66, tmp67, tmp68, tmp69, tmp89, tmp80);
   }
 
@@ -2315,13 +2444,25 @@ compiler::TNode<BigInt> DataViewBuiltinsFromDSLAssembler::LoadDataViewBigInt(com
     ca_.Bind(&block4, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103);
     compiler::TNode<BigInt> tmp104;
     USE(tmp104);
-    tmp104 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).MakeBigInt(TNode<Uint32T>{tmp102}, TNode<Uint32T>{tmp103}, p_signed));
-    ca_.Goto(&block1, tmp104);
+    tmp104 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).MakeBigInt(compiler::TNode<Uint32T>{tmp102}, compiler::TNode<Uint32T>{tmp103}, p_signed));
+    ca_.Goto(&block1, tmp90, tmp91, tmp92, tmp104);
   }
 
-    compiler::TNode<BigInt> tmp105;
-    ca_.Bind(&block1, &tmp105);
-  return TNode<BigInt>{tmp105};
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp105;
+    compiler::TNode<UintPtrT> tmp106;
+    compiler::TNode<BoolT> tmp107;
+    compiler::TNode<BigInt> tmp108;
+    ca_.Bind(&block1, &tmp105, &tmp106, &tmp107, &tmp108);
+    ca_.Goto(&block5, tmp105, tmp106, tmp107, tmp108);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp109;
+    compiler::TNode<UintPtrT> tmp110;
+    compiler::TNode<BoolT> tmp111;
+    compiler::TNode<BigInt> tmp112;
+    ca_.Bind(&block5, &tmp109, &tmp110, &tmp111, &tmp112);
+  return compiler::TNode<BigInt>{tmp112};
 }
 
 compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler::TNode<Context> p_context, compiler::TNode<Object> p_receiver, compiler::TNode<Object> p_offset, compiler::TNode<Object> p_requestedLittleEndian, ElementsKind p_kind) {
@@ -2354,7 +2495,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
   compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, JSDataView, Number, BoolT, JSArrayBuffer, Float64T, UintPtrT, UintPtrT, Float64T, Float64T, UintPtrT> block35(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, JSDataView, Number, BoolT, JSArrayBuffer, Float64T, UintPtrT, UintPtrT, Float64T, Float64T, UintPtrT> block37(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, JSDataView, Number, BoolT, JSArrayBuffer, Float64T, UintPtrT, UintPtrT, Float64T, Float64T, UintPtrT> block38(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Numeric> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Numeric> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Numeric> block40(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_context, p_receiver, p_offset, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -2368,11 +2510,11 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     tmp4 = ca_.UncheckedCast<String>(DataViewBuiltinsFromDSLAssembler(state_).MakeDataViewGetterNameString(p_kind));
     compiler::TNode<JSDataView> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(TNode<Context>{tmp0}, TNode<Object>{tmp1}, TNode<String>{tmp4}));
+    tmp5 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}, compiler::TNode<String>{tmp4}));
     compiler::TNode<Number> tmp6;
     USE(tmp6);
     compiler::CodeAssemblerLabel label0(&ca_);
-    tmp6 = BaseBuiltinsFromDSLAssembler(state_).ToIndex(TNode<Object>{tmp2}, TNode<Context>{tmp0}, &label0);
+    tmp6 = BaseBuiltinsFromDSLAssembler(state_).ToIndex(compiler::TNode<Object>{tmp2}, compiler::TNode<Context>{tmp0}, &label0);
     ca_.Goto(&block4, tmp0, tmp1, tmp2, tmp3, tmp5, ca_.Uninitialized<Number>(), tmp2, tmp0, tmp6);
     if (label0.is_used()) {
       ca_.Bind(&label0);
@@ -2415,7 +2557,7 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     compiler::TNode<JSDataView> tmp28;
     compiler::TNode<Number> tmp29;
     ca_.Bind(&block3, &tmp24, &tmp25, &tmp26, &tmp27, &tmp28, &tmp29);
-    CodeStubAssembler(state_).ThrowRangeError(TNode<Context>{tmp24}, MessageTemplate::kInvalidDataViewAccessorOffset);
+    CodeStubAssembler(state_).ThrowRangeError(compiler::TNode<Context>{tmp24}, MessageTemplate::kInvalidDataViewAccessorOffset);
   }
 
   if (block2.is_used()) {
@@ -2428,13 +2570,13 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block2, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35);
     compiler::TNode<BoolT> tmp36;
     USE(tmp36);
-    tmp36 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).ToBoolean(TNode<Object>{tmp33}));
+    tmp36 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).ToBoolean(compiler::TNode<Object>{tmp33}));
     compiler::TNode<JSArrayBuffer> tmp37;
     USE(tmp37);
-    tmp37 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(TNode<JSArrayBufferView>{tmp34}));
+    tmp37 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(compiler::TNode<JSArrayBufferView>{tmp34}));
     compiler::TNode<BoolT> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(TNode<JSArrayBuffer>{tmp37}));
+    tmp38 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(compiler::TNode<JSArrayBuffer>{tmp37}));
     ca_.Branch(tmp38, &block6, &block7, tmp30, tmp31, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -2451,7 +2593,7 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     compiler::TNode<String> tmp47;
     USE(tmp47);
     tmp47 = ca_.UncheckedCast<String>(DataViewBuiltinsFromDSLAssembler(state_).MakeDataViewGetterNameString(p_kind));
-    CodeStubAssembler(state_).ThrowTypeError(TNode<Context>{tmp39}, MessageTemplate::kDetachedOperation, TNode<Object>{tmp47});
+    CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp39}, MessageTemplate::kDetachedOperation, compiler::TNode<Object>{tmp47});
   }
 
   if (block7.is_used()) {
@@ -2466,28 +2608,28 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block7, &tmp48, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55);
     compiler::TNode<Float64T> tmp56;
     USE(tmp56);
-    tmp56 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<Number>{tmp53}));
+    tmp56 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat6422UT12ATHeapNumber5ATSmi(compiler::TNode<Number>{tmp53}));
     compiler::TNode<UintPtrT> tmp57;
     USE(tmp57);
-    tmp57 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr(TNode<Float64T>{tmp56}));
+    tmp57 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr9ATfloat64(compiler::TNode<Float64T>{tmp56}));
     compiler::TNode<UintPtrT> tmp58;
     USE(tmp58);
-    tmp58 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(TNode<JSArrayBufferView>{tmp52}));
+    tmp58 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(compiler::TNode<JSArrayBufferView>{tmp52}));
     compiler::TNode<UintPtrT> tmp59;
     USE(tmp59);
-    tmp59 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(TNode<JSArrayBufferView>{tmp52}));
+    tmp59 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(compiler::TNode<JSArrayBufferView>{tmp52}));
     compiler::TNode<Float64T> tmp60;
     USE(tmp60);
-    tmp60 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<UintPtrT>{tmp59}));
+    tmp60 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat649ATuintptr(compiler::TNode<UintPtrT>{tmp59}));
     compiler::TNode<Float64T> tmp61;
     USE(tmp61);
-    tmp61 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64((DataViewBuiltinsAssembler(state_).DataViewElementSize(p_kind))));
+    tmp61 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATfloat6417ATconstexpr_int31((DataViewBuiltinsAssembler(state_).DataViewElementSize(p_kind))));
     compiler::TNode<Float64T> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64Add(TNode<Float64T>{tmp56}, TNode<Float64T>{tmp61}));
+    tmp62 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64Add(compiler::TNode<Float64T>{tmp56}, compiler::TNode<Float64T>{tmp61}));
     compiler::TNode<BoolT> tmp63;
     USE(tmp63);
-    tmp63 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Float64GreaterThan(TNode<Float64T>{tmp62}, TNode<Float64T>{tmp60}));
+    tmp63 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Float64GreaterThan(compiler::TNode<Float64T>{tmp62}, compiler::TNode<Float64T>{tmp60}));
     ca_.Branch(tmp63, &block8, &block9, tmp48, tmp49, tmp50, tmp51, tmp52, tmp53, tmp54, tmp55, tmp56, tmp57, tmp58, tmp60, tmp61);
   }
 
@@ -2506,7 +2648,7 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     compiler::TNode<Float64T> tmp75;
     compiler::TNode<Float64T> tmp76;
     ca_.Bind(&block8, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74, &tmp75, &tmp76);
-    CodeStubAssembler(state_).ThrowRangeError(TNode<Context>{tmp64}, MessageTemplate::kInvalidDataViewAccessorOffset);
+    CodeStubAssembler(state_).ThrowRangeError(compiler::TNode<Context>{tmp64}, MessageTemplate::kInvalidDataViewAccessorOffset);
   }
 
   if (block9.is_used()) {
@@ -2526,7 +2668,7 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block9, &tmp77, &tmp78, &tmp79, &tmp80, &tmp81, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86, &tmp87, &tmp88, &tmp89);
     compiler::TNode<UintPtrT> tmp90;
     USE(tmp90);
-    tmp90 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp86}, TNode<UintPtrT>{tmp87}));
+    tmp90 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp86}, compiler::TNode<UintPtrT>{tmp87}));
     if ((CodeStubAssembler(state_).ElementsKindEqual(p_kind, UINT8_ELEMENTS))) {
       ca_.Goto(&block10, tmp77, tmp78, tmp79, tmp80, tmp81, tmp82, tmp83, tmp84, tmp85, tmp86, tmp87, tmp88, tmp89, tmp90);
     } else {
@@ -2552,8 +2694,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block10, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104);
     compiler::TNode<Smi> tmp105;
     USE(tmp105);
-    tmp105 = ca_.UncheckedCast<Smi>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView8(TNode<JSArrayBuffer>{tmp98}, TNode<UintPtrT>{tmp104}, false));
-    ca_.Goto(&block1, tmp105);
+    tmp105 = ca_.UncheckedCast<Smi>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView8(compiler::TNode<JSArrayBuffer>{tmp98}, compiler::TNode<UintPtrT>{tmp104}, false));
+    ca_.Goto(&block1, tmp91, tmp92, tmp93, tmp94, tmp105);
   }
 
   if (block11.is_used()) {
@@ -2597,8 +2739,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block13, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132, &tmp133);
     compiler::TNode<Smi> tmp134;
     USE(tmp134);
-    tmp134 = ca_.UncheckedCast<Smi>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView8(TNode<JSArrayBuffer>{tmp127}, TNode<UintPtrT>{tmp133}, true));
-    ca_.Goto(&block1, tmp134);
+    tmp134 = ca_.UncheckedCast<Smi>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView8(compiler::TNode<JSArrayBuffer>{tmp127}, compiler::TNode<UintPtrT>{tmp133}, true));
+    ca_.Goto(&block1, tmp120, tmp121, tmp122, tmp123, tmp134);
   }
 
   if (block14.is_used()) {
@@ -2642,8 +2784,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block16, &tmp149, &tmp150, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162);
     compiler::TNode<Number> tmp163;
     USE(tmp163);
-    tmp163 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView16(TNode<JSArrayBuffer>{tmp156}, TNode<UintPtrT>{tmp162}, TNode<BoolT>{tmp155}, false));
-    ca_.Goto(&block1, tmp163);
+    tmp163 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView16(compiler::TNode<JSArrayBuffer>{tmp156}, compiler::TNode<UintPtrT>{tmp162}, compiler::TNode<BoolT>{tmp155}, false));
+    ca_.Goto(&block1, tmp149, tmp150, tmp151, tmp152, tmp163);
   }
 
   if (block17.is_used()) {
@@ -2687,8 +2829,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block19, &tmp178, &tmp179, &tmp180, &tmp181, &tmp182, &tmp183, &tmp184, &tmp185, &tmp186, &tmp187, &tmp188, &tmp189, &tmp190, &tmp191);
     compiler::TNode<Number> tmp192;
     USE(tmp192);
-    tmp192 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView16(TNode<JSArrayBuffer>{tmp185}, TNode<UintPtrT>{tmp191}, TNode<BoolT>{tmp184}, true));
-    ca_.Goto(&block1, tmp192);
+    tmp192 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView16(compiler::TNode<JSArrayBuffer>{tmp185}, compiler::TNode<UintPtrT>{tmp191}, compiler::TNode<BoolT>{tmp184}, true));
+    ca_.Goto(&block1, tmp178, tmp179, tmp180, tmp181, tmp192);
   }
 
   if (block20.is_used()) {
@@ -2732,8 +2874,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block22, &tmp207, &tmp208, &tmp209, &tmp210, &tmp211, &tmp212, &tmp213, &tmp214, &tmp215, &tmp216, &tmp217, &tmp218, &tmp219, &tmp220);
     compiler::TNode<Number> tmp221;
     USE(tmp221);
-    tmp221 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView32(TNode<JSArrayBuffer>{tmp214}, TNode<UintPtrT>{tmp220}, TNode<BoolT>{tmp213}, p_kind));
-    ca_.Goto(&block1, tmp221);
+    tmp221 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView32(compiler::TNode<JSArrayBuffer>{tmp214}, compiler::TNode<UintPtrT>{tmp220}, compiler::TNode<BoolT>{tmp213}, p_kind));
+    ca_.Goto(&block1, tmp207, tmp208, tmp209, tmp210, tmp221);
   }
 
   if (block23.is_used()) {
@@ -2777,8 +2919,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block25, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248, &tmp249);
     compiler::TNode<Number> tmp250;
     USE(tmp250);
-    tmp250 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView32(TNode<JSArrayBuffer>{tmp243}, TNode<UintPtrT>{tmp249}, TNode<BoolT>{tmp242}, p_kind));
-    ca_.Goto(&block1, tmp250);
+    tmp250 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView32(compiler::TNode<JSArrayBuffer>{tmp243}, compiler::TNode<UintPtrT>{tmp249}, compiler::TNode<BoolT>{tmp242}, p_kind));
+    ca_.Goto(&block1, tmp236, tmp237, tmp238, tmp239, tmp250);
   }
 
   if (block26.is_used()) {
@@ -2822,8 +2964,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block28, &tmp265, &tmp266, &tmp267, &tmp268, &tmp269, &tmp270, &tmp271, &tmp272, &tmp273, &tmp274, &tmp275, &tmp276, &tmp277, &tmp278);
     compiler::TNode<Number> tmp279;
     USE(tmp279);
-    tmp279 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView32(TNode<JSArrayBuffer>{tmp272}, TNode<UintPtrT>{tmp278}, TNode<BoolT>{tmp271}, p_kind));
-    ca_.Goto(&block1, tmp279);
+    tmp279 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataView32(compiler::TNode<JSArrayBuffer>{tmp272}, compiler::TNode<UintPtrT>{tmp278}, compiler::TNode<BoolT>{tmp271}, p_kind));
+    ca_.Goto(&block1, tmp265, tmp266, tmp267, tmp268, tmp279);
   }
 
   if (block29.is_used()) {
@@ -2867,8 +3009,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block31, &tmp294, &tmp295, &tmp296, &tmp297, &tmp298, &tmp299, &tmp300, &tmp301, &tmp302, &tmp303, &tmp304, &tmp305, &tmp306, &tmp307);
     compiler::TNode<Number> tmp308;
     USE(tmp308);
-    tmp308 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataViewFloat64(TNode<JSArrayBuffer>{tmp301}, TNode<UintPtrT>{tmp307}, TNode<BoolT>{tmp300}));
-    ca_.Goto(&block1, tmp308);
+    tmp308 = ca_.UncheckedCast<Number>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataViewFloat64(compiler::TNode<JSArrayBuffer>{tmp301}, compiler::TNode<UintPtrT>{tmp307}, compiler::TNode<BoolT>{tmp300}));
+    ca_.Goto(&block1, tmp294, tmp295, tmp296, tmp297, tmp308);
   }
 
   if (block32.is_used()) {
@@ -2912,8 +3054,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block34, &tmp323, &tmp324, &tmp325, &tmp326, &tmp327, &tmp328, &tmp329, &tmp330, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336);
     compiler::TNode<BigInt> tmp337;
     USE(tmp337);
-    tmp337 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataViewBigInt(TNode<JSArrayBuffer>{tmp330}, TNode<UintPtrT>{tmp336}, TNode<BoolT>{tmp329}, false));
-    ca_.Goto(&block1, tmp337);
+    tmp337 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataViewBigInt(compiler::TNode<JSArrayBuffer>{tmp330}, compiler::TNode<UintPtrT>{tmp336}, compiler::TNode<BoolT>{tmp329}, false));
+    ca_.Goto(&block1, tmp323, tmp324, tmp325, tmp326, tmp337);
   }
 
   if (block35.is_used()) {
@@ -2957,8 +3099,8 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     ca_.Bind(&block37, &tmp352, &tmp353, &tmp354, &tmp355, &tmp356, &tmp357, &tmp358, &tmp359, &tmp360, &tmp361, &tmp362, &tmp363, &tmp364, &tmp365);
     compiler::TNode<BigInt> tmp366;
     USE(tmp366);
-    tmp366 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataViewBigInt(TNode<JSArrayBuffer>{tmp359}, TNode<UintPtrT>{tmp365}, TNode<BoolT>{tmp358}, true));
-    ca_.Goto(&block1, tmp366);
+    tmp366 = ca_.UncheckedCast<BigInt>(DataViewBuiltinsFromDSLAssembler(state_).LoadDataViewBigInt(compiler::TNode<JSArrayBuffer>{tmp359}, compiler::TNode<UintPtrT>{tmp365}, compiler::TNode<BoolT>{tmp358}, true));
+    ca_.Goto(&block1, tmp352, tmp353, tmp354, tmp355, tmp366);
   }
 
   if (block38.is_used()) {
@@ -2977,13 +3119,27 @@ compiler::TNode<Numeric> DataViewBuiltinsFromDSLAssembler::DataViewGet(compiler:
     compiler::TNode<Float64T> tmp379;
     compiler::TNode<UintPtrT> tmp380;
     ca_.Bind(&block38, &tmp367, &tmp368, &tmp369, &tmp370, &tmp371, &tmp372, &tmp373, &tmp374, &tmp375, &tmp376, &tmp377, &tmp378, &tmp379, &tmp380);
-    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:447:7");
+    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/data-view.tq:449:7");
     CodeStubAssembler(state_).Unreachable();
   }
 
-    compiler::TNode<Numeric> tmp381;
-    ca_.Bind(&block1, &tmp381);
-  return TNode<Numeric>{tmp381};
+  if (block1.is_used()) {
+    compiler::TNode<Context> tmp381;
+    compiler::TNode<Object> tmp382;
+    compiler::TNode<Object> tmp383;
+    compiler::TNode<Object> tmp384;
+    compiler::TNode<Numeric> tmp385;
+    ca_.Bind(&block1, &tmp381, &tmp382, &tmp383, &tmp384, &tmp385);
+    ca_.Goto(&block40, tmp381, tmp382, tmp383, tmp384, tmp385);
+  }
+
+    compiler::TNode<Context> tmp386;
+    compiler::TNode<Object> tmp387;
+    compiler::TNode<Object> tmp388;
+    compiler::TNode<Object> tmp389;
+    compiler::TNode<Numeric> tmp390;
+    ca_.Bind(&block40, &tmp386, &tmp387, &tmp388, &tmp389, &tmp390);
+  return compiler::TNode<Numeric>{tmp390};
 }
 
 TF_BUILTIN(DataViewPrototypeGetUint8, CodeStubAssembler) {
@@ -3012,10 +3168,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3025,10 +3181,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3060,7 +3216,7 @@ USE(parameter1);
     tmp18 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
     compiler::TNode<Numeric> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp15}, TNode<Object>{tmp16}, TNode<Object>{tmp17}, TNode<Object>{tmp18}, UINT8_ELEMENTS));
+    tmp19 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp15}, compiler::TNode<Object>{tmp16}, compiler::TNode<Object>{tmp17}, compiler::TNode<Object>{tmp18}, UINT8_ELEMENTS));
     arguments->PopAndReturn(tmp19);
   }
 }
@@ -3091,10 +3247,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3104,10 +3260,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3139,7 +3295,7 @@ USE(parameter1);
     tmp18 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
     compiler::TNode<Numeric> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp15}, TNode<Object>{tmp16}, TNode<Object>{tmp17}, TNode<Object>{tmp18}, INT8_ELEMENTS));
+    tmp19 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp15}, compiler::TNode<Object>{tmp16}, compiler::TNode<Object>{tmp17}, compiler::TNode<Object>{tmp18}, INT8_ELEMENTS));
     arguments->PopAndReturn(tmp19);
   }
 }
@@ -3174,10 +3330,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3187,10 +3343,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3222,10 +3378,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -3236,10 +3392,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -3271,7 +3427,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, UINT16_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, UINT16_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -3306,10 +3462,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3319,10 +3475,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3354,10 +3510,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -3368,10 +3524,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -3403,7 +3559,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, INT16_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, INT16_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -3438,10 +3594,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3451,10 +3607,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3486,10 +3642,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -3500,10 +3656,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -3535,7 +3691,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, UINT32_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, UINT32_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -3570,10 +3726,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3583,10 +3739,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3618,10 +3774,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -3632,10 +3788,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -3667,7 +3823,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, INT32_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, INT32_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -3702,10 +3858,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3715,10 +3871,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3750,10 +3906,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -3764,10 +3920,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -3799,7 +3955,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, FLOAT32_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, FLOAT32_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -3834,10 +3990,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3847,10 +4003,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -3882,10 +4038,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -3896,10 +4052,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -3931,7 +4087,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, FLOAT64_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, FLOAT64_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -3966,10 +4122,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -3979,10 +4135,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -4014,10 +4170,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -4028,10 +4184,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -4063,7 +4219,7 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, BIGUINT64_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, BIGUINT64_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
@@ -4098,10 +4254,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -4111,10 +4267,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -4146,10 +4302,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -4160,10 +4316,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -4195,14 +4351,15 @@ USE(parameter1);
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
     compiler::TNode<Numeric> tmp38;
     USE(tmp38);
-    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, BIGINT64_ELEMENTS));
+    tmp38 = ca_.UncheckedCast<Numeric>(DataViewBuiltinsFromDSLAssembler(state_).DataViewGet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, BIGINT64_ELEMENTS));
     arguments->PopAndReturn(tmp38);
   }
 }
 
 void DataViewBuiltinsFromDSLAssembler::StoreDataView8(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<Uint32T> p_value) {
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_value);
 
   if (block0.is_used()) {
@@ -4212,18 +4369,29 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView8(compiler::TNode<JSArrayBuf
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
     compiler::TNode<RawPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp3 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp4 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp4}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp3}, TNode<UintPtrT>{tmp1}, TNode<Uint32T>{tmp5});
-    ca_.Goto(&block1);
+    tmp5 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp4}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp3}, compiler::TNode<UintPtrT>{tmp1}, compiler::TNode<Uint32T>{tmp5});
+    ca_.Goto(&block1, tmp0, tmp1, tmp2);
   }
 
-    ca_.Bind(&block1);
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp6;
+    compiler::TNode<UintPtrT> tmp7;
+    compiler::TNode<Uint32T> tmp8;
+    ca_.Bind(&block1, &tmp6, &tmp7, &tmp8);
+    ca_.Goto(&block2, tmp6, tmp7, tmp8);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp9;
+    compiler::TNode<UintPtrT> tmp10;
+    compiler::TNode<Uint32T> tmp11;
+    ca_.Bind(&block2, &tmp9, &tmp10, &tmp11);
 }
 
 void DataViewBuiltinsFromDSLAssembler::StoreDataView16(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<Uint32T> p_value, compiler::TNode<BoolT> p_requestedLittleEndian) {
@@ -4231,7 +4399,8 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView16(compiler::TNode<JSArrayBu
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_value, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -4242,25 +4411,25 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView16(compiler::TNode<JSArrayBu
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
     compiler::TNode<RawPtrT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp4 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp5 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp5}));
+    tmp6 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp5}));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp7 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp7}));
     compiler::TNode<Uint32T> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp9 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp8}, TNode<Uint32T>{tmp9}));
+    tmp10 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp8}, compiler::TNode<Uint32T>{tmp9}));
     ca_.Branch(tmp3, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp6, tmp10);
   }
 
@@ -4273,14 +4442,14 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView16(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp16;
     compiler::TNode<Uint32T> tmp17;
     ca_.Bind(&block2, &tmp11, &tmp12, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17);
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp15}, TNode<UintPtrT>{tmp12}, TNode<Uint32T>{tmp16});
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp15}, compiler::TNode<UintPtrT>{tmp12}, compiler::TNode<Uint32T>{tmp16});
     compiler::TNode<UintPtrT> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp18 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp12}, TNode<UintPtrT>{tmp18}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp15}, TNode<UintPtrT>{tmp19}, TNode<Uint32T>{tmp17});
+    tmp19 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp12}, compiler::TNode<UintPtrT>{tmp18}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp15}, compiler::TNode<UintPtrT>{tmp19}, compiler::TNode<Uint32T>{tmp17});
     ca_.Goto(&block4, tmp11, tmp12, tmp13, tmp14, tmp15, tmp16, tmp17);
   }
 
@@ -4293,14 +4462,14 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView16(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp25;
     compiler::TNode<Uint32T> tmp26;
     ca_.Bind(&block3, &tmp20, &tmp21, &tmp22, &tmp23, &tmp24, &tmp25, &tmp26);
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp24}, TNode<UintPtrT>{tmp21}, TNode<Uint32T>{tmp26});
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp24}, compiler::TNode<UintPtrT>{tmp21}, compiler::TNode<Uint32T>{tmp26});
     compiler::TNode<UintPtrT> tmp27;
     USE(tmp27);
-    tmp27 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp27 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp21}, TNode<UintPtrT>{tmp27}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp24}, TNode<UintPtrT>{tmp28}, TNode<Uint32T>{tmp25});
+    tmp28 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp21}, compiler::TNode<UintPtrT>{tmp27}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp24}, compiler::TNode<UintPtrT>{tmp28}, compiler::TNode<Uint32T>{tmp25});
     ca_.Goto(&block4, tmp20, tmp21, tmp22, tmp23, tmp24, tmp25, tmp26);
   }
 
@@ -4313,10 +4482,23 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView16(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp34;
     compiler::TNode<Uint32T> tmp35;
     ca_.Bind(&block4, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35);
-    ca_.Goto(&block1);
+    ca_.Goto(&block1, tmp29, tmp30, tmp31, tmp32);
   }
 
-    ca_.Bind(&block1);
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp36;
+    compiler::TNode<UintPtrT> tmp37;
+    compiler::TNode<Uint32T> tmp38;
+    compiler::TNode<BoolT> tmp39;
+    ca_.Bind(&block1, &tmp36, &tmp37, &tmp38, &tmp39);
+    ca_.Goto(&block5, tmp36, tmp37, tmp38, tmp39);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp40;
+    compiler::TNode<UintPtrT> tmp41;
+    compiler::TNode<Uint32T> tmp42;
+    compiler::TNode<BoolT> tmp43;
+    ca_.Bind(&block5, &tmp40, &tmp41, &tmp42, &tmp43);
 }
 
 void DataViewBuiltinsFromDSLAssembler::StoreDataView32(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<Uint32T> p_value, compiler::TNode<BoolT> p_requestedLittleEndian) {
@@ -4324,7 +4506,8 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView32(compiler::TNode<JSArrayBu
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, BoolT> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_value, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -4335,43 +4518,43 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView32(compiler::TNode<JSArrayBu
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
     compiler::TNode<RawPtrT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp4 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp5 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp5}));
+    tmp6 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp5}));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp7 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp7}));
     compiler::TNode<Uint32T> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp9 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp8}, TNode<Uint32T>{tmp9}));
+    tmp10 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp8}, compiler::TNode<Uint32T>{tmp9}));
     compiler::TNode<Uint32T> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp11 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp11}));
+    tmp12 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp11}));
     compiler::TNode<Uint32T> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp13 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp12}, TNode<Uint32T>{tmp13}));
+    tmp14 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp12}, compiler::TNode<Uint32T>{tmp13}));
     compiler::TNode<Uint32T> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp15 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp15}));
+    tmp16 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp15}));
     ca_.Branch(tmp3, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp6, tmp10, tmp14, tmp16);
   }
 
@@ -4386,28 +4569,28 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView32(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp24;
     compiler::TNode<Uint32T> tmp25;
     ca_.Bind(&block2, &tmp17, &tmp18, &tmp19, &tmp20, &tmp21, &tmp22, &tmp23, &tmp24, &tmp25);
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp21}, TNode<UintPtrT>{tmp18}, TNode<Uint32T>{tmp22});
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp21}, compiler::TNode<UintPtrT>{tmp18}, compiler::TNode<Uint32T>{tmp22});
     compiler::TNode<UintPtrT> tmp26;
     USE(tmp26);
-    tmp26 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp26 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp27;
     USE(tmp27);
-    tmp27 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp18}, TNode<UintPtrT>{tmp26}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp21}, TNode<UintPtrT>{tmp27}, TNode<Uint32T>{tmp23});
+    tmp27 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp18}, compiler::TNode<UintPtrT>{tmp26}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp21}, compiler::TNode<UintPtrT>{tmp27}, compiler::TNode<Uint32T>{tmp23});
     compiler::TNode<UintPtrT> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp28 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp29;
     USE(tmp29);
-    tmp29 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp18}, TNode<UintPtrT>{tmp28}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp21}, TNode<UintPtrT>{tmp29}, TNode<Uint32T>{tmp24});
+    tmp29 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp18}, compiler::TNode<UintPtrT>{tmp28}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp21}, compiler::TNode<UintPtrT>{tmp29}, compiler::TNode<Uint32T>{tmp24});
     compiler::TNode<UintPtrT> tmp30;
     USE(tmp30);
-    tmp30 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp30 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp31;
     USE(tmp31);
-    tmp31 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp18}, TNode<UintPtrT>{tmp30}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp21}, TNode<UintPtrT>{tmp31}, TNode<Uint32T>{tmp25});
+    tmp31 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp18}, compiler::TNode<UintPtrT>{tmp30}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp21}, compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<Uint32T>{tmp25});
     ca_.Goto(&block4, tmp17, tmp18, tmp19, tmp20, tmp21, tmp22, tmp23, tmp24, tmp25);
   }
 
@@ -4422,28 +4605,28 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView32(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp39;
     compiler::TNode<Uint32T> tmp40;
     ca_.Bind(&block3, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40);
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp36}, TNode<UintPtrT>{tmp33}, TNode<Uint32T>{tmp40});
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp36}, compiler::TNode<UintPtrT>{tmp33}, compiler::TNode<Uint32T>{tmp40});
     compiler::TNode<UintPtrT> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp41 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp33}, TNode<UintPtrT>{tmp41}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp36}, TNode<UintPtrT>{tmp42}, TNode<Uint32T>{tmp39});
+    tmp42 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp33}, compiler::TNode<UintPtrT>{tmp41}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp36}, compiler::TNode<UintPtrT>{tmp42}, compiler::TNode<Uint32T>{tmp39});
     compiler::TNode<UintPtrT> tmp43;
     USE(tmp43);
-    tmp43 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp43 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp44;
     USE(tmp44);
-    tmp44 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp33}, TNode<UintPtrT>{tmp43}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp36}, TNode<UintPtrT>{tmp44}, TNode<Uint32T>{tmp38});
+    tmp44 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp33}, compiler::TNode<UintPtrT>{tmp43}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp36}, compiler::TNode<UintPtrT>{tmp44}, compiler::TNode<Uint32T>{tmp38});
     compiler::TNode<UintPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp45 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp33}, TNode<UintPtrT>{tmp45}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp36}, TNode<UintPtrT>{tmp46}, TNode<Uint32T>{tmp37});
+    tmp46 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp33}, compiler::TNode<UintPtrT>{tmp45}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp36}, compiler::TNode<UintPtrT>{tmp46}, compiler::TNode<Uint32T>{tmp37});
     ca_.Goto(&block4, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37, tmp38, tmp39, tmp40);
   }
 
@@ -4458,10 +4641,23 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView32(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp54;
     compiler::TNode<Uint32T> tmp55;
     ca_.Bind(&block4, &tmp47, &tmp48, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55);
-    ca_.Goto(&block1);
+    ca_.Goto(&block1, tmp47, tmp48, tmp49, tmp50);
   }
 
-    ca_.Bind(&block1);
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp56;
+    compiler::TNode<UintPtrT> tmp57;
+    compiler::TNode<Uint32T> tmp58;
+    compiler::TNode<BoolT> tmp59;
+    ca_.Bind(&block1, &tmp56, &tmp57, &tmp58, &tmp59);
+    ca_.Goto(&block5, tmp56, tmp57, tmp58, tmp59);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp60;
+    compiler::TNode<UintPtrT> tmp61;
+    compiler::TNode<Uint32T> tmp62;
+    compiler::TNode<BoolT> tmp63;
+    ca_.Bind(&block5, &tmp60, &tmp61, &tmp62, &tmp63);
 }
 
 void DataViewBuiltinsFromDSLAssembler::StoreDataView64(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<Uint32T> p_lowWord, compiler::TNode<Uint32T> p_highWord, compiler::TNode<BoolT> p_requestedLittleEndian) {
@@ -4469,7 +4665,8 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView64(compiler::TNode<JSArrayBu
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, Uint32T, BoolT, RawPtrT, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, Uint32T, BoolT> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, Uint32T, Uint32T, BoolT> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_lowWord, p_highWord, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -4481,79 +4678,79 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView64(compiler::TNode<JSArrayBu
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4);
     compiler::TNode<RawPtrT> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(TNode<JSArrayBuffer>{tmp0}));
+    tmp5 = ca_.UncheckedCast<RawPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferBackingStore(compiler::TNode<JSArrayBuffer>{tmp0}));
     compiler::TNode<Uint32T> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp6}));
+    tmp7 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp6}));
     compiler::TNode<Uint32T> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp8 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp8}));
+    tmp9 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp8}));
     compiler::TNode<Uint32T> tmp10;
     USE(tmp10);
-    tmp10 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp10 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp11;
     USE(tmp11);
-    tmp11 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp9}, TNode<Uint32T>{tmp10}));
+    tmp11 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp9}, compiler::TNode<Uint32T>{tmp10}));
     compiler::TNode<Uint32T> tmp12;
     USE(tmp12);
-    tmp12 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp12 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp13;
     USE(tmp13);
-    tmp13 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp12}));
+    tmp13 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp12}));
     compiler::TNode<Uint32T> tmp14;
     USE(tmp14);
-    tmp14 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp14 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp15;
     USE(tmp15);
-    tmp15 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp13}, TNode<Uint32T>{tmp14}));
+    tmp15 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp13}, compiler::TNode<Uint32T>{tmp14}));
     compiler::TNode<Uint32T> tmp16;
     USE(tmp16);
-    tmp16 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp16 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp17;
     USE(tmp17);
-    tmp17 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp2}, TNode<Uint32T>{tmp16}));
+    tmp17 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp2}, compiler::TNode<Uint32T>{tmp16}));
     compiler::TNode<Uint32T> tmp18;
     USE(tmp18);
-    tmp18 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp18 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp3}, TNode<Uint32T>{tmp18}));
+    tmp19 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp3}, compiler::TNode<Uint32T>{tmp18}));
     compiler::TNode<Uint32T> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(8));
+    tmp20 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(8));
     compiler::TNode<Uint32T> tmp21;
     USE(tmp21);
-    tmp21 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp3}, TNode<Uint32T>{tmp20}));
+    tmp21 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp3}, compiler::TNode<Uint32T>{tmp20}));
     compiler::TNode<Uint32T> tmp22;
     USE(tmp22);
-    tmp22 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp22 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp23;
     USE(tmp23);
-    tmp23 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp21}, TNode<Uint32T>{tmp22}));
+    tmp23 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp21}, compiler::TNode<Uint32T>{tmp22}));
     compiler::TNode<Uint32T> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(16));
+    tmp24 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(16));
     compiler::TNode<Uint32T> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp3}, TNode<Uint32T>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp3}, compiler::TNode<Uint32T>{tmp24}));
     compiler::TNode<Uint32T> tmp26;
     USE(tmp26);
-    tmp26 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0xFF));
+    tmp26 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0xFF));
     compiler::TNode<Uint32T> tmp27;
     USE(tmp27);
-    tmp27 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(TNode<Uint32T>{tmp25}, TNode<Uint32T>{tmp26}));
+    tmp27 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32And(compiler::TNode<Uint32T>{tmp25}, compiler::TNode<Uint32T>{tmp26}));
     compiler::TNode<Uint32T> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(24));
+    tmp28 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(24));
     compiler::TNode<Uint32T> tmp29;
     USE(tmp29);
-    tmp29 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(TNode<Uint32T>{tmp3}, TNode<Uint32T>{tmp28}));
+    tmp29 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Word32Shr(compiler::TNode<Uint32T>{tmp3}, compiler::TNode<Uint32T>{tmp28}));
     ca_.Branch(tmp4, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp5, tmp7, tmp11, tmp15, tmp17, tmp19, tmp23, tmp27, tmp29);
   }
 
@@ -4573,56 +4770,56 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView64(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp42;
     compiler::TNode<Uint32T> tmp43;
     ca_.Bind(&block2, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43);
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp31}, TNode<Uint32T>{tmp36});
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<Uint32T>{tmp36});
     compiler::TNode<UintPtrT> tmp44;
     USE(tmp44);
-    tmp44 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp44 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp44}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp45}, TNode<Uint32T>{tmp37});
+    tmp45 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp44}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp45}, compiler::TNode<Uint32T>{tmp37});
     compiler::TNode<UintPtrT> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp46 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp47;
     USE(tmp47);
-    tmp47 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp46}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp47}, TNode<Uint32T>{tmp38});
+    tmp47 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp46}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp47}, compiler::TNode<Uint32T>{tmp38});
     compiler::TNode<UintPtrT> tmp48;
     USE(tmp48);
-    tmp48 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp48 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp49;
     USE(tmp49);
-    tmp49 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp48}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp49}, TNode<Uint32T>{tmp39});
+    tmp49 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp48}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp49}, compiler::TNode<Uint32T>{tmp39});
     compiler::TNode<UintPtrT> tmp50;
     USE(tmp50);
-    tmp50 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(4));
+    tmp50 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(4));
     compiler::TNode<UintPtrT> tmp51;
     USE(tmp51);
-    tmp51 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp50}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp51}, TNode<Uint32T>{tmp40});
+    tmp51 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp50}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp51}, compiler::TNode<Uint32T>{tmp40});
     compiler::TNode<UintPtrT> tmp52;
     USE(tmp52);
-    tmp52 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(5));
+    tmp52 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(5));
     compiler::TNode<UintPtrT> tmp53;
     USE(tmp53);
-    tmp53 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp52}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp53}, TNode<Uint32T>{tmp41});
+    tmp53 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp52}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp53}, compiler::TNode<Uint32T>{tmp41});
     compiler::TNode<UintPtrT> tmp54;
     USE(tmp54);
-    tmp54 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(6));
+    tmp54 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(6));
     compiler::TNode<UintPtrT> tmp55;
     USE(tmp55);
-    tmp55 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp54}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp55}, TNode<Uint32T>{tmp42});
+    tmp55 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp54}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp55}, compiler::TNode<Uint32T>{tmp42});
     compiler::TNode<UintPtrT> tmp56;
     USE(tmp56);
-    tmp56 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(7));
+    tmp56 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(7));
     compiler::TNode<UintPtrT> tmp57;
     USE(tmp57);
-    tmp57 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp31}, TNode<UintPtrT>{tmp56}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp35}, TNode<UintPtrT>{tmp57}, TNode<Uint32T>{tmp43});
+    tmp57 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp31}, compiler::TNode<UintPtrT>{tmp56}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp35}, compiler::TNode<UintPtrT>{tmp57}, compiler::TNode<Uint32T>{tmp43});
     ca_.Goto(&block4, tmp30, tmp31, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37, tmp38, tmp39, tmp40, tmp41, tmp42, tmp43);
   }
 
@@ -4642,56 +4839,56 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView64(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp70;
     compiler::TNode<Uint32T> tmp71;
     ca_.Bind(&block3, &tmp58, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71);
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp59}, TNode<Uint32T>{tmp71});
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<Uint32T>{tmp71});
     compiler::TNode<UintPtrT> tmp72;
     USE(tmp72);
-    tmp72 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(1));
+    tmp72 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(1));
     compiler::TNode<UintPtrT> tmp73;
     USE(tmp73);
-    tmp73 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp72}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp73}, TNode<Uint32T>{tmp70});
+    tmp73 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp72}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp73}, compiler::TNode<Uint32T>{tmp70});
     compiler::TNode<UintPtrT> tmp74;
     USE(tmp74);
-    tmp74 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp74 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(2));
     compiler::TNode<UintPtrT> tmp75;
     USE(tmp75);
-    tmp75 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp74}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp75}, TNode<Uint32T>{tmp69});
+    tmp75 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp74}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp75}, compiler::TNode<Uint32T>{tmp69});
     compiler::TNode<UintPtrT> tmp76;
     USE(tmp76);
-    tmp76 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(3));
+    tmp76 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(3));
     compiler::TNode<UintPtrT> tmp77;
     USE(tmp77);
-    tmp77 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp76}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp77}, TNode<Uint32T>{tmp68});
+    tmp77 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp76}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp77}, compiler::TNode<Uint32T>{tmp68});
     compiler::TNode<UintPtrT> tmp78;
     USE(tmp78);
-    tmp78 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(4));
+    tmp78 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(4));
     compiler::TNode<UintPtrT> tmp79;
     USE(tmp79);
-    tmp79 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp78}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp79}, TNode<Uint32T>{tmp67});
+    tmp79 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp78}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp79}, compiler::TNode<Uint32T>{tmp67});
     compiler::TNode<UintPtrT> tmp80;
     USE(tmp80);
-    tmp80 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(5));
+    tmp80 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(5));
     compiler::TNode<UintPtrT> tmp81;
     USE(tmp81);
-    tmp81 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp80}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp81}, TNode<Uint32T>{tmp66});
+    tmp81 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp80}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp81}, compiler::TNode<Uint32T>{tmp66});
     compiler::TNode<UintPtrT> tmp82;
     USE(tmp82);
-    tmp82 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(6));
+    tmp82 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(6));
     compiler::TNode<UintPtrT> tmp83;
     USE(tmp83);
-    tmp83 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp82}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp83}, TNode<Uint32T>{tmp65});
+    tmp83 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp82}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp83}, compiler::TNode<Uint32T>{tmp65});
     compiler::TNode<UintPtrT> tmp84;
     USE(tmp84);
-    tmp84 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(7));
+    tmp84 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(7));
     compiler::TNode<UintPtrT> tmp85;
     USE(tmp85);
-    tmp85 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp59}, TNode<UintPtrT>{tmp84}));
-    DataViewBuiltinsAssembler(state_).StoreWord8(TNode<RawPtrT>{tmp63}, TNode<UintPtrT>{tmp85}, TNode<Uint32T>{tmp64});
+    tmp85 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp59}, compiler::TNode<UintPtrT>{tmp84}));
+    DataViewBuiltinsAssembler(state_).StoreWord8(compiler::TNode<RawPtrT>{tmp63}, compiler::TNode<UintPtrT>{tmp85}, compiler::TNode<Uint32T>{tmp64});
     ca_.Goto(&block4, tmp58, tmp59, tmp60, tmp61, tmp62, tmp63, tmp64, tmp65, tmp66, tmp67, tmp68, tmp69, tmp70, tmp71);
   }
 
@@ -4711,26 +4908,42 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataView64(compiler::TNode<JSArrayBu
     compiler::TNode<Uint32T> tmp98;
     compiler::TNode<Uint32T> tmp99;
     ca_.Bind(&block4, &tmp86, &tmp87, &tmp88, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99);
-    ca_.Goto(&block1);
+    ca_.Goto(&block1, tmp86, tmp87, tmp88, tmp89, tmp90);
   }
 
-    ca_.Bind(&block1);
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp100;
+    compiler::TNode<UintPtrT> tmp101;
+    compiler::TNode<Uint32T> tmp102;
+    compiler::TNode<Uint32T> tmp103;
+    compiler::TNode<BoolT> tmp104;
+    ca_.Bind(&block1, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104);
+    ca_.Goto(&block5, tmp100, tmp101, tmp102, tmp103, tmp104);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp105;
+    compiler::TNode<UintPtrT> tmp106;
+    compiler::TNode<Uint32T> tmp107;
+    compiler::TNode<Uint32T> tmp108;
+    compiler::TNode<BoolT> tmp109;
+    ca_.Bind(&block5, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109);
 }
 
 void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArrayBuffer> p_buffer, compiler::TNode<UintPtrT> p_offset, compiler::TNode<BigInt> p_bigIntValue, compiler::TNode<BoolT> p_requestedLittleEndian) {
   compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block7(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block8(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block6(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block9(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block11(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block12(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, UintPtrT, UintPtrT, Uint32T, Uint32T> block10(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block7(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block8(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block6(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block9(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block11(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block12(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT, Uint32T, Uint32T, Uint32T, Uint32T> block10(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<JSArrayBuffer, UintPtrT, BigInt, BoolT> block13(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_buffer, p_offset, p_bigIntValue, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -4739,24 +4952,24 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<BigInt> tmp2;
     compiler::TNode<BoolT> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    compiler::TNode<UintPtrT> tmp4;
+    compiler::TNode<Uint32T> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<UintPtrT>(DataViewBuiltinsAssembler(state_).DataViewDecodeBigIntLength(TNode<BigInt>{tmp2}));
-    compiler::TNode<UintPtrT> tmp5;
+    tmp4 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).DataViewDecodeBigIntLength(compiler::TNode<BigInt>{tmp2}));
+    compiler::TNode<Uint32T> tmp5;
     USE(tmp5);
-    tmp5 = ca_.UncheckedCast<UintPtrT>(DataViewBuiltinsAssembler(state_).DataViewDecodeBigIntSign(TNode<BigInt>{tmp2}));
+    tmp5 = ca_.UncheckedCast<Uint32T>(DataViewBuiltinsAssembler(state_).DataViewDecodeBigIntSign(compiler::TNode<BigInt>{tmp2}));
     compiler::TNode<Uint32T> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp6 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<Uint32T> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
-    compiler::TNode<UintPtrT> tmp8;
+    tmp7 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
+    compiler::TNode<Uint32T> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(0));
+    tmp8 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp9;
     USE(tmp9);
-    tmp9 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).WordNotEqual(TNode<UintPtrT>{tmp4}, TNode<UintPtrT>{tmp8}));
+    tmp9 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(compiler::TNode<Uint32T>{tmp4}, compiler::TNode<Uint32T>{tmp8}));
     ca_.Branch(tmp9, &block2, &block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp5, tmp6, tmp7);
   }
 
@@ -4765,8 +4978,8 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp11;
     compiler::TNode<BigInt> tmp12;
     compiler::TNode<BoolT> tmp13;
-    compiler::TNode<UintPtrT> tmp14;
-    compiler::TNode<UintPtrT> tmp15;
+    compiler::TNode<Uint32T> tmp14;
+    compiler::TNode<Uint32T> tmp15;
     compiler::TNode<Uint32T> tmp16;
     compiler::TNode<Uint32T> tmp17;
     ca_.Bind(&block2, &tmp10, &tmp11, &tmp12, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17);
@@ -4782,26 +4995,26 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp19;
     compiler::TNode<BigInt> tmp20;
     compiler::TNode<BoolT> tmp21;
-    compiler::TNode<UintPtrT> tmp22;
-    compiler::TNode<UintPtrT> tmp23;
+    compiler::TNode<Uint32T> tmp22;
+    compiler::TNode<Uint32T> tmp23;
     compiler::TNode<Uint32T> tmp24;
     compiler::TNode<Uint32T> tmp25;
     ca_.Bind(&block4, &tmp18, &tmp19, &tmp20, &tmp21, &tmp22, &tmp23, &tmp24, &tmp25);
     compiler::TNode<UintPtrT> tmp26;
     USE(tmp26);
-    tmp26 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadBigIntDigit(TNode<BigInt>{tmp20}, 0));
+    tmp26 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadBigIntDigit(compiler::TNode<BigInt>{tmp20}, 0));
     compiler::TNode<Uint32T> tmp27;
     USE(tmp27);
-    tmp27 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint32(TNode<UintPtrT>{tmp26}));
+    tmp27 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint329ATuintptr(compiler::TNode<UintPtrT>{tmp26}));
     compiler::TNode<UintPtrT> tmp28;
     USE(tmp28);
-    tmp28 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(32));
+    tmp28 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr17ATconstexpr_int31(32));
     compiler::TNode<UintPtrT> tmp29;
     USE(tmp29);
-    tmp29 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).WordShr(TNode<UintPtrT>{tmp26}, TNode<UintPtrT>{tmp28}));
+    tmp29 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).WordShr(compiler::TNode<UintPtrT>{tmp26}, compiler::TNode<UintPtrT>{tmp28}));
     compiler::TNode<Uint32T> tmp30;
     USE(tmp30);
-    tmp30 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint32(TNode<UintPtrT>{tmp29}));
+    tmp30 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint329ATuintptr(compiler::TNode<UintPtrT>{tmp29}));
     ca_.Goto(&block6, tmp18, tmp19, tmp20, tmp21, tmp22, tmp23, tmp27, tmp30);
   }
 
@@ -4810,23 +5023,23 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp32;
     compiler::TNode<BigInt> tmp33;
     compiler::TNode<BoolT> tmp34;
-    compiler::TNode<UintPtrT> tmp35;
-    compiler::TNode<UintPtrT> tmp36;
+    compiler::TNode<Uint32T> tmp35;
+    compiler::TNode<Uint32T> tmp36;
     compiler::TNode<Uint32T> tmp37;
     compiler::TNode<Uint32T> tmp38;
     ca_.Bind(&block5, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38);
     compiler::TNode<UintPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadBigIntDigit(TNode<BigInt>{tmp33}, 0));
+    tmp39 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadBigIntDigit(compiler::TNode<BigInt>{tmp33}, 0));
     compiler::TNode<Uint32T> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint32(TNode<UintPtrT>{tmp39}));
-    compiler::TNode<UintPtrT> tmp41;
+    tmp40 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint329ATuintptr(compiler::TNode<UintPtrT>{tmp39}));
+    compiler::TNode<Uint32T> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(2));
+    tmp41 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).UintPtrGreaterThanOrEqual(TNode<UintPtrT>{tmp35}, TNode<UintPtrT>{tmp41}));
+    tmp42 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Uint32GreaterThanOrEqual(compiler::TNode<Uint32T>{tmp35}, compiler::TNode<Uint32T>{tmp41}));
     ca_.Branch(tmp42, &block7, &block8, tmp31, tmp32, tmp33, tmp34, tmp35, tmp36, tmp40, tmp38);
   }
 
@@ -4835,17 +5048,17 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp44;
     compiler::TNode<BigInt> tmp45;
     compiler::TNode<BoolT> tmp46;
-    compiler::TNode<UintPtrT> tmp47;
-    compiler::TNode<UintPtrT> tmp48;
+    compiler::TNode<Uint32T> tmp47;
+    compiler::TNode<Uint32T> tmp48;
     compiler::TNode<Uint32T> tmp49;
     compiler::TNode<Uint32T> tmp50;
     ca_.Bind(&block7, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49, &tmp50);
     compiler::TNode<UintPtrT> tmp51;
     USE(tmp51);
-    tmp51 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadBigIntDigit(TNode<BigInt>{tmp45}, 1));
+    tmp51 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadBigIntDigit(compiler::TNode<BigInt>{tmp45}, 1));
     compiler::TNode<Uint32T> tmp52;
     USE(tmp52);
-    tmp52 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint32(TNode<UintPtrT>{tmp51}));
+    tmp52 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATuint329ATuintptr(compiler::TNode<UintPtrT>{tmp51}));
     ca_.Goto(&block8, tmp43, tmp44, tmp45, tmp46, tmp47, tmp48, tmp49, tmp52);
   }
 
@@ -4854,8 +5067,8 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp54;
     compiler::TNode<BigInt> tmp55;
     compiler::TNode<BoolT> tmp56;
-    compiler::TNode<UintPtrT> tmp57;
-    compiler::TNode<UintPtrT> tmp58;
+    compiler::TNode<Uint32T> tmp57;
+    compiler::TNode<Uint32T> tmp58;
     compiler::TNode<Uint32T> tmp59;
     compiler::TNode<Uint32T> tmp60;
     ca_.Bind(&block8, &tmp53, &tmp54, &tmp55, &tmp56, &tmp57, &tmp58, &tmp59, &tmp60);
@@ -4867,8 +5080,8 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp62;
     compiler::TNode<BigInt> tmp63;
     compiler::TNode<BoolT> tmp64;
-    compiler::TNode<UintPtrT> tmp65;
-    compiler::TNode<UintPtrT> tmp66;
+    compiler::TNode<Uint32T> tmp65;
+    compiler::TNode<Uint32T> tmp66;
     compiler::TNode<Uint32T> tmp67;
     compiler::TNode<Uint32T> tmp68;
     ca_.Bind(&block6, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68);
@@ -4880,17 +5093,17 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp70;
     compiler::TNode<BigInt> tmp71;
     compiler::TNode<BoolT> tmp72;
-    compiler::TNode<UintPtrT> tmp73;
-    compiler::TNode<UintPtrT> tmp74;
+    compiler::TNode<Uint32T> tmp73;
+    compiler::TNode<Uint32T> tmp74;
     compiler::TNode<Uint32T> tmp75;
     compiler::TNode<Uint32T> tmp76;
     ca_.Bind(&block3, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74, &tmp75, &tmp76);
-    compiler::TNode<UintPtrT> tmp77;
+    compiler::TNode<Uint32T> tmp77;
     USE(tmp77);
-    tmp77 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATuintptr(0));
+    tmp77 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp78;
     USE(tmp78);
-    tmp78 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).WordNotEqual(TNode<UintPtrT>{tmp74}, TNode<UintPtrT>{tmp77}));
+    tmp78 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(compiler::TNode<Uint32T>{tmp74}, compiler::TNode<Uint32T>{tmp77}));
     ca_.Branch(tmp78, &block9, &block10, tmp69, tmp70, tmp71, tmp72, tmp73, tmp74, tmp75, tmp76);
   }
 
@@ -4899,29 +5112,29 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp80;
     compiler::TNode<BigInt> tmp81;
     compiler::TNode<BoolT> tmp82;
-    compiler::TNode<UintPtrT> tmp83;
-    compiler::TNode<UintPtrT> tmp84;
+    compiler::TNode<Uint32T> tmp83;
+    compiler::TNode<Uint32T> tmp84;
     compiler::TNode<Uint32T> tmp85;
     compiler::TNode<Uint32T> tmp86;
     ca_.Bind(&block9, &tmp79, &tmp80, &tmp81, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86);
     compiler::TNode<Int32T> tmp87;
     USE(tmp87);
-    tmp87 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp86}));
+    tmp87 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp86}));
     compiler::TNode<Int32T> tmp88;
     USE(tmp88);
-    tmp88 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp88 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<Int32T> tmp89;
     USE(tmp89);
-    tmp89 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(TNode<Int32T>{tmp88}, TNode<Int32T>{tmp87}));
+    tmp89 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(compiler::TNode<Int32T>{tmp88}, compiler::TNode<Int32T>{tmp87}));
     compiler::TNode<Uint32T> tmp90;
     USE(tmp90);
-    tmp90 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Unsigned(TNode<Int32T>{tmp89}));
+    tmp90 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Unsigned(compiler::TNode<Int32T>{tmp89}));
     compiler::TNode<Uint32T> tmp91;
     USE(tmp91);
-    tmp91 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint32(0));
+    tmp91 = ca_.UncheckedCast<Uint32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATuint3217ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp92;
     USE(tmp92);
-    tmp92 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(TNode<Uint32T>{tmp85}, TNode<Uint32T>{tmp91}));
+    tmp92 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32NotEqual(compiler::TNode<Uint32T>{tmp85}, compiler::TNode<Uint32T>{tmp91}));
     ca_.Branch(tmp92, &block11, &block12, tmp79, tmp80, tmp81, tmp82, tmp83, tmp84, tmp85, tmp90);
   }
 
@@ -4930,23 +5143,23 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp94;
     compiler::TNode<BigInt> tmp95;
     compiler::TNode<BoolT> tmp96;
-    compiler::TNode<UintPtrT> tmp97;
-    compiler::TNode<UintPtrT> tmp98;
+    compiler::TNode<Uint32T> tmp97;
+    compiler::TNode<Uint32T> tmp98;
     compiler::TNode<Uint32T> tmp99;
     compiler::TNode<Uint32T> tmp100;
     ca_.Bind(&block11, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100);
     compiler::TNode<Int32T> tmp101;
     USE(tmp101);
-    tmp101 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp100}));
+    tmp101 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp100}));
     compiler::TNode<Int32T> tmp102;
     USE(tmp102);
-    tmp102 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(1));
+    tmp102 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(1));
     compiler::TNode<Int32T> tmp103;
     USE(tmp103);
-    tmp103 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(TNode<Int32T>{tmp101}, TNode<Int32T>{tmp102}));
+    tmp103 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(compiler::TNode<Int32T>{tmp101}, compiler::TNode<Int32T>{tmp102}));
     compiler::TNode<Uint32T> tmp104;
     USE(tmp104);
-    tmp104 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Unsigned(TNode<Int32T>{tmp103}));
+    tmp104 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Unsigned(compiler::TNode<Int32T>{tmp103}));
     ca_.Goto(&block12, tmp93, tmp94, tmp95, tmp96, tmp97, tmp98, tmp99, tmp104);
   }
 
@@ -4955,23 +5168,23 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp106;
     compiler::TNode<BigInt> tmp107;
     compiler::TNode<BoolT> tmp108;
-    compiler::TNode<UintPtrT> tmp109;
-    compiler::TNode<UintPtrT> tmp110;
+    compiler::TNode<Uint32T> tmp109;
+    compiler::TNode<Uint32T> tmp110;
     compiler::TNode<Uint32T> tmp111;
     compiler::TNode<Uint32T> tmp112;
     ca_.Bind(&block12, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110, &tmp111, &tmp112);
     compiler::TNode<Int32T> tmp113;
     USE(tmp113);
-    tmp113 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(TNode<Uint32T>{tmp111}));
+    tmp113 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Signed(compiler::TNode<Uint32T>{tmp111}));
     compiler::TNode<Int32T> tmp114;
     USE(tmp114);
-    tmp114 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint32(0));
+    tmp114 = ca_.UncheckedCast<Int32T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr7ATint3217ATconstexpr_int31(0));
     compiler::TNode<Int32T> tmp115;
     USE(tmp115);
-    tmp115 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(TNode<Int32T>{tmp114}, TNode<Int32T>{tmp113}));
+    tmp115 = ca_.UncheckedCast<Int32T>(CodeStubAssembler(state_).Int32Sub(compiler::TNode<Int32T>{tmp114}, compiler::TNode<Int32T>{tmp113}));
     compiler::TNode<Uint32T> tmp116;
     USE(tmp116);
-    tmp116 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Unsigned(TNode<Int32T>{tmp115}));
+    tmp116 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Unsigned(compiler::TNode<Int32T>{tmp115}));
     ca_.Goto(&block10, tmp105, tmp106, tmp107, tmp108, tmp109, tmp110, tmp116, tmp112);
   }
 
@@ -4980,16 +5193,29 @@ void DataViewBuiltinsFromDSLAssembler::StoreDataViewBigInt(compiler::TNode<JSArr
     compiler::TNode<UintPtrT> tmp118;
     compiler::TNode<BigInt> tmp119;
     compiler::TNode<BoolT> tmp120;
-    compiler::TNode<UintPtrT> tmp121;
-    compiler::TNode<UintPtrT> tmp122;
+    compiler::TNode<Uint32T> tmp121;
+    compiler::TNode<Uint32T> tmp122;
     compiler::TNode<Uint32T> tmp123;
     compiler::TNode<Uint32T> tmp124;
     ca_.Bind(&block10, &tmp117, &tmp118, &tmp119, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124);
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView64(TNode<JSArrayBuffer>{tmp117}, TNode<UintPtrT>{tmp118}, TNode<Uint32T>{tmp123}, TNode<Uint32T>{tmp124}, TNode<BoolT>{tmp120});
-    ca_.Goto(&block1);
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView64(compiler::TNode<JSArrayBuffer>{tmp117}, compiler::TNode<UintPtrT>{tmp118}, compiler::TNode<Uint32T>{tmp123}, compiler::TNode<Uint32T>{tmp124}, compiler::TNode<BoolT>{tmp120});
+    ca_.Goto(&block1, tmp117, tmp118, tmp119, tmp120);
   }
 
-    ca_.Bind(&block1);
+  if (block1.is_used()) {
+    compiler::TNode<JSArrayBuffer> tmp125;
+    compiler::TNode<UintPtrT> tmp126;
+    compiler::TNode<BigInt> tmp127;
+    compiler::TNode<BoolT> tmp128;
+    ca_.Bind(&block1, &tmp125, &tmp126, &tmp127, &tmp128);
+    ca_.Goto(&block13, tmp125, tmp126, tmp127, tmp128);
+  }
+
+    compiler::TNode<JSArrayBuffer> tmp129;
+    compiler::TNode<UintPtrT> tmp130;
+    compiler::TNode<BigInt> tmp131;
+    compiler::TNode<BoolT> tmp132;
+    ca_.Bind(&block13, &tmp129, &tmp130, &tmp131, &tmp132);
 }
 
 compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::TNode<Context> p_context, compiler::TNode<Object> p_receiver, compiler::TNode<Object> p_offset, compiler::TNode<Object> p_value, compiler::TNode<Object> p_requestedLittleEndian, ElementsKind p_kind) {
@@ -5024,7 +5250,8 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
   compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Object, JSDataView, Number, BoolT, JSArrayBuffer, Number, Float64T, UintPtrT, UintPtrT, Float64T, Float64T, UintPtrT, Float64T> block25(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Object, JSDataView, Number, BoolT, JSArrayBuffer, Number, Float64T, UintPtrT, UintPtrT, Float64T, Float64T, UintPtrT, Float64T> block21(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
   compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Object, JSDataView, Number, BoolT, JSArrayBuffer> block9(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Object> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Object, Object> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
+  compiler::CodeAssemblerParameterizedLabel<Context, Object, Object, Object, Object, Object> block36(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
     ca_.Goto(&block0, p_context, p_receiver, p_offset, p_value, p_requestedLittleEndian);
 
   if (block0.is_used()) {
@@ -5039,11 +5266,11 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     tmp5 = ca_.UncheckedCast<String>(DataViewBuiltinsFromDSLAssembler(state_).MakeDataViewSetterNameString(p_kind));
     compiler::TNode<JSDataView> tmp6;
     USE(tmp6);
-    tmp6 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(TNode<Context>{tmp0}, TNode<Object>{tmp1}, TNode<String>{tmp5}));
+    tmp6 = ca_.UncheckedCast<JSDataView>(DataViewBuiltinsFromDSLAssembler(state_).ValidateDataView(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}, compiler::TNode<String>{tmp5}));
     compiler::TNode<Number> tmp7;
     USE(tmp7);
     compiler::CodeAssemblerLabel label0(&ca_);
-    tmp7 = BaseBuiltinsFromDSLAssembler(state_).ToIndex(TNode<Object>{tmp2}, TNode<Context>{tmp0}, &label0);
+    tmp7 = BaseBuiltinsFromDSLAssembler(state_).ToIndex(compiler::TNode<Object>{tmp2}, compiler::TNode<Context>{tmp0}, &label0);
     ca_.Goto(&block4, tmp0, tmp1, tmp2, tmp3, tmp4, tmp6, ca_.Uninitialized<Number>(), tmp2, tmp0, tmp7);
     if (label0.is_used()) {
       ca_.Bind(&label0);
@@ -5089,7 +5316,7 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     compiler::TNode<JSDataView> tmp32;
     compiler::TNode<Number> tmp33;
     ca_.Bind(&block3, &tmp27, &tmp28, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33);
-    CodeStubAssembler(state_).ThrowRangeError(TNode<Context>{tmp27}, MessageTemplate::kInvalidDataViewAccessorOffset);
+    CodeStubAssembler(state_).ThrowRangeError(compiler::TNode<Context>{tmp27}, MessageTemplate::kInvalidDataViewAccessorOffset);
   }
 
   if (block2.is_used()) {
@@ -5103,10 +5330,10 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block2, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40);
     compiler::TNode<BoolT> tmp41;
     USE(tmp41);
-    tmp41 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).ToBoolean(TNode<Object>{tmp38}));
+    tmp41 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).ToBoolean(compiler::TNode<Object>{tmp38}));
     compiler::TNode<JSArrayBuffer> tmp42;
     USE(tmp42);
-    tmp42 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(TNode<JSArrayBufferView>{tmp39}));
+    tmp42 = ca_.UncheckedCast<JSArrayBuffer>(CodeStubAssembler(state_).LoadJSArrayBufferViewBuffer(compiler::TNode<JSArrayBufferView>{tmp39}));
     if (((CodeStubAssembler(state_).ElementsKindEqual(p_kind, BIGUINT64_ELEMENTS)) || (CodeStubAssembler(state_).ElementsKindEqual(p_kind, BIGINT64_ELEMENTS)))) {
       ca_.Goto(&block7, tmp34, tmp35, tmp36, tmp37, tmp38, tmp39, tmp40, tmp41, tmp42);
     } else {
@@ -5127,10 +5354,10 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block7, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49, &tmp50, &tmp51);
     compiler::TNode<BigInt> tmp52;
     USE(tmp52);
-    tmp52 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).ToBigInt(TNode<Context>{tmp43}, TNode<Object>{tmp46}));
+    tmp52 = ca_.UncheckedCast<BigInt>(CodeStubAssembler(state_).ToBigInt(compiler::TNode<Context>{tmp43}, compiler::TNode<Object>{tmp46}));
     compiler::TNode<BoolT> tmp53;
     USE(tmp53);
-    tmp53 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(TNode<JSArrayBuffer>{tmp51}));
+    tmp53 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(compiler::TNode<JSArrayBuffer>{tmp51}));
     ca_.Branch(tmp53, &block10, &block11, tmp43, tmp44, tmp45, tmp46, tmp47, tmp48, tmp49, tmp50, tmp51, tmp52);
   }
 
@@ -5149,7 +5376,7 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     compiler::TNode<String> tmp64;
     USE(tmp64);
     tmp64 = ca_.UncheckedCast<String>(DataViewBuiltinsFromDSLAssembler(state_).MakeDataViewSetterNameString(p_kind));
-    CodeStubAssembler(state_).ThrowTypeError(TNode<Context>{tmp54}, MessageTemplate::kDetachedOperation, TNode<Object>{tmp64});
+    CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp54}, MessageTemplate::kDetachedOperation, compiler::TNode<Object>{tmp64});
   }
 
   if (block11.is_used()) {
@@ -5166,28 +5393,28 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block11, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74);
     compiler::TNode<Float64T> tmp75;
     USE(tmp75);
-    tmp75 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<Number>{tmp71}));
+    tmp75 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat6422UT12ATHeapNumber5ATSmi(compiler::TNode<Number>{tmp71}));
     compiler::TNode<UintPtrT> tmp76;
     USE(tmp76);
-    tmp76 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr(TNode<Float64T>{tmp75}));
+    tmp76 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr9ATfloat64(compiler::TNode<Float64T>{tmp75}));
     compiler::TNode<UintPtrT> tmp77;
     USE(tmp77);
-    tmp77 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(TNode<JSArrayBufferView>{tmp70}));
+    tmp77 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(compiler::TNode<JSArrayBufferView>{tmp70}));
     compiler::TNode<UintPtrT> tmp78;
     USE(tmp78);
-    tmp78 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(TNode<JSArrayBufferView>{tmp70}));
+    tmp78 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(compiler::TNode<JSArrayBufferView>{tmp70}));
     compiler::TNode<Float64T> tmp79;
     USE(tmp79);
-    tmp79 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<UintPtrT>{tmp78}));
+    tmp79 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat649ATuintptr(compiler::TNode<UintPtrT>{tmp78}));
     compiler::TNode<Float64T> tmp80;
     USE(tmp80);
-    tmp80 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64((DataViewBuiltinsAssembler(state_).DataViewElementSize(p_kind))));
+    tmp80 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATfloat6417ATconstexpr_int31((DataViewBuiltinsAssembler(state_).DataViewElementSize(p_kind))));
     compiler::TNode<Float64T> tmp81;
     USE(tmp81);
-    tmp81 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64Add(TNode<Float64T>{tmp75}, TNode<Float64T>{tmp80}));
+    tmp81 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64Add(compiler::TNode<Float64T>{tmp75}, compiler::TNode<Float64T>{tmp80}));
     compiler::TNode<BoolT> tmp82;
     USE(tmp82);
-    tmp82 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Float64GreaterThan(TNode<Float64T>{tmp81}, TNode<Float64T>{tmp79}));
+    tmp82 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Float64GreaterThan(compiler::TNode<Float64T>{tmp81}, compiler::TNode<Float64T>{tmp79}));
     ca_.Branch(tmp82, &block12, &block13, tmp65, tmp66, tmp67, tmp68, tmp69, tmp70, tmp71, tmp72, tmp73, tmp74, tmp75, tmp76, tmp77, tmp79, tmp80);
   }
 
@@ -5208,7 +5435,7 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     compiler::TNode<Float64T> tmp96;
     compiler::TNode<Float64T> tmp97;
     ca_.Bind(&block12, &tmp83, &tmp84, &tmp85, &tmp86, &tmp87, &tmp88, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97);
-    CodeStubAssembler(state_).ThrowRangeError(TNode<Context>{tmp83}, MessageTemplate::kInvalidDataViewAccessorOffset);
+    CodeStubAssembler(state_).ThrowRangeError(compiler::TNode<Context>{tmp83}, MessageTemplate::kInvalidDataViewAccessorOffset);
   }
 
   if (block13.is_used()) {
@@ -5230,8 +5457,8 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block13, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110, &tmp111, &tmp112);
     compiler::TNode<UintPtrT> tmp113;
     USE(tmp113);
-    tmp113 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp109}, TNode<UintPtrT>{tmp110}));
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataViewBigInt(TNode<JSArrayBuffer>{tmp106}, TNode<UintPtrT>{tmp113}, TNode<BigInt>{tmp107}, TNode<BoolT>{tmp105});
+    tmp113 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp109}, compiler::TNode<UintPtrT>{tmp110}));
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataViewBigInt(compiler::TNode<JSArrayBuffer>{tmp106}, compiler::TNode<UintPtrT>{tmp113}, compiler::TNode<BigInt>{tmp107}, compiler::TNode<BoolT>{tmp105});
     ca_.Goto(&block9, tmp98, tmp99, tmp100, tmp101, tmp102, tmp103, tmp104, tmp105, tmp106);
   }
 
@@ -5248,10 +5475,10 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block8, &tmp114, &tmp115, &tmp116, &tmp117, &tmp118, &tmp119, &tmp120, &tmp121, &tmp122);
     compiler::TNode<Number> tmp123;
     USE(tmp123);
-    tmp123 = ca_.UncheckedCast<Number>(CodeStubAssembler(state_).ToNumber(TNode<Context>{tmp114}, TNode<Object>{tmp117}));
+    tmp123 = ca_.UncheckedCast<Number>(CodeStubAssembler(state_).ToNumber(compiler::TNode<Context>{tmp114}, compiler::TNode<Object>{tmp117}));
     compiler::TNode<BoolT> tmp124;
     USE(tmp124);
-    tmp124 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(TNode<JSArrayBuffer>{tmp122}));
+    tmp124 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsDetachedBuffer(compiler::TNode<JSArrayBuffer>{tmp122}));
     ca_.Branch(tmp124, &block14, &block15, tmp114, tmp115, tmp116, tmp117, tmp118, tmp119, tmp120, tmp121, tmp122, tmp123);
   }
 
@@ -5270,7 +5497,7 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     compiler::TNode<String> tmp135;
     USE(tmp135);
     tmp135 = ca_.UncheckedCast<String>(DataViewBuiltinsFromDSLAssembler(state_).MakeDataViewSetterNameString(p_kind));
-    CodeStubAssembler(state_).ThrowTypeError(TNode<Context>{tmp125}, MessageTemplate::kDetachedOperation, TNode<Object>{tmp135});
+    CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp125}, MessageTemplate::kDetachedOperation, compiler::TNode<Object>{tmp135});
   }
 
   if (block15.is_used()) {
@@ -5287,28 +5514,28 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block15, &tmp136, &tmp137, &tmp138, &tmp139, &tmp140, &tmp141, &tmp142, &tmp143, &tmp144, &tmp145);
     compiler::TNode<Float64T> tmp146;
     USE(tmp146);
-    tmp146 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<Number>{tmp142}));
+    tmp146 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat6422UT12ATHeapNumber5ATSmi(compiler::TNode<Number>{tmp142}));
     compiler::TNode<UintPtrT> tmp147;
     USE(tmp147);
-    tmp147 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr(TNode<Float64T>{tmp146}));
+    tmp147 = ca_.UncheckedCast<UintPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATuintptr9ATfloat64(compiler::TNode<Float64T>{tmp146}));
     compiler::TNode<UintPtrT> tmp148;
     USE(tmp148);
-    tmp148 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(TNode<JSArrayBufferView>{tmp141}));
+    tmp148 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteOffset(compiler::TNode<JSArrayBufferView>{tmp141}));
     compiler::TNode<UintPtrT> tmp149;
     USE(tmp149);
-    tmp149 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(TNode<JSArrayBufferView>{tmp141}));
+    tmp149 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).LoadJSArrayBufferViewByteLength(compiler::TNode<JSArrayBufferView>{tmp141}));
     compiler::TNode<Float64T> tmp150;
     USE(tmp150);
-    tmp150 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64(TNode<UintPtrT>{tmp149}));
+    tmp150 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat649ATuintptr(compiler::TNode<UintPtrT>{tmp149}));
     compiler::TNode<Float64T> tmp151;
     USE(tmp151);
-    tmp151 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat64((DataViewBuiltinsAssembler(state_).DataViewElementSize(p_kind))));
+    tmp151 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr9ATfloat6417ATconstexpr_int31((DataViewBuiltinsAssembler(state_).DataViewElementSize(p_kind))));
     compiler::TNode<Float64T> tmp152;
     USE(tmp152);
-    tmp152 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64Add(TNode<Float64T>{tmp146}, TNode<Float64T>{tmp151}));
+    tmp152 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64Add(compiler::TNode<Float64T>{tmp146}, compiler::TNode<Float64T>{tmp151}));
     compiler::TNode<BoolT> tmp153;
     USE(tmp153);
-    tmp153 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Float64GreaterThan(TNode<Float64T>{tmp152}, TNode<Float64T>{tmp150}));
+    tmp153 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Float64GreaterThan(compiler::TNode<Float64T>{tmp152}, compiler::TNode<Float64T>{tmp150}));
     ca_.Branch(tmp153, &block16, &block17, tmp136, tmp137, tmp138, tmp139, tmp140, tmp141, tmp142, tmp143, tmp144, tmp145, tmp146, tmp147, tmp148, tmp150, tmp151);
   }
 
@@ -5329,7 +5556,7 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     compiler::TNode<Float64T> tmp167;
     compiler::TNode<Float64T> tmp168;
     ca_.Bind(&block16, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163, &tmp164, &tmp165, &tmp166, &tmp167, &tmp168);
-    CodeStubAssembler(state_).ThrowRangeError(TNode<Context>{tmp154}, MessageTemplate::kInvalidDataViewAccessorOffset);
+    CodeStubAssembler(state_).ThrowRangeError(compiler::TNode<Context>{tmp154}, MessageTemplate::kInvalidDataViewAccessorOffset);
   }
 
   if (block17.is_used()) {
@@ -5351,10 +5578,10 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block17, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173, &tmp174, &tmp175, &tmp176, &tmp177, &tmp178, &tmp179, &tmp180, &tmp181, &tmp182, &tmp183);
     compiler::TNode<UintPtrT> tmp184;
     USE(tmp184);
-    tmp184 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(TNode<UintPtrT>{tmp180}, TNode<UintPtrT>{tmp181}));
+    tmp184 = ca_.UncheckedCast<UintPtrT>(CodeStubAssembler(state_).UintPtrAdd(compiler::TNode<UintPtrT>{tmp180}, compiler::TNode<UintPtrT>{tmp181}));
     compiler::TNode<Float64T> tmp185;
     USE(tmp185);
-    tmp185 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).ChangeNumberToFloat64(TNode<Number>{tmp178}));
+    tmp185 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).ChangeNumberToFloat64(compiler::TNode<Number>{tmp178}));
     if (((CodeStubAssembler(state_).ElementsKindEqual(p_kind, UINT8_ELEMENTS)) || (CodeStubAssembler(state_).ElementsKindEqual(p_kind, INT8_ELEMENTS)))) {
       ca_.Goto(&block19, tmp169, tmp170, tmp171, tmp172, tmp173, tmp174, tmp175, tmp176, tmp177, tmp178, tmp179, tmp180, tmp181, tmp182, tmp183, tmp184, tmp185);
     } else {
@@ -5383,8 +5610,8 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block19, &tmp186, &tmp187, &tmp188, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202);
     compiler::TNode<Uint32T> tmp203;
     USE(tmp203);
-    tmp203 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).TruncateFloat64ToWord32(TNode<Float64T>{tmp202}));
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView8(TNode<JSArrayBuffer>{tmp194}, TNode<UintPtrT>{tmp201}, TNode<Uint32T>{tmp203});
+    tmp203 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).TruncateFloat64ToWord32(compiler::TNode<Float64T>{tmp202}));
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView8(compiler::TNode<JSArrayBuffer>{tmp194}, compiler::TNode<UintPtrT>{tmp201}, compiler::TNode<Uint32T>{tmp203});
     ca_.Goto(&block21, tmp186, tmp187, tmp188, tmp189, tmp190, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196, tmp197, tmp198, tmp199, tmp200, tmp201, tmp202);
   }
 
@@ -5435,8 +5662,8 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block23, &tmp221, &tmp222, &tmp223, &tmp224, &tmp225, &tmp226, &tmp227, &tmp228, &tmp229, &tmp230, &tmp231, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236, &tmp237);
     compiler::TNode<Uint32T> tmp238;
     USE(tmp238);
-    tmp238 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).TruncateFloat64ToWord32(TNode<Float64T>{tmp237}));
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView16(TNode<JSArrayBuffer>{tmp229}, TNode<UintPtrT>{tmp236}, TNode<Uint32T>{tmp238}, TNode<BoolT>{tmp228});
+    tmp238 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).TruncateFloat64ToWord32(compiler::TNode<Float64T>{tmp237}));
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView16(compiler::TNode<JSArrayBuffer>{tmp229}, compiler::TNode<UintPtrT>{tmp236}, compiler::TNode<Uint32T>{tmp238}, compiler::TNode<BoolT>{tmp228});
     ca_.Goto(&block25, tmp221, tmp222, tmp223, tmp224, tmp225, tmp226, tmp227, tmp228, tmp229, tmp230, tmp231, tmp232, tmp233, tmp234, tmp235, tmp236, tmp237);
   }
 
@@ -5487,8 +5714,8 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block27, &tmp256, &tmp257, &tmp258, &tmp259, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267, &tmp268, &tmp269, &tmp270, &tmp271, &tmp272);
     compiler::TNode<Uint32T> tmp273;
     USE(tmp273);
-    tmp273 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).TruncateFloat64ToWord32(TNode<Float64T>{tmp272}));
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView32(TNode<JSArrayBuffer>{tmp264}, TNode<UintPtrT>{tmp271}, TNode<Uint32T>{tmp273}, TNode<BoolT>{tmp263});
+    tmp273 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).TruncateFloat64ToWord32(compiler::TNode<Float64T>{tmp272}));
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView32(compiler::TNode<JSArrayBuffer>{tmp264}, compiler::TNode<UintPtrT>{tmp271}, compiler::TNode<Uint32T>{tmp273}, compiler::TNode<BoolT>{tmp263});
     ca_.Goto(&block29, tmp256, tmp257, tmp258, tmp259, tmp260, tmp261, tmp262, tmp263, tmp264, tmp265, tmp266, tmp267, tmp268, tmp269, tmp270, tmp271, tmp272);
   }
 
@@ -5539,11 +5766,11 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block30, &tmp291, &tmp292, &tmp293, &tmp294, &tmp295, &tmp296, &tmp297, &tmp298, &tmp299, &tmp300, &tmp301, &tmp302, &tmp303, &tmp304, &tmp305, &tmp306, &tmp307);
     compiler::TNode<Float32T> tmp308;
     USE(tmp308);
-    tmp308 = ca_.UncheckedCast<Float32T>(CodeStubAssembler(state_).TruncateFloat64ToFloat32(TNode<Float64T>{tmp307}));
+    tmp308 = ca_.UncheckedCast<Float32T>(CodeStubAssembler(state_).TruncateFloat64ToFloat32(compiler::TNode<Float64T>{tmp307}));
     compiler::TNode<Uint32T> tmp309;
     USE(tmp309);
-    tmp309 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).BitcastFloat32ToInt32(TNode<Float32T>{tmp308}));
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView32(TNode<JSArrayBuffer>{tmp299}, TNode<UintPtrT>{tmp306}, TNode<Uint32T>{tmp309}, TNode<BoolT>{tmp298});
+    tmp309 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).BitcastFloat32ToInt32(compiler::TNode<Float32T>{tmp308}));
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView32(compiler::TNode<JSArrayBuffer>{tmp299}, compiler::TNode<UintPtrT>{tmp306}, compiler::TNode<Uint32T>{tmp309}, compiler::TNode<BoolT>{tmp298});
     ca_.Goto(&block32, tmp291, tmp292, tmp293, tmp294, tmp295, tmp296, tmp297, tmp298, tmp299, tmp300, tmp301, tmp302, tmp303, tmp304, tmp305, tmp306, tmp307);
   }
 
@@ -5594,11 +5821,11 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     ca_.Bind(&block33, &tmp327, &tmp328, &tmp329, &tmp330, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338, &tmp339, &tmp340, &tmp341, &tmp342, &tmp343);
     compiler::TNode<Uint32T> tmp344;
     USE(tmp344);
-    tmp344 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Float64ExtractLowWord32(TNode<Float64T>{tmp343}));
+    tmp344 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Float64ExtractLowWord32(compiler::TNode<Float64T>{tmp343}));
     compiler::TNode<Uint32T> tmp345;
     USE(tmp345);
-    tmp345 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Float64ExtractHighWord32(TNode<Float64T>{tmp343}));
-    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView64(TNode<JSArrayBuffer>{tmp335}, TNode<UintPtrT>{tmp342}, TNode<Uint32T>{tmp344}, TNode<Uint32T>{tmp345}, TNode<BoolT>{tmp334});
+    tmp345 = ca_.UncheckedCast<Uint32T>(CodeStubAssembler(state_).Float64ExtractHighWord32(compiler::TNode<Float64T>{tmp343}));
+    DataViewBuiltinsFromDSLAssembler(state_).StoreDataView64(compiler::TNode<JSArrayBuffer>{tmp335}, compiler::TNode<UintPtrT>{tmp342}, compiler::TNode<Uint32T>{tmp344}, compiler::TNode<Uint32T>{tmp345}, compiler::TNode<BoolT>{tmp334});
     ca_.Goto(&block35, tmp327, tmp328, tmp329, tmp330, tmp331, tmp332, tmp333, tmp334, tmp335, tmp336, tmp337, tmp338, tmp339, tmp340, tmp341, tmp342, tmp343);
   }
 
@@ -5748,12 +5975,28 @@ compiler::TNode<Object> DataViewBuiltinsFromDSLAssembler::DataViewSet(compiler::
     compiler::TNode<Oddball> tmp457;
     USE(tmp457);
     tmp457 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
-    ca_.Goto(&block1, tmp457);
+    ca_.Goto(&block1, tmp448, tmp449, tmp450, tmp451, tmp452, tmp457);
   }
 
-    compiler::TNode<Object> tmp458;
-    ca_.Bind(&block1, &tmp458);
-  return TNode<Object>{tmp458};
+  if (block1.is_used()) {
+    compiler::TNode<Context> tmp458;
+    compiler::TNode<Object> tmp459;
+    compiler::TNode<Object> tmp460;
+    compiler::TNode<Object> tmp461;
+    compiler::TNode<Object> tmp462;
+    compiler::TNode<Object> tmp463;
+    ca_.Bind(&block1, &tmp458, &tmp459, &tmp460, &tmp461, &tmp462, &tmp463);
+    ca_.Goto(&block36, tmp458, tmp459, tmp460, tmp461, tmp462, tmp463);
+  }
+
+    compiler::TNode<Context> tmp464;
+    compiler::TNode<Object> tmp465;
+    compiler::TNode<Object> tmp466;
+    compiler::TNode<Object> tmp467;
+    compiler::TNode<Object> tmp468;
+    compiler::TNode<Object> tmp469;
+    ca_.Bind(&block36, &tmp464, &tmp465, &tmp466, &tmp467, &tmp468, &tmp469);
+  return compiler::TNode<Object>{tmp469};
 }
 
 TF_BUILTIN(DataViewPrototypeSetUint8, CodeStubAssembler) {
@@ -5786,10 +6029,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -5799,10 +6042,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -5834,10 +6077,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -5848,10 +6091,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -5886,7 +6129,7 @@ USE(parameter1);
     tmp38 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
     compiler::TNode<Object> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, TNode<Object>{tmp38}, UINT8_ELEMENTS));
+    tmp39 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, compiler::TNode<Object>{tmp38}, UINT8_ELEMENTS));
     arguments->PopAndReturn(tmp39);
   }
 }
@@ -5921,10 +6164,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -5934,10 +6177,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -5969,10 +6212,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -5983,10 +6226,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -6021,7 +6264,7 @@ USE(parameter1);
     tmp38 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
     compiler::TNode<Object> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp34}, TNode<Object>{tmp35}, TNode<Object>{tmp36}, TNode<Object>{tmp37}, TNode<Object>{tmp38}, INT8_ELEMENTS));
+    tmp39 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp34}, compiler::TNode<Object>{tmp35}, compiler::TNode<Object>{tmp36}, compiler::TNode<Object>{tmp37}, compiler::TNode<Object>{tmp38}, INT8_ELEMENTS));
     arguments->PopAndReturn(tmp39);
   }
 }
@@ -6060,10 +6303,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -6073,10 +6316,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -6108,10 +6351,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -6122,10 +6365,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -6160,10 +6403,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -6175,10 +6418,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -6213,7 +6456,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, UINT16_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, UINT16_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -6252,10 +6495,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -6265,10 +6508,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -6300,10 +6543,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -6314,10 +6557,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -6352,10 +6595,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -6367,10 +6610,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -6405,7 +6648,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, INT16_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, INT16_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -6444,10 +6687,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -6457,10 +6700,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -6492,10 +6735,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -6506,10 +6749,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -6544,10 +6787,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -6559,10 +6802,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -6597,7 +6840,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, UINT32_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, UINT32_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -6636,10 +6879,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -6649,10 +6892,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -6684,10 +6927,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -6698,10 +6941,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -6736,10 +6979,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -6751,10 +6994,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -6789,7 +7032,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, INT32_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, INT32_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -6828,10 +7071,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -6841,10 +7084,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -6876,10 +7119,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -6890,10 +7133,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -6928,10 +7171,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -6943,10 +7186,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -6981,7 +7224,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, FLOAT32_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, FLOAT32_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -7020,10 +7263,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -7033,10 +7276,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -7068,10 +7311,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -7082,10 +7325,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -7120,10 +7363,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -7135,10 +7378,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -7173,7 +7416,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, FLOAT64_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, FLOAT64_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -7212,10 +7455,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -7225,10 +7468,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -7260,10 +7503,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -7274,10 +7517,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -7312,10 +7555,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -7327,10 +7570,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -7365,7 +7608,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, BIGUINT64_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, BIGUINT64_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
@@ -7404,10 +7647,10 @@ USE(parameter1);
     tmp2 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp3;
     USE(tmp3);
-    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp3 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
-    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp2}, TNode<IntPtrT>{tmp3}));
+    tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp2}, compiler::TNode<IntPtrT>{tmp3}));
     ca_.Branch(tmp4, &block1, &block2, tmp0, tmp1);
   }
 
@@ -7417,10 +7660,10 @@ USE(parameter1);
     ca_.Bind(&block1, &tmp5, &tmp6);
     compiler::TNode<IntPtrT> tmp7;
     USE(tmp7);
-    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(0));
+    tmp7 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp8;
     USE(tmp8);
-    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp7}));
+    tmp8 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp7}));
     ca_.Goto(&block4, tmp5, tmp6, tmp8);
   }
 
@@ -7452,10 +7695,10 @@ USE(parameter1);
     tmp18 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp19;
     USE(tmp19);
-    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp19 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<BoolT> tmp20;
     USE(tmp20);
-    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp18}, TNode<IntPtrT>{tmp19}));
+    tmp20 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp18}, compiler::TNode<IntPtrT>{tmp19}));
     ca_.Branch(tmp20, &block5, &block6, tmp15, tmp16, tmp17);
   }
 
@@ -7466,10 +7709,10 @@ USE(parameter1);
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23);
     compiler::TNode<IntPtrT> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(1));
+    tmp24 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(1));
     compiler::TNode<Object> tmp25;
     USE(tmp25);
-    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp24}));
+    tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp24}));
     ca_.Goto(&block8, tmp21, tmp22, tmp23, tmp25);
   }
 
@@ -7504,10 +7747,10 @@ USE(parameter1);
     tmp38 = ca_.UncheckedCast<IntPtrT>(CodeStubAssembler(state_).GetArgumentsLength(arguments));
     compiler::TNode<IntPtrT> tmp39;
     USE(tmp39);
-    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp39 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<BoolT> tmp40;
     USE(tmp40);
-    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(TNode<IntPtrT>{tmp38}, TNode<IntPtrT>{tmp39}));
+    tmp40 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IntPtrGreaterThan(compiler::TNode<IntPtrT>{tmp38}, compiler::TNode<IntPtrT>{tmp39}));
     ca_.Branch(tmp40, &block9, &block10, tmp34, tmp35, tmp36, tmp37);
   }
 
@@ -7519,10 +7762,10 @@ USE(parameter1);
     ca_.Bind(&block9, &tmp41, &tmp42, &tmp43, &tmp44);
     compiler::TNode<IntPtrT> tmp45;
     USE(tmp45);
-    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr(2));
+    tmp45 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(2));
     compiler::TNode<Object> tmp46;
     USE(tmp46);
-    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, TNode<IntPtrT>{tmp45}));
+    tmp46 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp45}));
     ca_.Goto(&block12, tmp41, tmp42, tmp43, tmp44, tmp46);
   }
 
@@ -7557,7 +7800,7 @@ USE(parameter1);
     ca_.Bind(&block11, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61);
     compiler::TNode<Object> tmp62;
     USE(tmp62);
-    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(TNode<Context>{tmp57}, TNode<Object>{tmp58}, TNode<Object>{tmp59}, TNode<Object>{tmp60}, TNode<Object>{tmp61}, BIGINT64_ELEMENTS));
+    tmp62 = ca_.UncheckedCast<Object>(DataViewBuiltinsFromDSLAssembler(state_).DataViewSet(compiler::TNode<Context>{tmp57}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp59}, compiler::TNode<Object>{tmp60}, compiler::TNode<Object>{tmp61}, BIGINT64_ELEMENTS));
     arguments->PopAndReturn(tmp62);
   }
 }
