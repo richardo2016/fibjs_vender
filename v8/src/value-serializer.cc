@@ -279,7 +279,7 @@ void ValueSerializer::WriteBigIntContents(BigInt bigint) {
 
 void ValueSerializer::WriteRawBytes(const void* source, size_t length) {
   uint8_t* dest;
-  if (ReserveRawBytes(length).To(&dest)) {
+  if (ReserveRawBytes(length).To(&dest) && length > 0) {
     memcpy(dest, source, length);
   }
 }
@@ -921,6 +921,9 @@ Maybe<bool> ValueSerializer::WriteWasmMemory(Handle<WasmMemoryObject> object) {
     ThrowDataCloneError(MessageTemplate::kDataCloneError, object);
     return Nothing<bool>();
   }
+
+  isolate_->wasm_engine()->memory_tracker()->RegisterWasmMemoryAsShared(
+      object, isolate_);
 
   WriteTag(SerializationTag::kWasmMemoryTransfer);
   WriteZigZag<int32_t>(object->maximum_pages());
@@ -1697,7 +1700,9 @@ MaybeHandle<JSArrayBuffer> ValueDeserializer::ReadJSArrayBuffer(
                                           should_initialize)) {
     return MaybeHandle<JSArrayBuffer>();
   }
-  memcpy(array_buffer->backing_store(), position_, byte_length);
+  if (byte_length > 0) {
+    memcpy(array_buffer->backing_store(), position_, byte_length);
+  }
   position_ += byte_length;
   AddObjectWithID(id, array_buffer);
   return array_buffer;
@@ -1863,6 +1868,9 @@ MaybeHandle<WasmMemoryObject> ValueDeserializer::ReadWasmMemory() {
 
   Handle<WasmMemoryObject> result =
       WasmMemoryObject::New(isolate_, buffer, maximum_pages);
+
+  isolate_->wasm_engine()->memory_tracker()->RegisterWasmMemoryAsShared(
+      result, isolate_);
 
   AddObjectWithID(id, result);
   return result;

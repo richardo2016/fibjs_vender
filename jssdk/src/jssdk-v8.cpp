@@ -35,6 +35,10 @@ private:
         }
     };
 
+    v8::Local<v8::Context> _getLocalContext () {
+        return v8::Local<v8::Context>::New(m_isolate, m_context);
+    }
+
 public:
     v8_Runtime(class Api* api)
     {
@@ -218,7 +222,7 @@ public:
 
     Function NewFunction(FunctionCallback callback)
     {
-        return Function(this, v8::Function::New(m_isolate, (v8::FunctionCallback)callback));
+        return Function(this, v8::Function::New(_getLocalContext(), (v8::FunctionCallback)callback).ToLocalChecked());
     }
 
 public:
@@ -298,7 +302,7 @@ public:
 
     Array ObjectKeys(const Object& o)
     {
-        return Array(this, v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames());
+        return Array(this, v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames(_getLocalContext()).ToLocalChecked());
     }
 
     bool ObjectHasPrivate(const Object& o, exlib::string key)
@@ -446,8 +450,8 @@ public:
         if (!s_bInit) {
             s_bInit = true;
 
-            v8::Platform* platform = v8::platform::CreateDefaultPlatform();
-            v8::V8::InitializePlatform(platform);
+            std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
+            v8::V8::InitializePlatform(platform.get());
 
             v8::V8::Initialize();
         }

@@ -3,6 +3,8 @@
 
 #include "src/compiler/code-assembler.h"
 #include "src/code-stub-assembler.h"
+#include "src/utils.h"
+#include "torque-generated/class-definitions-from-dsl.h"
 
 namespace v8 {
 namespace internal {
@@ -12,7 +14,8 @@ class ExtrasUtilsBuiltinsFromDSLAssembler {
   explicit ExtrasUtilsBuiltinsFromDSLAssembler(compiler::CodeAssemblerState* state) : state_(state), ca_(state) { USE(state_, ca_); }
  private:
   compiler::CodeAssemblerState* const state_;
-  compiler::CodeAssembler ca_;}; 
+  compiler::CodeAssembler ca_;
+};
 
 }  // namespace internal
 }  // namespace v8

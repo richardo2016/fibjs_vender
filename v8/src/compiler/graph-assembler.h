@@ -39,7 +39,8 @@ namespace compiler {
   V(BitcastFloat64ToInt64)               \
   V(Float64Abs)                          \
   V(Word32ReverseBytes)                  \
-  V(Word64ReverseBytes)
+  V(Word64ReverseBytes)                  \
+  V(Float64SilenceNaN)
 
 #define PURE_ASSEMBLER_MACH_BINOP_LIST(V) \
   V(WordShl)                              \
@@ -91,6 +92,7 @@ namespace compiler {
   V(TrueConstant)                          \
   V(FalseConstant)                         \
   V(NullConstant)                          \
+  V(BigIntMapConstant)                     \
   V(BooleanMapConstant)                    \
   V(HeapNumberMapConstant)                 \
   V(NoContextConstant)                     \

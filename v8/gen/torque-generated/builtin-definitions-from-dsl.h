@@ -2,11 +2,26 @@
 #define V8_BUILTINS_BUILTIN_DEFINITIONS_FROM_DSL_H_
 
 #define BUILTIN_LIST_FROM_DSL(CPP, API, TFJ, TFC, TFS, TFH, ASM) \
+TFS(FastCreateDataProperty, kReceiver, kKey, kValue) \
 TFJ(ArrayPrototypeCopyWithin, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArrayEveryLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kThisArg, kInitialK, kLength) \
+TFJ(ArrayEveryLoopLazyDeoptContinuation, 5, kReceiver, kCallback, kThisArg, kInitialK, kLength, kResult) \
+TFS(ArrayEveryLoopContinuation, kReceiver, kCallbackfn, kThisArg, kArray, kO, kInitialK, kLength, kInitialTo) \
+TFJ(ArrayEvery, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayFilterLoopEagerDeoptContinuation, 6, kReceiver, kCallback, kThisArg, kArray, kInitialK, kLength, kInitialTo) \
 TFJ(ArrayFilterLoopLazyDeoptContinuation, 8, kReceiver, kCallback, kThisArg, kArray, kInitialK, kLength, kValueK, kInitialTo, kResult) \
 TFS(ArrayFilterLoopContinuation, kReceiver, kCallbackfn, kThisArg, kArray, kO, kInitialK, kLength, kInitialTo) \
 TFJ(ArrayFilter, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArrayFindLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kThisArg, kInitialK, kLength) \
+TFJ(ArrayFindLoopLazyDeoptContinuation, 5, kReceiver, kCallback, kThisArg, kInitialK, kLength, kResult) \
+TFJ(ArrayFindLoopAfterCallbackLazyDeoptContinuation, 6, kReceiver, kCallback, kThisArg, kInitialK, kLength, kFoundValue, kIsFound) \
+TFS(ArrayFindLoopContinuation, kReceiver, kCallbackfn, kThisArg, kO, kInitialK, kLength) \
+TFJ(ArrayPrototypeFind, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArrayFindIndexLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kThisArg, kInitialK, kLength) \
+TFJ(ArrayFindIndexLoopLazyDeoptContinuation, 5, kReceiver, kCallback, kThisArg, kInitialK, kLength, kResult) \
+TFJ(ArrayFindIndexLoopAfterCallbackLazyDeoptContinuation, 6, kReceiver, kCallback, kThisArg, kInitialK, kLength, kFoundValue, kIsFound) \
+TFS(ArrayFindIndexLoopContinuation, kReceiver, kCallbackfn, kThisArg, kO, kInitialK, kLength) \
+TFJ(ArrayPrototypeFindIndex, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayForEachLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kThisArg, kInitialK, kLength) \
 TFJ(ArrayForEachLoopLazyDeoptContinuation, 5, kReceiver, kCallback, kThisArg, kInitialK, kLength, kResult) \
 TFS(ArrayForEachLoopContinuation, kReceiver, kCallbackfn, kThisArg, kArray, kO, kInitialK, kLen, kTo) \
@@ -24,8 +39,26 @@ TFJ(TypedArrayPrototypeJoin, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(TypedArrayPrototypeToLocaleString, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayPrototypeLastIndexOf, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayOf, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArrayMapLoopEagerDeoptContinuation, 5, kReceiver, kCallback, kThisArg, kArray, kInitialK, kLength) \
+TFJ(ArrayMapLoopLazyDeoptContinuation, 6, kReceiver, kCallback, kThisArg, kArray, kInitialK, kLength, kResult) \
+TFS(ArrayMapLoopContinuation, kReceiver, kCallbackfn, kThisArg, kArray, kO, kInitialK, kLength) \
+TFJ(ArrayMap, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArrayReducePreLoopEagerDeoptContinuation, 2, kReceiver, kCallback, kLength) \
+TFJ(ArrayReduceLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kInitialK, kLength, kAccumulator) \
+TFJ(ArrayReduceLoopLazyDeoptContinuation, 4, kReceiver, kCallback, kInitialK, kLength, kResult) \
+TFS(ArrayReduceLoopContinuation, kReceiver, kCallbackfn, kInitialAccumulator, kO, kInitialK, kLength) \
+TFJ(ArrayReduce, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArrayReduceRightPreLoopEagerDeoptContinuation, 2, kReceiver, kCallback, kLength) \
+TFJ(ArrayReduceRightLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kInitialK, kLength, kAccumulator) \
+TFJ(ArrayReduceRightLoopLazyDeoptContinuation, 4, kReceiver, kCallback, kInitialK, kLength, kResult) \
+TFS(ArrayReduceRightLoopContinuation, kReceiver, kCallbackfn, kInitialAccumulator, kO, kInitialK, kLength) \
+TFJ(ArrayReduceRight, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayPrototypeReverse, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayPrototypeSlice, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(ArraySomeLoopEagerDeoptContinuation, 4, kReceiver, kCallback, kThisArg, kInitialK, kLength) \
+TFJ(ArraySomeLoopLazyDeoptContinuation, 5, kReceiver, kCallback, kThisArg, kInitialK, kLength, kResult) \
+TFS(ArraySomeLoopContinuation, kReceiver, kCallbackfn, kThisArg, kArray, kO, kInitialK, kLength, kInitialTo) \
+TFJ(ArraySome, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayPrototypeSplice, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ArrayPrototypeUnshift, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(DataViewPrototypeGetBuffer, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
@@ -55,31 +88,37 @@ TFJ(ExtrasUtilsCreatePrivateSymbol, SharedFunctionInfo::kDontAdaptArgumentsSenti
 TFJ(ExtrasUtilsMarkPromiseAsHandled, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ExtrasUtilsPromiseState, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFJ(ObjectFromEntries, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
-TFS(TypedArrayQuickSort, kArray, kFrom, kTo, kComparefn, kLoad, kStore) \
+TFJ(StringPrototypeEndsWith, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(StringPrototypeStartsWith, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFS(TypedArrayMergeSort, kArray, kComparefn, kSource, kFrom, kTo, kTarget) \
 TFJ(TypedArrayPrototypeSort, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFS(CreateTypedArray, kTarget, kNewTarget, kArg1, kArg2, kArg3) \
+TFJ(TypedArrayPrototypeFilter, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(TypedArrayPrototypeForEach, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(TypedArrayPrototypeReduce, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(TypedArrayPrototypeReduceRight, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(TypedArrayPrototypeSlice, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
+TFJ(TypedArrayPrototypeSubArray, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFS(GenericBuiltinTest20UT5ATSmi10HeapObject, kParam) \
 TFS(TestHelperPlus1, kX) \
 TFS(TestHelperPlus2, kX) \
-TFS(Load23ATFastPackedSmiElements, kSortState, kElements, kIndex) \
-TFS(Load25ATFastSmiOrObjectElements, kSortState, kElements, kIndex) \
-TFS(Load20ATFastDoubleElements, kSortState, kElements, kIndex) \
-TFS(Load20ATDictionaryElements, kSortState, kElements, kIndex) \
-TFS(Load19ATTempArrayElements, kSortState, kElements, kIndex) \
-TFS(Store23ATFastPackedSmiElements, kSortState, kElements, kIndex, kValue) \
-TFS(Store25ATFastSmiOrObjectElements, kSortState, kElements, kIndex, kValue) \
-TFS(Store20ATFastDoubleElements, kSortState, kElements, kIndex, kValue) \
-TFS(Store20ATDictionaryElements, kSortState, kElements, kIndex, kValue) \
-TFS(Store19ATTempArrayElements, kSortState, kElements, kIndex, kValue) \
+TFS(Load23ATFastPackedSmiElements, kSortState, kIndex) \
+TFS(Load25ATFastSmiOrObjectElements, kSortState, kIndex) \
+TFS(Load20ATFastDoubleElements, kSortState, kIndex) \
+TFS(Load20ATDictionaryElements, kSortState, kIndex) \
+TFS(Store23ATFastPackedSmiElements, kSortState, kIndex, kValue) \
+TFS(Store25ATFastSmiOrObjectElements, kSortState, kIndex, kValue) \
+TFS(Store20ATFastDoubleElements, kSortState, kIndex, kValue) \
+TFS(Store20ATDictionaryElements, kSortState, kIndex, kValue) \
 TFS(SortCompareDefault, kComparefn, kX, kY) \
 TFS(SortCompareUserFn, kComparefn, kX, kY) \
 TFS(CanUseSameAccessor25ATGenericElementsAccessor, kReceiver, kInitialReceiverMap, kInitialReceiverLength) \
 TFS(CanUseSameAccessor20ATDictionaryElements, kReceiver, kInitialReceiverMap, kInitialReceiverLength) \
-TFS(CopyFromTempArray, kSortState, kDstElements, kDstPos, kTempArray, kSrcPos, kLength) \
-TFS(CopyWithinSortArray, kSortState, kElements, kSrcPos, kDstPos, kLength) \
+TFS(Copy, kSource, kSrcPos, kTarget, kDstPos, kLength) \
 TFS(BinaryInsertionSort, kSortState, kLow, kStartArg, kHigh) \
 TFS(MergeAt, kSortState, kI) \
-TFS(GallopLeft, kSortState, kLoad, kKey, kBase, kLength, kHint, kUseTempArray) \
-TFS(GallopRight, kSortState, kLoad, kKey, kBase, kLength, kHint, kUseTempArray) \
+TFS(GallopLeft, kSortState, kArray, kKey, kBase, kLength, kHint) \
+TFS(GallopRight, kSortState, kArray, kKey, kBase, kLength, kHint) \
 TFS(ArrayTimSort, kSortState, kLength) \
 TFJ(ArrayPrototypeSort, SharedFunctionInfo::kDontAdaptArgumentsSentinel) \
 TFS(LoadJoinElement25ATGenericElementsAccessor, kReceiver, kK) \
@@ -95,30 +134,30 @@ TFS(LoadJoinTypedElement18ATFixedUint16Array, kReceiver, kK) \
 TFS(LoadJoinTypedElement17ATFixedInt16Array, kReceiver, kK) \
 TFS(LoadJoinTypedElement18ATFixedUint32Array, kReceiver, kK) \
 TFS(LoadFixedElement17ATFixedInt32Array, kArray, kIndex) \
-TFS(StoreFixedElement17ATFixedInt32Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement19ATFixedFloat32Array, kArray, kIndex) \
-TFS(StoreFixedElement19ATFixedFloat32Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement19ATFixedFloat64Array, kArray, kIndex) \
-TFS(StoreFixedElement19ATFixedFloat64Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement24ATFixedUint8ClampedArray, kArray, kIndex) \
-TFS(StoreFixedElement24ATFixedUint8ClampedArray, kArray, kIndex, kValue) \
 TFS(LoadFixedElement21ATFixedBigUint64Array, kArray, kIndex) \
-TFS(StoreFixedElement21ATFixedBigUint64Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement20ATFixedBigInt64Array, kArray, kIndex) \
-TFS(StoreFixedElement20ATFixedBigInt64Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement17ATFixedUint8Array, kArray, kIndex) \
-TFS(StoreFixedElement17ATFixedUint8Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement16ATFixedInt8Array, kArray, kIndex) \
-TFS(StoreFixedElement16ATFixedInt8Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement18ATFixedUint16Array, kArray, kIndex) \
-TFS(StoreFixedElement18ATFixedUint16Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement17ATFixedInt16Array, kArray, kIndex) \
-TFS(StoreFixedElement17ATFixedInt16Array, kArray, kIndex, kValue) \
 TFS(LoadFixedElement18ATFixedUint32Array, kArray, kIndex) \
+TFS(StoreFixedElement17ATFixedInt32Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement19ATFixedFloat32Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement19ATFixedFloat64Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement24ATFixedUint8ClampedArray, kArray, kIndex, kValue) \
+TFS(StoreFixedElement21ATFixedBigUint64Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement20ATFixedBigInt64Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement17ATFixedUint8Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement16ATFixedInt8Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement18ATFixedUint16Array, kArray, kIndex, kValue) \
+TFS(StoreFixedElement17ATFixedInt16Array, kArray, kIndex, kValue) \
 TFS(StoreFixedElement18ATFixedUint32Array, kArray, kIndex, kValue) \
 TFS(GenericBuiltinTest5ATSmi, kParam) \
-TFS(Load25ATGenericElementsAccessor, kSortState, kElements, kIndex) \
-TFS(Store25ATGenericElementsAccessor, kSortState, kElements, kIndex, kValue) \
+TFS(Load25ATGenericElementsAccessor, kSortState, kIndex) \
+TFS(Store25ATGenericElementsAccessor, kSortState, kIndex, kValue) \
 TFS(CanUseSameAccessor20ATFastDoubleElements, kReceiver, kInitialReceiverMap, kInitialReceiverLength) \
 TFS(CanUseSameAccessor23ATFastPackedSmiElements, kReceiver, kInitialReceiverMap, kInitialReceiverLength) \
 TFS(CanUseSameAccessor25ATFastSmiOrObjectElements, kReceiver, kInitialReceiverMap, kInitialReceiverLength) \

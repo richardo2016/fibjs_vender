@@ -6,103 +6,57 @@
 #include "src/objects.h"
 #include "src/objects/arguments.h"
 #include "src/objects/bigint.h"
+#include "src/objects/js-generator.h"
+#include "src/objects/js-promise.h"
+#include "src/objects/js-regexp-string-iterator.h"
+#include "src/objects/module.h"
+#include "src/objects/stack-frame-info.h"
 #include "src/builtins/builtins-array-gen.h"
 #include "src/builtins/builtins-collections-gen.h"
 #include "src/builtins/builtins-data-view-gen.h"
 #include "src/builtins/builtins-iterator-gen.h"
+#include "src/builtins/builtins-regexp-gen.h"
+#include "src/builtins/builtins-typed-array-gen.h"
+#include "src/builtins/builtins-constructor-gen.h"
+#include "src/builtins/builtins-typed-array-gen.h"
+#include "src/builtins/builtins-typed-array-gen.h"
+#include "src/builtins/builtins-typed-array-gen.h"
 #include "src/builtins/builtins-typed-array-gen.h"
 #include "torque-generated/builtins-base-from-dsl-gen.h"
+#include "torque-generated/builtins-growable-fixed-array-from-dsl-gen.h"
 #include "torque-generated/builtins-arguments-from-dsl-gen.h"
 #include "torque-generated/builtins-array-from-dsl-gen.h"
+#include "torque-generated/builtins-array-copywithin-from-dsl-gen.h"
+#include "torque-generated/builtins-array-filter-from-dsl-gen.h"
+#include "torque-generated/builtins-array-find-from-dsl-gen.h"
+#include "torque-generated/builtins-array-findindex-from-dsl-gen.h"
+#include "torque-generated/builtins-array-foreach-from-dsl-gen.h"
+#include "torque-generated/builtins-array-join-from-dsl-gen.h"
+#include "torque-generated/builtins-array-lastindexof-from-dsl-gen.h"
+#include "torque-generated/builtins-array-of-from-dsl-gen.h"
+#include "torque-generated/builtins-array-map-from-dsl-gen.h"
+#include "torque-generated/builtins-array-reverse-from-dsl-gen.h"
+#include "torque-generated/builtins-array-slice-from-dsl-gen.h"
+#include "torque-generated/builtins-array-splice-from-dsl-gen.h"
+#include "torque-generated/builtins-array-unshift-from-dsl-gen.h"
 #include "torque-generated/builtins-collections-from-dsl-gen.h"
 #include "torque-generated/builtins-data-view-from-dsl-gen.h"
 #include "torque-generated/builtins-extras-utils-from-dsl-gen.h"
 #include "torque-generated/builtins-object-from-dsl-gen.h"
 #include "torque-generated/builtins-iterator-from-dsl-gen.h"
+#include "torque-generated/builtins-string-from-dsl-gen.h"
 #include "torque-generated/builtins-typed-array-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-createtypedarray-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-filter-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-foreach-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-reduce-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-reduceright-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-slice-from-dsl-gen.h"
+#include "torque-generated/builtins-typed-array-subarray-from-dsl-gen.h"
 #include "torque-generated/builtins-test-from-dsl-gen.h"
 
 namespace v8 {
 namespace internal {
-
-compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::AllocateEmptyJSObject(compiler::TNode<Context> p_context) {
-  compiler::CodeAssemblerParameterizedLabel<Context> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Context, JSFunction, HeapObject> block5(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Context, JSFunction, HeapObject, Map> block4(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Context, JSFunction> block3(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Context, JSFunction, Map> block2(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Context, JSObject> block1(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-  compiler::CodeAssemblerParameterizedLabel<Context, JSObject> block6(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
-    ca_.Goto(&block0, p_context);
-
-  if (block0.is_used()) {
-    compiler::TNode<Context> tmp0;
-    ca_.Bind(&block0, &tmp0);
-    compiler::TNode<JSFunction> tmp1;
-    USE(tmp1);
-    tmp1 = ca_.UncheckedCast<JSFunction>(BaseBuiltinsFromDSLAssembler(state_).GetObjectFunction(compiler::TNode<Context>{tmp0}));
-    compiler::TNode<HeapObject> tmp2;
-    USE(tmp2);
-    tmp2 = ca_.UncheckedCast<HeapObject>(BaseBuiltinsFromDSLAssembler(state_).LoadJSFunctionPrototypeOrInitialMap(compiler::TNode<JSFunction>{tmp1}));
-    compiler::TNode<Map> tmp3;
-    USE(tmp3);
-    compiler::CodeAssemblerLabel label0(&ca_);
-    tmp3 = BaseBuiltinsFromDSLAssembler(state_).Cast5ATMap(compiler::TNode<Context>{tmp0}, compiler::TNode<HeapObject>{tmp2}, &label0);
-    ca_.Goto(&block4, tmp0, tmp1, tmp2, tmp3);
-    if (label0.is_used()) {
-      ca_.Bind(&label0);
-      ca_.Goto(&block5, tmp0, tmp1, tmp2);
-    }
-  }
-
-  if (block5.is_used()) {
-    compiler::TNode<Context> tmp4;
-    compiler::TNode<JSFunction> tmp5;
-    compiler::TNode<HeapObject> tmp6;
-    ca_.Bind(&block5, &tmp4, &tmp5, &tmp6);
-    ca_.Goto(&block3, tmp4, tmp5);
-  }
-
-  if (block4.is_used()) {
-    compiler::TNode<Context> tmp7;
-    compiler::TNode<JSFunction> tmp8;
-    compiler::TNode<HeapObject> tmp9;
-    compiler::TNode<Map> tmp10;
-    ca_.Bind(&block4, &tmp7, &tmp8, &tmp9, &tmp10);
-    ca_.Goto(&block2, tmp7, tmp8, tmp10);
-  }
-
-  if (block3.is_used()) {
-    compiler::TNode<Context> tmp11;
-    compiler::TNode<JSFunction> tmp12;
-    ca_.Bind(&block3, &tmp11, &tmp12);
-    CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/object.tq:9:19");
-    CodeStubAssembler(state_).Unreachable();
-  }
-
-  if (block2.is_used()) {
-    compiler::TNode<Context> tmp13;
-    compiler::TNode<JSFunction> tmp14;
-    compiler::TNode<Map> tmp15;
-    ca_.Bind(&block2, &tmp13, &tmp14, &tmp15);
-    compiler::TNode<JSObject> tmp16;
-    USE(tmp16);
-    tmp16 = ca_.UncheckedCast<JSObject>(CodeStubAssembler(state_).AllocateJSObjectFromMap(compiler::TNode<Map>{tmp15}));
-    ca_.Goto(&block1, tmp13, tmp16);
-  }
-
-  if (block1.is_used()) {
-    compiler::TNode<Context> tmp17;
-    compiler::TNode<JSObject> tmp18;
-    ca_.Bind(&block1, &tmp17, &tmp18);
-    ca_.Goto(&block6, tmp17, tmp18);
-  }
-
-    compiler::TNode<Context> tmp19;
-    compiler::TNode<JSObject> tmp20;
-    ca_.Bind(&block6, &tmp19, &tmp20);
-  return compiler::TNode<JSObject>{tmp20};
-}
 
 compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastCase(compiler::TNode<Context> p_context, compiler::TNode<Object> p_iterable, compiler::CodeAssemblerLabel* label_IfSlow) {
   compiler::CodeAssemblerParameterizedLabel<Context, Object> block0(&ca_, compiler::CodeAssemblerLabel::kNonDeferred);
@@ -128,6 +82,8 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 9);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 10);
     compiler::TNode<JSArray> tmp2;
     USE(tmp2);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -155,13 +111,14 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<Object> tmp10;
     compiler::TNode<JSArray> tmp11;
     ca_.Bind(&block5, &tmp7, &tmp8, &tmp9, &tmp10, &tmp11);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 12);
     compiler::TNode<FixedArrayBase> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<FixedArrayBase>(BaseBuiltinsFromDSLAssembler(state_).LoadJSObjectElements(compiler::TNode<JSObject>{tmp11}));
     compiler::TNode<FixedArray> tmp13;
     USE(tmp13);
     compiler::CodeAssemblerLabel label0(&ca_);
-    tmp13 = BaseBuiltinsFromDSLAssembler(state_).Cast12ATFixedArray(compiler::TNode<Context>{tmp7}, compiler::TNode<HeapObject>{tmp12}, &label0);
+    tmp13 = BaseBuiltinsFromDSLAssembler(state_).Cast10FixedArray(compiler::TNode<HeapObject>{tmp12}, &label0);
     ca_.Goto(&block7, tmp7, tmp8, tmp9, tmp11, tmp12, tmp13);
     if (label0.is_used()) {
       ca_.Bind(&label0);
@@ -187,12 +144,16 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<FixedArrayBase> tmp23;
     compiler::TNode<FixedArray> tmp24;
     ca_.Bind(&block7, &tmp19, &tmp20, &tmp21, &tmp22, &tmp23, &tmp24);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 11);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 13);
     compiler::TNode<Smi> tmp25;
     USE(tmp25);
     tmp25 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).LoadFastJSArrayLength(compiler::TNode<JSArray>{tmp22}));
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 14);
     compiler::TNode<JSObject> tmp26;
     USE(tmp26);
-    tmp26 = ca_.UncheckedCast<JSObject>(ObjectBuiltinsFromDSLAssembler(state_).AllocateEmptyJSObject(compiler::TNode<Context>{tmp19}));
+    tmp26 = ca_.UncheckedCast<JSObject>(BaseBuiltinsFromDSLAssembler(state_).NewJSObject(compiler::TNode<Context>{tmp19}));
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 16);
     compiler::TNode<Smi> tmp27;
     USE(tmp27);
     tmp27 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -225,9 +186,11 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<JSObject> tmp43;
     compiler::TNode<Smi> tmp44;
     ca_.Bind(&block9, &tmp37, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 17);
     compiler::TNode<Object> tmp45;
     USE(tmp45);
     tmp45 = ca_.UncheckedCast<Object>(ArrayBuiltinsFromDSLAssembler(state_).LoadElementOrUndefined(compiler::TNode<FixedArray>{tmp41}, compiler::TNode<Smi>{tmp44}));
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 19);
     compiler::TNode<Object> tmp46;
     USE(tmp46);
     compiler::TNode<Object> tmp47;
@@ -270,6 +233,8 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<Object> tmp68;
     compiler::TNode<Object> tmp69;
     ca_.Bind(&block13, &tmp58, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 18);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 24);
     compiler::TNode<BoolT> tmp70;
     USE(tmp70);
     tmp70 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).Is10JSReceiver20UT5ATSmi10HeapObject(compiler::TNode<Context>{tmp58}, compiler::TNode<Object>{tmp68}));
@@ -305,7 +270,11 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<Object> tmp91;
     compiler::TNode<Object> tmp92;
     ca_.Bind(&block16, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86, &tmp87, &tmp88, &tmp89, &tmp90, &tmp91, &tmp92);
-    CodeStubAssembler(state_).CallRuntime(Runtime::kCreateDataProperty, tmp82, tmp88, tmp91, tmp92);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 25);
+    compiler::TNode<Object> tmp93;
+    tmp93 = CodeStubAssembler(state_).CallBuiltin(Builtins::kFastCreateDataProperty, tmp82, tmp88, tmp91, tmp92);
+    USE(tmp93);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 16);
     ca_.Goto(&block12, tmp82, tmp83, tmp84, tmp85, tmp86, tmp87, tmp88, tmp89);
   }
 
@@ -338,6 +307,7 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<JSObject> tmp110;
     compiler::TNode<Smi> tmp111;
     ca_.Bind(&block10, &tmp104, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110, &tmp111);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 27);
     ca_.Goto(&block2, tmp104, tmp105, tmp110);
   }
 
@@ -346,6 +316,8 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<Object> tmp113;
     compiler::TNode<Object> tmp114;
     ca_.Bind(&block4, &tmp112, &tmp113, &tmp114);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 29);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 30);
     ca_.Goto(&block1);
   }
 
@@ -354,6 +326,7 @@ compiler::TNode<JSObject> ObjectBuiltinsFromDSLAssembler::ObjectFromEntriesFastC
     compiler::TNode<Object> tmp116;
     compiler::TNode<JSObject> tmp117;
     ca_.Bind(&block2, &tmp115, &tmp116, &tmp117);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 7);
     ca_.Goto(&block17, tmp115, tmp116, tmp117);
   }
 
@@ -413,12 +386,14 @@ USE(parameter1);
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 38);
     compiler::TNode<IntPtrT> tmp2;
     USE(tmp2);
     tmp2 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp2}));
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 40);
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNullOrUndefined(compiler::TNode<Object>{tmp3}));
@@ -438,6 +413,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp9;
     compiler::TNode<Object> tmp10;
     ca_.Bind(&block6, &tmp8, &tmp9, &tmp10);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 41);
     compiler::TNode<JSObject> tmp11;
     USE(tmp11);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -473,9 +449,11 @@ USE(parameter1);
     compiler::TNode<Object> tmp22;
     compiler::TNode<Object> tmp23;
     ca_.Bind(&block4, &tmp21, &tmp22, &tmp23);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 44);
     compiler::TNode<JSObject> tmp24;
     USE(tmp24);
-    tmp24 = ca_.UncheckedCast<JSObject>(ObjectBuiltinsFromDSLAssembler(state_).AllocateEmptyJSObject(compiler::TNode<Context>{tmp21}));
+    tmp24 = ca_.UncheckedCast<JSObject>(BaseBuiltinsFromDSLAssembler(state_).NewJSObject(compiler::TNode<Context>{tmp21}));
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 46);
     compiler::TNode<Context> tmp25;
     USE(tmp25);
     tmp25 = ca_.UncheckedCast<Context>(CodeStubAssembler(state_).LoadNativeContext(compiler::TNode<Context>{tmp21}));
@@ -523,6 +501,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp42;
     compiler::TNode<JSObject> tmp43;
     ca_.Bind(&block10, &tmp40, &tmp41, &tmp42, &tmp43);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 47);
     CodeStubAssembler(state_).Print("halting because of \'unreachable\' at ../../src/builtins/object-fromentries.tq:47:21");
     CodeStubAssembler(state_).Unreachable();
   }
@@ -534,11 +513,14 @@ USE(parameter1);
     compiler::TNode<JSObject> tmp47;
     compiler::TNode<Map> tmp48;
     ca_.Bind(&block9, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 45);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 48);
     compiler::TNode<JSReceiver> tmp49;
     USE(tmp49);
     compiler::TNode<Object> tmp50;
     USE(tmp50);
     std::tie(tmp49, tmp50) = IteratorBuiltinsAssembler(state_).GetIterator(compiler::TNode<Context>{tmp44}, compiler::TNode<Object>{tmp46}).Flatten();
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 50);
     compiler::TNode<BoolT> tmp51;
     USE(tmp51);
     compiler::CodeAssemblerExceptionHandlerLabel catch52_label(&ca_, compiler::CodeAssemblerLabel::kDeferred);
@@ -619,6 +601,7 @@ USE(parameter1);
     compiler::TNode<JSReceiver> tmp85;
     compiler::TNode<Object> tmp86;
     ca_.Bind(&block15, &tmp80, &tmp81, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 51);
     ca_.Goto(&block21, tmp80, tmp81, tmp82, tmp83, tmp84, tmp85, tmp86);
   }
 
@@ -670,6 +653,7 @@ USE(parameter1);
     compiler::TNode<JSReceiver> tmp109;
     compiler::TNode<Object> tmp110;
     ca_.Bind(&block19, &tmp104, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 52);
     compiler::TNode<Object> tmp111;
     USE(tmp111);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -748,6 +732,7 @@ USE(parameter1);
     compiler::TNode<JSReceiver> tmp150;
     compiler::TNode<Object> tmp151;
     ca_.Bind(&block24, &tmp145, &tmp146, &tmp147, &tmp148, &tmp149, &tmp150, &tmp151);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 53);
     arguments->PopAndReturn(tmp148);
   }
 
@@ -761,6 +746,8 @@ USE(parameter1);
     compiler::TNode<Object> tmp158;
     compiler::TNode<Object> tmp159;
     ca_.Bind(&block23, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 52);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 55);
     compiler::TNode<Object> tmp160;
     USE(tmp160);
     compiler::CodeAssemblerExceptionHandlerLabel catch161_label(&ca_, compiler::CodeAssemblerLabel::kDeferred);
@@ -775,6 +762,8 @@ USE(parameter1);
       ca_.Goto(&block28, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158, tmp159, tmp159, tmp156, catch161_exception_object);
       ca_.Bind(&catch161_skip);
     }
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 54);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 57);
     compiler::TNode<Object> tmp162;
     USE(tmp162);
     compiler::TNode<Object> tmp163;
@@ -791,9 +780,13 @@ USE(parameter1);
       ca_.Goto(&block29, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158, tmp159, tmp160, tmp160, catch164_exception_object);
       ca_.Bind(&catch164_skip);
     }
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 56);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 58);
+    compiler::TNode<Object> tmp165;
     compiler::CodeAssemblerExceptionHandlerLabel catch166_label(&ca_, compiler::CodeAssemblerLabel::kDeferred);
     { compiler::CodeAssemblerScopedExceptionHandler s(&ca_, &catch166_label);
-    CodeStubAssembler(state_).CallRuntime(Runtime::kCreateDataProperty, tmp152, tmp155, tmp162, tmp163);
+    tmp165 = CodeStubAssembler(state_).CallBuiltin(Builtins::kFastCreateDataProperty, tmp152, tmp155, tmp162, tmp163);
+    USE(tmp165);
     }
     if (catch166_label.is_used()) {
       compiler::CodeAssemblerLabel catch166_skip(&ca_);
@@ -803,6 +796,7 @@ USE(parameter1);
       ca_.Goto(&block30, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158, tmp159, tmp160, tmp162, tmp163, tmp155, tmp162, tmp163, catch166_exception_object);
       ca_.Bind(&catch166_skip);
     }
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 51);
     ca_.Goto(&block21, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158);
   }
 
@@ -819,6 +813,7 @@ USE(parameter1);
     compiler::TNode<Map> tmp176;
     compiler::TNode<Object> tmp177;
     ca_.Bind(&block28, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173, &tmp174, &tmp175, &tmp176, &tmp177);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 55);
     ca_.Goto(&block14, tmp167, tmp168, tmp169, tmp170, tmp171, tmp172, tmp173, tmp177);
   }
 
@@ -835,6 +830,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp187;
     compiler::TNode<Object> tmp188;
     ca_.Bind(&block29, &tmp178, &tmp179, &tmp180, &tmp181, &tmp182, &tmp183, &tmp184, &tmp185, &tmp186, &tmp187, &tmp188);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 57);
     ca_.Goto(&block14, tmp178, tmp179, tmp180, tmp181, tmp182, tmp183, tmp184, tmp188);
   }
 
@@ -855,6 +851,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp202;
     compiler::TNode<Object> tmp203;
     ca_.Bind(&block30, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 58);
     ca_.Goto(&block14, tmp189, tmp190, tmp191, tmp192, tmp193, tmp194, tmp195, tmp203);
   }
 
@@ -867,6 +864,7 @@ USE(parameter1);
     compiler::TNode<JSReceiver> tmp209;
     compiler::TNode<Object> tmp210;
     ca_.Bind(&block20, &tmp204, &tmp205, &tmp206, &tmp207, &tmp208, &tmp209, &tmp210);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 60);
     arguments->PopAndReturn(tmp207);
   }
 
@@ -880,6 +878,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp217;
     compiler::TNode<Object> tmp218;
     ca_.Bind(&block14, &tmp211, &tmp212, &tmp213, &tmp214, &tmp215, &tmp216, &tmp217, &tmp218);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 62);
     IteratorBuiltinsAssembler(state_).IteratorCloseOnException(compiler::TNode<Context>{tmp211}, IteratorBuiltinsFromDSLAssembler::IteratorRecord{compiler::TNode<JSReceiver>{tmp216}, compiler::TNode<Object>{tmp217}}, compiler::TNode<Object>{tmp218});
   }
 
@@ -888,6 +887,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp220;
     compiler::TNode<Object> tmp221;
     ca_.Bind(&block2, &tmp219, &tmp220, &tmp221);
+    ca_.SetSourcePosition("../../src/builtins/object-fromentries.tq", 66);
     CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp219}, MessageTemplate::kNotIterable);
   }
 }

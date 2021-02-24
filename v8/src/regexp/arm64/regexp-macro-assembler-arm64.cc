@@ -22,7 +22,6 @@
 namespace v8 {
 namespace internal {
 
-#ifndef V8_INTERPRETED_REGEXP
 /*
  * This assembler uses the following register assignment convention:
  * - w19     : Used to temporarely store a value before a call to C code.
@@ -727,7 +726,7 @@ Handle<HeapObject> RegExpMacroAssemblerARM64::GetCode(Handle<String> source) {
   __ PushCPURegList(argument_registers);
 
   // Set frame pointer in place.
-  __ Add(frame_pointer(), sp, argument_registers.Count() * kPointerSize);
+  __ Add(frame_pointer(), sp, argument_registers.Count() * kSystemPointerSize);
 
   // Initialize callee-saved registers.
   __ Mov(start_offset(), w1);
@@ -885,9 +884,8 @@ Handle<HeapObject> RegExpMacroAssemblerARM64::GetCode(Handle<String> source) {
           __ Add(capture_end, input_length, capture_end);
         }
         // The output pointer advances for a possible global match.
-        __ Stp(capture_start,
-               capture_end,
-               MemOperand(output_array(), kPointerSize, PostIndex));
+        __ Stp(capture_start, capture_end,
+               MemOperand(output_array(), kSystemPointerSize, PostIndex));
       }
 
       // Only carry on if there are more than kNumCachedRegisters capture
@@ -906,9 +904,8 @@ Handle<HeapObject> RegExpMacroAssemblerARM64::GetCode(Handle<String> source) {
         STATIC_ASSERT(kNumRegistersToUnroll > 2);
         if (num_registers_left_on_stack <= kNumRegistersToUnroll) {
           for (int i = 0; i < num_registers_left_on_stack / 2; i++) {
-            __ Ldp(capture_end,
-                   capture_start,
-                   MemOperand(base, -kPointerSize, PostIndex));
+            __ Ldp(capture_end, capture_start,
+                   MemOperand(base, -kSystemPointerSize, PostIndex));
             if ((i == 0) && global_with_zero_length_check()) {
               // Keep capture start for the zero-length check later.
               __ Mov(first_capture_start, capture_start);
@@ -924,26 +921,23 @@ Handle<HeapObject> RegExpMacroAssemblerARM64::GetCode(Handle<String> source) {
               __ Add(capture_end, input_length, capture_end);
             }
             // The output pointer advances for a possible global match.
-            __ Stp(capture_start,
-                   capture_end,
-                   MemOperand(output_array(), kPointerSize, PostIndex));
+            __ Stp(capture_start, capture_end,
+                   MemOperand(output_array(), kSystemPointerSize, PostIndex));
           }
         } else {
           Label loop, start;
           __ Mov(x11, num_registers_left_on_stack);
 
-          __ Ldp(capture_end,
-                 capture_start,
-                 MemOperand(base, -kPointerSize, PostIndex));
+          __ Ldp(capture_end, capture_start,
+                 MemOperand(base, -kSystemPointerSize, PostIndex));
           if (global_with_zero_length_check()) {
             __ Mov(first_capture_start, capture_start);
           }
           __ B(&start);
 
           __ Bind(&loop);
-          __ Ldp(capture_end,
-                 capture_start,
-                 MemOperand(base, -kPointerSize, PostIndex));
+          __ Ldp(capture_end, capture_start,
+                 MemOperand(base, -kSystemPointerSize, PostIndex));
           __ Bind(&start);
           if (mode_ == UC16) {
             __ Add(capture_start, input_length, Operand(capture_start, ASR, 1));
@@ -953,9 +947,8 @@ Handle<HeapObject> RegExpMacroAssemblerARM64::GetCode(Handle<String> source) {
             __ Add(capture_end, input_length, capture_end);
           }
           // The output pointer advances for a possible global match.
-          __ Stp(capture_start,
-                 capture_end,
-                 MemOperand(output_array(), kPointerSize, PostIndex));
+          __ Stp(capture_start, capture_end,
+                 MemOperand(output_array(), kSystemPointerSize, PostIndex));
           __ Sub(x11, x11, 2);
           __ Cbnz(x11, &loop);
         }
@@ -1293,7 +1286,7 @@ void RegExpMacroAssemblerARM64::ClearRegisters(int reg_from, int reg_to) {
       __ Mov(x11, num_registers);
       __ Bind(&loop);
       __ Str(twice_non_position_value(),
-             MemOperand(base, -kPointerSize, PostIndex));
+             MemOperand(base, -kSystemPointerSize, PostIndex));
       __ Sub(x11, x11, 2);
       __ Cbnz(x11, &loop);
     } else {
@@ -1358,7 +1351,7 @@ void RegExpMacroAssemblerARM64::CheckPosition(int cp_offset,
 // Private methods:
 
 void RegExpMacroAssemblerARM64::CallCheckStackGuardState(Register scratch) {
-  DCHECK(!isolate()->ShouldLoadConstantsFromRootList());
+  DCHECK(!isolate()->IsGeneratingEmbeddedBuiltins());
   DCHECK(!masm_->options().isolate_independent_code);
 
   // Allocate space on the stack to store the return address. The
@@ -1373,10 +1366,10 @@ void RegExpMacroAssemblerARM64::CallCheckStackGuardState(Register scratch) {
   __ Claim(xreg_to_claim);
 
   // CheckStackGuardState needs the end and start addresses of the input string.
-  __ Poke(input_end(), 2 * kPointerSize);
-  __ Add(x5, sp, 2 * kPointerSize);
-  __ Poke(input_start(), kPointerSize);
-  __ Add(x4, sp, kPointerSize);
+  __ Poke(input_end(), 2 * kSystemPointerSize);
+  __ Add(x5, sp, 2 * kSystemPointerSize);
+  __ Poke(input_start(), kSystemPointerSize);
+  __ Add(x4, sp, kSystemPointerSize);
 
   __ Mov(w3, start_offset());
   // RegExp code frame pointer.
@@ -1411,8 +1404,8 @@ void RegExpMacroAssemblerARM64::CallCheckStackGuardState(Register scratch) {
   }
 
   // The input string may have been moved in memory, we need to reload it.
-  __ Peek(input_start(), kPointerSize);
-  __ Peek(input_end(), 2 * kPointerSize);
+  __ Peek(input_start(), kSystemPointerSize);
+  __ Peek(input_end(), 2 * kSystemPointerSize);
 
   __ Drop(xreg_to_claim);
 
@@ -1661,8 +1654,6 @@ void RegExpMacroAssemblerARM64::LoadCurrentCharacterUnchecked(int cp_offset,
     }
   }
 }
-
-#endif  // V8_INTERPRETED_REGEXP
 
 }  // namespace internal
 }  // namespace v8
