@@ -145,6 +145,7 @@ var files = {
 
     'src/runtime/runtime-intl.cc': 1,
 
+    // added in 7.1
     'src/objects/js-break-iterator-inl.h': 1,
     'src/objects/js-break-iterator.cc': 1,
     'src/objects/js-break-iterator.h': 1,
@@ -157,6 +158,11 @@ var files = {
     'src/objects/js-segmenter-inl.h': 1,
     'src/objects/js-segmenter.cc': 1,
     'src/objects/js-segmenter.h': 1,
+
+    // added in 7.2
+    'src/objects/js-segment-iterator-inl.h': 1,
+    'src/objects/js-segment-iterator.cc': 1,
+    'src/objects/js-segment-iterator.h': 1,
 };
 
 var re = [
@@ -327,8 +333,13 @@ function patch_plat() {
     for (var f in plats1)
         patch_plat_file(platFolder + '/platform-' + f + '.cc', plats1[f]);
 
-    patch_plat_file('src/trap-handler/handler-inside-linux.cc', '#include "src/trap-handler/trap-handler.h"\n\n#if V8_TRAP_HANDLER_SUPPORTED');
-    patch_plat_file('src/trap-handler/handler-outside-linux.cc', '#ifdef Linux');
+    /* deprecated in v8 7.2 :start */
+    // patch_plat_file('src/trap-handler/handler-inside-linux.cc', '#include "src/trap-handler/trap-handler.h"\n\n#if V8_TRAP_HANDLER_SUPPORTED');
+    // patch_plat_file('src/trap-handler/handler-outside-linux.cc', '#ifdef Linux');
+    /* deprecated in v8 7.2 :end */
+    
+    patch_plat_file('src/trap-handler/handler-inside-win.h', '#ifdef Windows');
+    patch_plat_file('src/trap-handler/handler-inside-win.cc', '#ifdef Windows');
     patch_plat_file('src/trap-handler/handler-outside-win.cc', '#ifdef Windows');
 }
 
