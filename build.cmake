@@ -40,6 +40,8 @@ else()
     )
 endif()
 
+set(libs gtest exlib v8 jssdk)
+
 set(WORK_ROOT $ENV{WORK_ROOT})
 if(NOT WORK_ROOT)
     if(EXISTS "../build")

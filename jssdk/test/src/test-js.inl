@@ -14,8 +14,10 @@ static js::Runtime* rt;
 
 TEST(ENG(api), Runtime)
 {
+    printf("[0 ]here \n\n");
     rt = js::_api->createRuntime();
 
+    printf("[1 ]here \n\n");
     EXPECT_NE((void*)NULL, rt);
 }
 

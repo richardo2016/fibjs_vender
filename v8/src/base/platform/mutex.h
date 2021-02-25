@@ -12,6 +12,7 @@
 
 namespace exlib {
 class Locker;
+class RWLocker;
 class Semaphore;
 class CondVar;
 }
@@ -151,11 +152,7 @@ class V8_BASE_EXPORT SharedMutex final {
 
  private:
   // The implementation-defined native handle type.
-#if V8_OS_POSIX
-  typedef pthread_rwlock_t NativeHandle;
-#elif V8_OS_WIN
-  typedef SRWLOCK NativeHandle;
-#endif
+  typedef exlib::RWLocker* NativeHandle;
 
   NativeHandle native_handle_;
 
@@ -164,7 +161,7 @@ class V8_BASE_EXPORT SharedMutex final {
 
     enum class NullBehavior { kRequireNotNull, kIgnoreIfNull };
 
-    template <typename Mutex, NullBehavior Behavior = NullBehavior::kRequireNotNull>
+    template <typename Mutex>
     class LockGuard final {
     public:
         explicit LockGuard(Mutex* mutex)
@@ -175,13 +172,14 @@ class V8_BASE_EXPORT SharedMutex final {
         ~LockGuard() { mutex_->Unlock(); }
 
     private:
-        Mutex* const mutex_;
+        Mutex* mutex_;
+        // Mutex* const mutex_;
 
-        bool V8_INLINE has_mutex() const {
-            DCHECK_IMPLIES(Behavior == NullBehavior::kRequireNotNull,
-                        mutex_ != nullptr);
-            return Behavior == NullBehavior::kRequireNotNull || mutex_ != nullptr;
-        }
+        // bool V8_INLINE has_mutex() const {
+        //     DCHECK_IMPLIES(Behavior == NullBehavior::kRequireNotNull,
+        //                 mutex_ != nullptr);
+        //     return Behavior == NullBehavior::kRequireNotNull || mutex_ != nullptr;
+        // }
 
         DISALLOW_COPY_AND_ASSIGN(LockGuard);
     };
@@ -189,12 +187,11 @@ class V8_BASE_EXPORT SharedMutex final {
     using MutexGuard = LockGuard<Mutex>;
     enum MutexSharedType : bool { kShared = true, kExclusive = false };
 
-    template <MutexSharedType kIsShared,
-            NullBehavior Behavior = NullBehavior::kRequireNotNull>
+    template <MutexSharedType kIsShared>
     class SharedMutexGuard final {
         public:
         explicit SharedMutexGuard(SharedMutex* mutex) : mutex_(mutex) {
-            if (!has_mutex()) return;
+            // if (!has_mutex()) return;
             if (kIsShared) {
                 mutex_->LockShared();
             } else {
@@ -202,7 +199,7 @@ class V8_BASE_EXPORT SharedMutex final {
             }
         }
         ~SharedMutexGuard() {
-            if (!has_mutex()) return;
+            // if (!has_mutex()) return;
             if (kIsShared) {
                 mutex_->UnlockShared();
             } else {
@@ -211,13 +208,14 @@ class V8_BASE_EXPORT SharedMutex final {
         }
 
         private:
-        SharedMutex* const mutex_;
+        SharedMutex* mutex_;
+        // SharedMutex* const mutex_;
 
-        bool V8_INLINE has_mutex() const {
-            DCHECK_IMPLIES(Behavior == NullBehavior::kRequireNotNull,
-                        mutex_ != nullptr);
-            return Behavior == NullBehavior::kRequireNotNull || mutex_ != nullptr;
-        }
+        // bool V8_INLINE has_mutex() const {
+        //     DCHECK_IMPLIES(Behavior == NullBehavior::kRequireNotNull,
+        //                 mutex_ != nullptr);
+        //     return Behavior == NullBehavior::kRequireNotNull || mutex_ != nullptr;
+        // }
 
         DISALLOW_COPY_AND_ASSIGN(SharedMutexGuard);
     };

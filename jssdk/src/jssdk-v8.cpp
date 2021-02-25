@@ -8,9 +8,12 @@
 
 #include "jssdk-v8.h"
 #include "libplatform/libplatform.h"
+#include "src/allocation.h"
 #include <stdlib.h>
 #include <string.h>
 #include <vector>
+
+using namespace v8;
 
 namespace js {
 
@@ -35,24 +38,44 @@ private:
         }
     };
 
-    v8::Local<v8::Context> _getLocalContext () {
+    v8::Local<v8::Context> _getLocalContext()
+    {
         return v8::Local<v8::Context>::New(m_isolate, m_context);
     }
 
 public:
     v8_Runtime(class Api* api)
     {
+        printf("[v8_Runtime::constructor]here [1] \n\n");
+
         m_api = api;
+
+        v8::Isolate::CreateParams create_params;
+
         create_params.array_buffer_allocator = &array_buffer_allocator;
+        // create_params.array_buffer_allocator = v8::ArrayBuffer::Allocator::NewDefaultAllocator();
+        // create_params.array_buffer_allocator = ShellArrayBufferAllocator::NewDefaultAllocator();
+
+        printf("[v8_Runtime::constructor]here [1.1] \n\n");
+
         m_isolate = v8::Isolate::New(create_params);
+        // m_isolate = v8::Isolate::Allocate();
+
+        printf("[v8_Runtime::constructor]here [2] \n\n");
 
         m_isolate->SetData(0, this);
 
         v8::Locker locker(m_isolate);
+        printf("[v8_Runtime::constructor]here [3] \n\n");
+
         v8::HandleScope handle_scope(m_isolate);
         v8::Isolate::Scope isolate_scope(m_isolate);
 
+        printf("[v8_Runtime::constructor]here [4] \n\n");
+
         m_context.Reset(m_isolate, v8::Context::New(m_isolate));
+
+        printf("[v8_Runtime::constructor]here [5] \n\n");
     }
 
 public:
@@ -271,10 +294,11 @@ public:
     bool ObjectHas(const Object& o, exlib::string key)
     {
         return v8::Local<v8::Object>::Cast(o.m_v)->Has(
-            v8::Local<v8::Context>::New(m_isolate, m_context),
-            v8::String::NewFromUtf8(m_isolate,
-                key.c_str(), v8::String::kNormalString,
-                (int32_t)key.length())).ToChecked();
+                                                     v8::Local<v8::Context>::New(m_isolate, m_context),
+                                                     v8::String::NewFromUtf8(m_isolate,
+                                                         key.c_str(), v8::String::kNormalString,
+                                                         (int32_t)key.length()))
+            .ToChecked();
     }
 
     Value ObjectGet(const Object& o, exlib::string key)
@@ -425,7 +449,7 @@ private:
     v8::Isolate* m_isolate;
     v8::Persistent<v8::Context> m_context;
 
-    v8::Isolate::CreateParams create_params;
+    // v8::Isolate::CreateParams create_params;
     ShellArrayBufferAllocator array_buffer_allocator;
 
     friend class Api_v8;
@@ -452,7 +476,6 @@ public:
 
             std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
             v8::V8::InitializePlatform(platform.get());
-
             v8::V8::Initialize();
         }
     }
