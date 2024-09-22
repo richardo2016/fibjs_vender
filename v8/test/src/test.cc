@@ -15,6 +15,7 @@ static exlib::Thread_base* proc;
 void fiber_proc(void* p)
 {
     exlib::string fname;
+    exlib::string asm_slug;
 
 #if V8_TARGET_ARCH_X64
     fname = "x64";
@@ -38,6 +39,15 @@ void fiber_proc(void* p)
 
 #ifdef Windows
     fname += "-Windows";
+    #ifndef V8_TARGET_ARCH_ARM64
+        #if defined(_MSC_VER) && !defined(__clang__)
+            fname += "-MSVC";
+        #elif defined(_MSC_VER) && defined(__clang__)
+            fname += "-ClangCl";
+        #else
+            fname += "-Clang";
+        #endif
+    #endif
 #elif defined(Linux)
     fname += "-Linux";
 #elif defined(FreeBSD)
@@ -47,7 +57,7 @@ void fiber_proc(void* p)
 #endif
 
 #ifdef Windows
-    exlib::string embedded_fname = "embedded-" + fname + ".asm";
+    exlib::string embedded_fname = "embedded-" + fname + asm_slug + ".asm";
 #else
     exlib::string embedded_fname = "embedded-" + fname + ".S";
 #endif

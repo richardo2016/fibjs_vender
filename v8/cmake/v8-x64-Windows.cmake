@@ -1428,3 +1428,23 @@ set(src_list
 	${PROJECT_SOURCE_DIR}/src/zone/zone-segment.cc
 	${PROJECT_SOURCE_DIR}/src/zone/zone.cc
 )
+
+# remove ${PROJECT_SOURCE_DIR}/patch/snapshot/embedded-x64-Windows.asm, ${PROJECT_SOURCE_DIR}/patch/snapshot/snapshot-x64-Windows.cc
+list(REMOVE_ITEM V8_SOURCES ${PROJECT_SOURCE_DIR}/patch/snapshot/embedded-x64-Windows.asm)
+list(REMOVE_ITEM V8_SOURCES ${PROJECT_SOURCE_DIR}/patch/snapshot/snapshot-x64-Windows.cc)
+
+set(FIBJS_MSBUILD_TARGET "$ENV{FIBJS_MSBUILD_TARGET}")
+
+if("${FIBJS_MSBUILD_TARGET}" STREQUAL "MSVC")
+	message(NOTICE "v8 use snapshot for MSVC")
+	list(APPEND V8_SOURCES
+		${PROJECT_SOURCE_DIR}/patch/snapshot/embedded-x64-Windows-MSVC.asm
+		${PROJECT_SOURCE_DIR}/patch/snapshot/snapshot-x64-Windows-MSVC.cc
+	)
+elseif("${FIBJS_MSBUILD_TARGET}" STREQUAL "ClangCl")
+	message(NOTICE "v8 use snapshot for ClangCl")
+	list(APPEND V8_SOURCES
+		${PROJECT_SOURCE_DIR}/patch/snapshot/embedded-x64-Windows-ClangCl.asm
+		${PROJECT_SOURCE_DIR}/patch/snapshot/snapshot-x64-Windows-ClangCl.cc
+	)
+endif()
